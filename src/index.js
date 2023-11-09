@@ -1,3 +1,4 @@
+import './js/api/api';
 import './js/partials/header';
 import './js/partials/categories';
 import './js/partials/support';

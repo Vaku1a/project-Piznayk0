@@ -4,6 +4,8 @@
   | default @import url()
   |============================
 */
+@import url('./../fonts/stylesheet.css');
+@import url('../../node_modules/slim-select/dist/slimselect.css');
 @import url('./reset.css');
 /* partials styles */
 @import url('./partials/header.css');
