@@ -1,0 +1,33 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+@import url('./reset.css');
+@import 'node_modules/modern-normalize/modern-normalize.css';
+/* partials styles */
+@import url('./css/partials/header.css');
+@import url('../css/partials/shoping-list.css');
+
+:root {
+  /* Colors */
+  --light-theme-bg-cl: #f6f6f6;
+  --dark-theme-bg-cl: #202024;
+  --logo-text-light-theme-cl: #000000;
+  --logo-text-dark-theme-cl: #f3f3f3;
+  --white-cl: #ffffff;
+  --black-cl: #111111;
+  --violet-cl: #4f2ee8;
+  --yellow-cl: #eac645;
+  --gray-cl: #b4afaf;
+  --book-list-light-theme-cl: rgba(17, 17, 17, 0.6);
+  --book-list-dark-theme-cl: rgba(255, 255, 255, 0.6);
+  --shopping-list-border: 2px solid rgba(79, 46, 232, 0.4);
+  --support-Ukraine-bg: radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #fff 100%
+  );
+  --support-Ukraine-box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.1);
+}
