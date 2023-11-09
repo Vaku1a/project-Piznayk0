@@ -1,1 +1,1 @@
-{"version":3,"file":"commonHelpers2.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"commonHelpers2.js","sources":["../src/shoping.js"],"sourcesContent":["console.log('Hello Shipping Page');\n"],"names":[],"mappings":"oDAAA,QAAQ,IAAI,qBAAqB"}
