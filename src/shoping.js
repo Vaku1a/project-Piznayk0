@@ -1,1 +1,2 @@
-console.log('Hello Shipping Page');
+import './js/partials/header';
+import './js/partials/shopping-list';
