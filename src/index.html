@@ -2,36 +2,43 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/index.css">
   <title>Home</title>
-  <link rel="stylesheet" href="./src/css/index.css" />
 </head>
 
 <body>
+  <!-- Mykola delete h1 after-->
+  <h1>Home</h1>
   <!-- Daria -->
-  <load=". /partials/index/header.html" />
+  <load src="partials/header.html" />
   <main>
-    <section class="section-main">
+    <section class="section-categories">
       <!-- Oleksandr -->
       <div class="main-container">
         <aside class="sidebar">
-          <load=". /partials/index/categories.html" />
+          <load src="partials/categories.html" />
         </aside>
       </div>
+    </section>
+    <section class="section-support">
       <!-- Roman -->
       <div class="section-main-support">
-        <load=". /partials/index/support.html" />
+        <load src="partials/support.html" />
       </div>
+    </section>
+    <section class="book-list">
       <!-- Oleksandr -->
       <div class="books-list-container">
-        <load=". /partials/index/books-list.html" />
+        <load src="partials/books-list.html" />
       </div>
+    </section>
+
   </main>
   <!-- Volodymyr -->
-  <load=". /partials/index/book-card-popup.html" />
-  <script type="module" src="./src/index.js"></script>
+  <load src="partials/book-card-popup.html" />
+  <script type="module" src="./index.js"></script>
 </body>
 
 </html>

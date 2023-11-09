@@ -5,10 +5,9 @@
   |============================
 */
 @import url('./reset.css');
-@import 'node_modules/modern-normalize/modern-normalize.css';
 /* partials styles */
-@import url('./css/partials/header.css');
-@import url('../css/partials/shoping-list.css');
+@import url('./partials/header.css');
+@import url('./partials/shoping-list.css');
 
 :root {
   /* Colors */

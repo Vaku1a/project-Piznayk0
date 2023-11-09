@@ -5,13 +5,12 @@
   |============================
 */
 @import url('./reset.css');
-@import 'node_modules/modern-normalize/modern-normalize.css';
 /* partials styles */
-@import url('./css/partials/header.css');
-@import url('./css/partials/categories.css');
-@import url('./css/partials/support.css');
-@import url('../css/partials/books-list.css');
-@import url('./css/partials/book-card-popup.css');
+@import url('./partials/header.css');
+@import url('./partials/categories.css');
+@import url('./partials/support.css');
+@import url('./partials/books-list.css');
+@import url('./partials/book-card-popup.css');
 
 :root {
   /* Colors */
