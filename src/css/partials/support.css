@@ -1,54 +1,84 @@
 /* Стилі для блоку "Support Ukraine" */
 .support-ukraine {
-  width: 356px;
+  width: 335px;
   height: 474px;
   background-color: #4f2ee8;
   position: relative;
-  border-radius: 10px; /* Додаємо заокруглені кути */
-  overflow: hidden; /* Запобігаємо виходженню контенту за межі блоку */
+  border-radius: 8px; /* Збільшивши значення для більш заокруглених кутів */
+  overflow: hidden; /* Забираємо обидва скроли */
+  padding-bottom: 50px; /* Збільште відступ внизу для кнопки */
 }
 
 .color-support {
-  color: #ffffff;
+  color: #ffffff; /* Колір тексту заголовку */
+  position: sticky; /* Прикріплюємо заголовок статично вгорі в межах блоку */
+  top: 0; /* Встановлюємо відстань від верхнього краю блоку */
+  width: 100%; /* Розтягуємо заголовок на всю ширину блоку */
+  background-color: #4f2ee8; /* Задаємо фоновий колір, який відповідає блоку */
+  padding: 10px; /* Задаємо внутрішні відступи */
+  text-align: center; /* Вирівнюємо текст по центру */
+  z-index: 1; /* Задаємо зіпсдекс для забезпечення відображення навіть над іншими елементами */
 }
-
 /* Світлі плями понизу блоку */
 .support-ukraine::before,
 .support-ukraine::after {
   content: '';
   position: absolute;
   bottom: 0;
-  width: 50%;
-  height: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.support-ukraine::before {
-  left: 0;
-}
-
-.support-ukraine::after {
-  right: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(
+    to bottom,
+    rgba(79, 46, 232, 0.6),
+    rgba(79, 46, 232, 0)
+  ); /* Градієнт з прозорістю */
+  z-index: -1; /* Встановлюємо менший індекс, щоб позначити їх позаду елементів */
 }
 
 /* Стилі для списку елементів */
 .support-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none; /* Видаляємо маркери списку */
+  padding: 0; /* Знімаємо внутрішні відступи */
+  margin: 0; /* Знімаємо зовнішні відступи */
   overflow-y: auto; /* Включаємо вертикальний скролінг, якщо потрібно */
 }
 
 /* Стилі для кожного елемента списку */
 .li-support {
-  font-size: 24px;
-  color: #ffffff;
-  padding: 10px;
-  cursor: pointer;
+  font-size: 24px; /* Розмір шрифту */
+  color: #ffffff; /* Колір тексту елементів */
+  padding: 10px; /* Внутрішні відступи */
+  cursor: pointer; /* Зміна курсору при наведенні */
 }
 
 /* Підсвічування виділеного елемента */
 .highlighted {
-  border-radius: 1px;
-  box-shadow: 0 0 0 1px #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.8); /* Товщина та колір рамки з прозорістю */
+  box-sizing: border-box; /* Зберігаємо товщину рамки всередині розмірів блоку */
+  border-radius: 15px; /* Збільшуємо радіус закруглення кутів */
+  margin: 5px; /* Зменшуємо відстань по боках */
+}
+
+/* Стилі для кнопки */
+#scrollButton {
+  position: fixed;
+  bottom: 20px; /* Відстань від нижнього краю */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  color: #4f2ee8;
+  border: none;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#scrollButton:hover {
+  background-color: #4f2ee8;
+  color: #ffffff;
 }
