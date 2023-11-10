@@ -1,4 +1,251 @@
-/* Please delete */
-h2 {
-  color: green;
+
+
+body {
+  font-family: DM Sans;
 }
+
+.section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.shopping-container {
+  display: block;
+  max-width: 375px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .shopping-container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .shopping-container{
+    max-width: 1440px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+.shopping-article {
+  display: none;
+}
+
+.shopping-titile {
+  color: #111;
+  font-family: DM Sans;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -1.28px;
+}
+
+.shopping-title-span {
+  color: #4f2ee8;
+}
+
+.shopping-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.shopping-card {
+  position: relative;
+  display: flex;
+  column-gap: 14px;
+  width: 100%;
+  height: 170px;
+  padding: 14px;
+  border-radius: 16px;
+  border: 2px solid rgba(79, 46, 232, 0.4);
+}
+
+.shopping-image {
+  min-width: 100px;
+  height: 142px;
+  border-radius: 8px;
+}
+
+.shopping-info {
+height: 100%;
+}
+
+.book-title {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.64px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+    display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+}
+
+.book-category {
+  color: var(--gray-cl);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: 0.36px;
+  margin-bottom: 8px;
+}
+
+.book-desc {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: -0.56px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.book-author {
+  color: #b4afaf;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: -0.48px;
+  margin-top: auto;
+  position: absolute;
+  bottom: 14px;
+}
+
+.delete-book {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--violet-cl);
+  cursor: pointer;
+}
+
+.delete-logo {
+  width: 16px;
+  height: 16px;
+}
+
+.extra-logo {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  bottom: 14px;
+  right: 14px;
+}
+
+.amazon {
+  width: 32px;
+  height: 11px;
+  filter: grayscale(100%);
+}
+
+.apple {
+  width: 16px;
+  height: 16px;
+  filter: grayscale(100%);
+}
+
+/* TABLET */
+@media screen and (min-width: 768px) {
+  .shopping-card {
+    height: 213px;
+    padding: 24px;
+  }
+
+  .shopping-image {
+    min-width: 116px;
+    height: 165px;
+  }
+
+  .book-category {
+    margin-bottom: 14px;
+  }
+
+  .extra-logo {
+    bottom: 24px;
+    right: 24px;
+  }
+
+  .delete-book {
+    width: 34px;
+    height: 34px;
+    top: 24px;
+    right: 24px;
+  }
+
+  .delete-logo {
+    width: 18px;
+    height: 18px;
+  }
+
+    .book-author {
+      bottom: 24px;
+    }
+
+  .amazon {
+    width: 48px;
+    height: 15px;
+  }
+
+  .apple {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* DESCKTOP */
+@media screen and (min-width: 1280px) {
+  .shopping-section {
+    display: flex;
+    column-gap: 40px;
+  }
+
+  .shopping-article {
+    display: block;
+    min-width: 356px;
+    height: 474px;
+    border-radius: 16px;
+    background: radial-gradient(189.32% 190.93% at 59.76% -23.42%,
+        var(--violet-cl) 18.03%,
+        var(--white-cl) 100%);
+    box-shadow: 0px 10px 10px 0px var(--support-Ukraine-box-shadow);
+  }
+}
+
+
+
+
