@@ -79,6 +79,6 @@
 }
 
 #scrollButton:hover {
-  background-color: #4f2ee8;
-  color: #ffffff;
+  background-color: #d3d3d3; /* Світло-сірий колір при наведенні */
+  color: #4f2ee8; /* Зміна кольору тексту при наведенні */
 }

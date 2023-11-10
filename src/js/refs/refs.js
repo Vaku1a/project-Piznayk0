@@ -11,7 +11,7 @@ export const refs = {
   //categories
 
   //support
-
+  supportContainer: document.querySelector('.support-container'),
   //book-list
 
   //book-card-popup
