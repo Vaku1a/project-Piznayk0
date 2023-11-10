@@ -1,3 +1,23 @@
+// Імпортуємо потрібну функцію собі в partials js і працюємо
+// Приклад:
+
+// try {
+//   const res = await getAllCategories();
+//   console.log(res);
+// } catch (error) {
+//   // Handle errors
+// }
+
+//--------------
+
+// const id = '643282b1e85766588626a080';
+// try {
+//   const res = await getBooksId(id);
+//   console.log(res);
+// } catch (error) {
+//   // Handle errors
+// }
+
 import axios from 'axios';
 
 const GET_ALL_CATEGORIES = '/category-list';
