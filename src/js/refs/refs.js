@@ -18,6 +18,7 @@ export const refs = {
   //book-card-popup
 
   //shopping list
+  shoppingList: document.querySelector('.shopping-list'),
 
   //sign-in
 };
