@@ -1,4 +1,103 @@
-/* Please delete */
-h2 {
-  color: green;
+.books-part {
+  width: 996px;
+}
+.books-part-title {
+  margin-bottom: 40px;
+  color: var(--black-cl);
+  font-style: normal;
+  font-size: 48px;
+  line-height: 1.08;
+  letter-spacing: -1.92px;
+}
+.books-part-title-span {
+  color: var(--violet-cl);
+}
+.book-category-container {
+  display: flex;
+  flex-direction: column;
+}
+.book-category-container:not(:last-child) {
+  margin-bottom: 40px;
+}
+.book-category-wrapper {
+  display: flex;
+}
+.book-category-title {
+  margin-bottom: 18px;
+  color: var(--gray-cl);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.42px;
+  text-transform: uppercase;
+}
+.book-cards-list {
+  display: flex;
+  row-gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  column-gap: 24px;
+}
+.book-cards-list-one-category {
+  flex-wrap: wrap;
+}
+.book-cards-list-item {
+  width: 180px;
+  outline: 2px solid orange;
+  outline-offset: -2px;
+  cursor: pointer;
+}
+.book-card-img {
+  min-width: 180px;
+  height: 256px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+}
+.book-card-title {
+  overflow: hidden;
+  margin-bottom: 4px;
+  color: var(--black-cl);
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.13;
+  letter-spacing: -0.64px;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+  overflow-wrap: break-word;
+}
+.book-card-author {
+  overflow: hidden;
+  color: var(--gray-cl);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.48px;
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+  overflow-wrap: break-word;
+}
+.see-more-btn {
+  width: 124px;
+  margin-left: auto;
+  padding: 14px 28px;
+  border: 2px solid var(--violet-cl);
+  border-radius: 40px;
+  color: var(--black-cl);
+  font-weight: bold;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.14px;
+  text-transform: uppercase;
+}
+.see-more-btn:hover,
+.see-more-btn:focus {
+  background-color: var(--violet-cl);
+  color: var(--white-cl);
 }

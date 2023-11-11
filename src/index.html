@@ -4,37 +4,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./css/index.css">
   <title>Home</title>
 </head>
 
 <body>
-  <!-- Mykola delete h1 after-->
-  <h1>Home</h1>
   <!-- Daria -->
   <load src="partials/header.html" />
   <main>
     <section class="section">
-      <!-- Oleksandr -->
-      <div class="container">
-        <aside class="sidebar">
-          <load src="partials/categories.html" />
-        </aside>
-      </div>
-      <!-- Roman -->
-      <div class="container">
+      <div class="gl-sidebar">
+        <!-- Oleksandr categories -->
+        <load src="partials/categories.html" />
+        <!-- Roman/Sergey Support -->
         <load src="partials/support.html" />
       </div>
-      <!-- Oleksandr -->
-      <div class="container">
-        <load src="partials/books-list.html" />
-      </div>
+      <!-- Oleksandr books list -->
+      <load src="partials/books-list.html" />
     </section>
   </main>
-  <!-- Volodymyr -->
-  <div class="container">
-    <load src="partials/book-card-popup.html" />
-  </div>
+  <!-- Volodymyr modal -->
+  <load src="partials/book-card-popup.html" />
   <script type="module" src="./index.js"></script>
 </body>
 
