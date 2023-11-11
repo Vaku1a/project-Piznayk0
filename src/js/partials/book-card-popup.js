@@ -72,8 +72,15 @@ function addBookToStorage() {
   console.log(dataFromStorage);
   console.log(typeof dataFromStorage);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(dataFromStorage));
+  location.reload();
 }
-function removeBookFromStorage() {}
+function removeBookFromStorage() {
+  const clearStorage = dataFromStorage.filter(book => {
+    book._id !== newBook._id;
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(clearStorage));
+  location.reload();
+}
 
 fetchBookInfo('643282b1e85766588626a0dc').then(data => {
   newBook = data;
