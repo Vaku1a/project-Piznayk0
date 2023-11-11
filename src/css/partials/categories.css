@@ -1,4 +1,38 @@
-/* Please delete */
-h2 {
-  color: green;
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  float: left;
+  min-width: 356px;
+}
+.categories-list {
+  overflow-y: scroll;
+  max-height: 472px;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.36px;
+}
+.categories-list-item {
+  cursor: pointer;
+}
+.categories-list-item:not(:last-child) {
+  margin-bottom: 32px;
+}
+.categories-list-item.active {
+  color: var(--violet-cl);
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.36px;
+  text-transform: uppercase;
+}
+.categories-list-item:hover,
+.categories-list-item:focus {
+  color: var(--violet-cl);
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: -0.36px;
+  text-transform: uppercase;
 }
