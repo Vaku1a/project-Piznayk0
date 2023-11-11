@@ -6,6 +6,7 @@
 */
 @import url('reset.css');
 /* partials styles */
+@import url('./common.css');
 @import url('./partials/header.css');
 @import url('./partials/categories.css');
 @import url('./partials/support.css');

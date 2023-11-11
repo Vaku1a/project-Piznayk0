@@ -1,4 +1,134 @@
-/* Please delete */
-h2 {
-  color: green;
+.support-wrapper {
+  max-width: 335px;
+  height: 352px;
+  margin-top: 40px;
+  overflow-y: hidden;
+  border-radius: 16px;
+  background: var(--support-Ukraine-bg);
+  box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.1);
+  padding: 28px 40px;
+  position: relative;
+}
+
+.title-icon {
+  display: flex;
+}
+
+.support-list-link {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 16px;
+  width: 210px;
+}
+
+.support-title {
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.96px;
+  font-style: normal;
+}
+
+.support-icon {
+  margin-left: 12px;
+}
+
+.supprot-list-container {
+  position: relative;
+  margin-top: 40px;
+  height: 230px;
+}
+
+.scroll-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid rgba(79, 46, 232, 0.3);
+}
+
+.support-btn-icon {
+  fill: var(--violet-cl);
+}
+
+@media (min-width: 768px) {
+  .support-wrapper {
+    width: 335px;
+    height: 474px;
+    margin-top: 0;
+    margin-left: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .support-wrapper {
+    width: 356px;
+    /* margin-top: 86px;
+    margin-left: 0px; */
+  }
+}
+
+.support-header-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.support-hedder {
+  color: #fff;
+}
+
+.support-img {
+  max-width: 210px;
+  height: 30px;
+  fill: #fff;
+}
+
+.support-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;
+  height: 188px;
+}
+@media (min-width: 768px) {
+  .support-container {
+    height: 364px;
+  }
+  .support-list {
+    height: 292px;
+  }
+}
+.support-item {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  gap: 16px;
+  height: 32px;
+}
+.support-item:last-child {
+  margin-bottom: 0;
+}
+
+.rotate {
+  transform: rotate(180deg);
 }
