@@ -1,10 +1,9 @@
-import { getAllCategories, getCategoryId } from "../api/api";
-
+import { getAllCategories, getTopBooks, getCategoryId } from "../api/api";
+import { createBooksCategoriesCardsMarkup } from "./booklist"
 import { refs } from "../refs/refs";
 
 getAllCategories()
     .then(categories => {
-        console.log(categories);
         refs.categoriesList.innerHTML = createCategoriesListMarkup(categories);        
     })
     .catch((err) => {
@@ -26,10 +25,24 @@ function onLoadCategory(evt) {
     curr.classList.add('active');
 
     const categoryName = evt.target.dataset.categoryName;
-    console.log(categoryName);
-    // Ось тут проблема!!! Не спрацьовує умова if
-    if (categoryName === 'All catigories') {
-        console.log('All catigories CLICK');        
+        
+    if (categoryName === 'All categories') {
+        getTopBooks()
+            .then(categories => {
+                refs.booksPart.innerHTML = 
+                `<h1 class="books-part-title">Best Sellers
+                <span class="books-part-title-span"> Books</span>
+                </h1>
+                <div class="book-categories-container">
+                ${createBooksCategoriesCardsMarkup(categories)}
+                </div>`
+            }
+            )
+            .catch((err) => {
+                console.error(err);
+                // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+            });
+        return
     }    
            
     getCategoryId(categoryName)
@@ -81,4 +94,4 @@ function createBooksInCategoryMarkup(books) {
         ).join('');
 };
 
-export {createBooksCaregoryTitle, createBooksInCategoryMarkup}
+export { createBooksCaregoryTitle, createBooksInCategoryMarkup };

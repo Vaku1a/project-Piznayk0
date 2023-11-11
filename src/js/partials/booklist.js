@@ -4,7 +4,6 @@ import { refs } from "../refs/refs";
 
 getTopBooks()
     .then(categories => {
-        console.log(categories);
         refs.booksCaregoriesContainer.insertAdjacentHTML('beforeend', createBooksCategoriesCardsMarkup(categories));
     }
     )
@@ -27,7 +26,6 @@ function onSeeMoreBtn(evt) {
     
     getCategoryId(categoryName)
         .then(books => {
-            console.log(books);
             refs.booksPart.innerHTML = 
             `${createBooksCaregoryTitle(categoryName)}
             <div class="book-category-wrapper">
@@ -53,3 +51,5 @@ function createBooksCategoriesCardsMarkup(categories) {
             </div>`
     }).join('');
 };
+
+export { createBooksCategoriesCardsMarkup };
