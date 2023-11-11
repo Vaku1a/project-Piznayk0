@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Home</title>
-  <script type="module" crossorigin src="/project-Piznayk0/assets/vendor-313c7975.js"></script>
-  <script type="module" crossorigin src="/project-Piznayk0/assets/api-3fec5f4b.js"></script>
-  <link rel="stylesheet" href="/project-Piznayk0/assets/index-14a9bf54.css">
+  <script type="module" crossorigin src="/project-Piznayk0/commonHelpers.js"></script>
+  <link rel="modulepreload" crossorigin href="/project-Piznayk0/assets/vendor-313c7975.js">
+  <link rel="modulepreload" crossorigin href="/project-Piznayk0/assets/api-ff1110d2.js">
+  <link rel="stylesheet" href="/project-Piznayk0/assets/index-d217c044.css">
 </head>
 
 <body>
@@ -26,11 +27,8 @@
       <!-- Oleksandr -->
       <div class="container">
         <aside class="sidebar">
-          <!-- Oleksandr -->
-<!-- Sample how it workk delete below after start -->
-<div>
-    <h2>Oleksandr -> Categories</h2>
-</div>
+          <ul class="categories-list list"></ul>
+
         </aside>
       </div>
       <!-- Roman -->
@@ -43,11 +41,13 @@
       </div>
       <!-- Oleksandr -->
       <div class="container">
-        <!-- Oleksandr -->
-<!-- Sample how it workk delete below after start -->
-<div>
-    <h2>Oleksandr -> books-list</h2>
+        <div class="books-part">
+  <h1 class="books-part-title">
+    Best Sellers<span class="books-part-title-span"> Books</span>
+  </h1>
+  <div class="book-categories-container"></div>
 </div>
+
       </div>
     </section>
   </main>
