@@ -9,11 +9,12 @@ export const refs = {
   //header
 
   //categories
-
+  categoriesList: document.querySelector('.categories-list'),
   //support
 
   //book-list
-
+  booksPart: document.querySelector('.books-part'),
+  booksCaregoriesContainer: document.querySelector('.book-categories-container'),
   //book-card-popup
 
   //shopping list
