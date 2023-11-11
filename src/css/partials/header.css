@@ -1,4 +1,425 @@
-/* Please delete */
-/* h2 {
-  color: green;
+/* ==============HEADER================= */ 
+
+.header-studio{
+  height: 64px;
+  border-radius: 0px 0px 8px 8px;
+  border: 1.5px solid var(--black-cl);
+  max-width: 375px;
+  margin: 0 auto;
+  background-color: var(--white-cl);
+  position: relative;
+}
+.header-container{
+  display: flex;
+  align-items: center;
+  height: 64px;
+  position: relative;
+}
+.header-logo-dark{
+  display: none;
+}
+
+.header-logo{
+  margin-right: auto;
+}
+.header-menu{
+  display: none;
+}
+.header-toggle-bg {
+position: relative;
+width: 40px;
+height: 24px;
+margin-right: 42px;
+
+} 
+.header-toggle-circle {
+  width: 19px;
+  height: 19px;
+  background-color: var(--white-cl);
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 1px;
+  z-index: 2;
+  transition: .5s;
+}
+.header-toggle-bg::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #4F2EE8 0%, #DCDCDC 100%);
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.10) inset;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: .5s;
+}
+.header-toggle-bg::after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #4F2EE8 0%, #686868 100%);
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.10) inset;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: .5s;
+  opacity: 0;
+}
+.header-user-block{
+display: none;
+}
+.header-burger-menu{
+  stroke: var(--black-cl);
+}
+.toggle-position{
+position: absolute;
+right: 20px;
+}
+
+.header-user-authorized{
+  display: none;
+}
+.header-user-log_out{
+  display: none;
+}
+.modal-wrapper.is-open {
+  transform: translateX(0);
+}
+
+/* =====================MODAL WINDOW=============================================== */
+.modal-wrapper {
+  width: 100%;
+  height: 100vh;
+  background-image: radial-gradient(183.6% 183.01% at 59.76% -23.42%,#4f2ee8 18.03%,#fff 100%);
+  transition: opacity .15s linear,visibility .15s linear;
+  position: absolute;
+  top: 54px;
+  left: 0;
+  z-index: -100;
+  overflow: hidden;
+}
+.modal-header{
+  height: 64px;
+  border: 1.5px solid var(--black-cl);
+  max-width: 375px;
+  background: #fff;
+  border-radius: 0 0 8px 8px;
+  height: 64px;
+  align-items: center;
+  display: flex;
+  padding: 0 20px;
+}
+.modal-logo{
+  margin-right: auto;
+
+}
+
+/* .modal-close-icon{
+  stroke: var(--black-cl);
 } */
+.modal-main{
+  height: 100vh;
+}
+.header-user-block.modal-sign-up{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4F2EE8;
+  width: 184px;
+  height: 48px;
+  border-radius: 18px;
+  border: 1.5px solid var(--black-cl);
+  padding: 15px 14px;
+  }
+  .modal-sign-up p{
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.56px;
+  }
+.modal-user{
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  width: 133px;
+  height: 37px;
+}
+.modal-user p{
+  color:var(--white-cl);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.44px;
+}
+.modal-menu{
+  margin: 0 auto;
+  margin-top: 130px;
+  display: flex;
+  justify-content: center;
+
+}
+.modal-picture{
+  background-image: url(./../img/mobile-books.png);
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  padding-top: 24px;
+  position: relative;
+}
+.modal-menu-home{
+  position: absolute;
+  top: 193px;
+  left: 129px;
+}
+.modal-menu-shopping{
+  position: absolute;
+  top: 244px;
+  left: 129px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.modal-menu-link{
+  color: var(--white-cl);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.56px;
+  padding: 8px 16px;
+  text-transform: uppercase;
+}
+.modal-cart{
+  fill: var(--white-bg);
+}
+
+.header-active{
+  border-radius: 36px;
+  background: var(--yellow-cl);
+  color: var(--dark-theme-bg-cl);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px; 
+  letter-spacing: -0.56px;
+  text-transform: uppercase;
+}
+
+.header-active + .modal-cart{
+fill: var(--black-cl)
+}
+
+.modal-user-log_out{
+  z-index: 10000;
+  width: 118px;
+  height: 48px;
+  color: var(--black-cl);
+  background-color: var(--white-cl);
+  border: 1.5px solid var(--black-cl);
+  border-radius: 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  display: flex;
+  position: absolute;
+  bottom: 15%;
+  left: 20px;
+}
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+/* ======================DARK_BODY========================== */
+
+.body-dark-theme{
+  background-color: var(--dark-theme-bg-cl);
+}
+.body-dark-theme .header-studio{
+  background-color: var(--black-cl);
+  border-color: var(--white-cl);
+}
+
+.body-dark-theme .header-toggle-bg::after{
+  opacity: 1;
+}
+.body-dark-theme .header-toggle-circle{
+  left: calc(100% - 20px);
+}
+.body-dark-theme .header-logo-dark{
+  display: block;
+}
+.body-dark-theme .header-logo-light{
+  display: none;
+}
+.body-dark-theme .header-menu-list-item{
+  color: var(--white-cl);
+}
+.body-dark-theme .header-burger-icon{
+  stroke: var(--white-cl);
+}
+.body-dark-theme .modal-close-icon{
+  fill: var(--white-cl);
+}
+
+@media only screen and (min-width: 768px){
+  .body-dark-theme .header-cart-svg{
+      fill: var(--white-cl);
+  }
+  .body-dark-theme .header-menu-list-item a{
+      color: var(--white-cl);
+  }
+  .body-dark-theme .header-active .header-cart-svg {
+      fill: var(--black-cl);
+  }
+  .body-dark-theme .header-menu-list-item .header-active{
+      color: var(--black-cl);
+  }
+}
+/* ================================================================ */
+
+
+
+
+@media only screen and (min-width: 768px) {
+  .toggle-position{
+      display: none;
+  }
+  .modal-wrapper{
+      display: none;
+  }
+ 
+
+
+  .header-user-block{
+    display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 184px;
+      height: 48px;
+      border-radius: 18px;
+      border: 1.5px solid var(--black-cl);
+      background: var(--violet-cl);
+      padding: 15px 14px;
+      
+  }
+  .header-user-block p{
+      color: var(--white-cl);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px; 
+      letter-spacing: -0.56px;
+      cursor: pointer;
+      display: flex;
+      cursor: pointer;
+  }
+  .header-studio {
+      max-width: 768px;
+      height: 72px;
+  }
+  .header-toggle-bg {
+      margin-right: 24px;
+  }
+  .header-user-authorized{
+      width: 184px;
+      height: 45px;
+      padding: 4px 12px;
+      border-radius: 36px;
+      background: var(--violet-cl);
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+  }
+  .header-user-authorized img{
+      margin-right: 9px;
+  }
+  .header-user-authorized p{
+      color: var(--white-cl);
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: -0.44px;
+      margin-right: 4px;
+  }
+  .header-menu{
+      display: flex;
+      margin-right: auto;
+  }
+  .header-menu-list{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0;
+  }
+  .header-container {
+      height: 72px;
+  }
+  .header-menu-link{
+      list-style: none;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 18px;
+      letter-spacing: -0.56px;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      color: var(--dark-bg-elements);
+  }
+  .header-menu-link:hover,
+  .header-menu-link:focus,
+  .header-menu-link:active {
+      border-radius: 36px;
+      background: var(--accent-yellow);
+  }
+  
+  .header-logo {
+      margin-right: 40px;
+  }
+  .header-item-shopping_list a{
+      display: flex;
+      gap: 4px;
+      align-items: center;
+  }
+  .header-item-shopping_list a span{
+      min-width: 96px;
+  }
+
+  .header-user-log_out{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 184px;
+      height: 48px;
+      flex-shrink: 0;
+      border-radius: 18px;
+      border: 1.5px solid #111;
+      background: #FFF;
+      padding: 15px 14px;
+      display: none;
+  }
+  .header-user-log_out p{
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 18px;
+      letter-spacing: -0.56px
+  }
+
+}
+
+@media only screen and (min-width: 1440px){
+  .header-studio {
+      max-width: 1440px;
+  }
+  .header-logo {
+      margin-right: 76px;
+  }
+}
+/* ======================HEADER THE END========================================= */
