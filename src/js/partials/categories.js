@@ -1,20 +1,22 @@
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getAllCategories, getTopBooks, getCategoryId } from "../api/api";
 import { createBooksCategoriesCardsMarkup } from "./booklist"
 import { refs } from "../refs/refs";
 
-Notify.init({
-    width: '300px',
-    position: 'center-top',
-    fontSize: '16px',
-    fontFamily: 'DM Sans',    
-    timeout: 3000,
-    failure: {
-        notiflixIconColor: '#111',
-        background: '#4f2ee8',
-        textColor: '#fff',
-    }
-});
+// Notify.init({
+//     width: '300px',
+//     position: 'center-top',
+//     fontSize: '16px',
+//     fontFamily: 'DM Sans',
+//     showOnlyTheLastOne: true,
+//     clickToClose: true,
+//     timeout: 5000,
+//     failure: {
+//         notiflixIconColor: '#111',
+//         background: '#4f2ee8',
+//         textColor: '#fff',
+//     }
+// });
 
 getAllCategories()
     .then(categories => {
@@ -22,7 +24,7 @@ getAllCategories()
     })
     .catch((err) => {
         console.error(err);
-        Notify.failure('Oops! Something went wrong! Try reloading the page!');
+        // Notify.failure('Oops! Something went wrong! Try reloading the page!');
     });
 
 refs.categoriesList.addEventListener('click', onLoadCategory);
@@ -73,7 +75,7 @@ function onLoadCategory(evt) {
             )
             .catch((err) => {
                 console.error(err);
-                Notify.failure('Oops! Something went wrong! Try reloading the page!');
+                // Notify.failure('Oops! Something went wrong! Try reloading the page!');
             });
         return;
     }     
@@ -108,7 +110,7 @@ function onLoadCategory(evt) {
         })
         .catch((err) => {
             console.error(err);
-            Notify.failure('Oops! Something went wrong! Try reloading the page!');
+            // Notify.failure('Oops! Something went wrong! Try reloading the page!');
         });          
 };
 
