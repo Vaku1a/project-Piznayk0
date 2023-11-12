@@ -23,8 +23,8 @@ getTopBooks()
                 `<p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
                 <img
                 class="books-not-found-img"
-                srcset="./img/empty-bin@1x.png 1x, ./img/empty-bin@2x.png 2x"
-                src="./img/empty-bin@1x.png"
+                srcset="../img/empty-bin@1x.png 1x, ../img/empty-bin@2x.png 2x"
+                src="../img/empty-bin@1x.png"
                 alt="Books not found"
                 height="241"
                 width="332"
