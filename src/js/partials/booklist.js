@@ -43,7 +43,7 @@ getTopBooks()
         // Notify.failure('Oops! Something went wrong! Try reloading the page!');
     });
 
-refs.booksCaregoriesContainer.addEventListener('click', onSeeMoreBtn);
+refs.booksPart.addEventListener('click', onSeeMoreBtn);
 
 function onSeeMoreBtn(evt) {
     if (evt.target.nodeName !== "BUTTON") {
