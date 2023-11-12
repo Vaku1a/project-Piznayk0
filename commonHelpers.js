@@ -1,4 +1,4 @@
-import{g as d,r,a as u,b}from"./assets/header-76779679.js";import{n as i}from"./assets/vendor-00472550.js";i.Notify.init({width:"300px",position:"center-top",fontSize:"16px",fontFamily:"DM Sans",timeout:3e3,failure:{notiflixIconColor:"#111",background:"#4f2ee8",textColor:"#fff"}});d().then(t=>{if(!t||t.length===0){r.booksCaregoriesContainer.insertAdjacentHTML("afterbegin",`<p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
+import{g as d,r,a as u,b}from"./assets/header-45902892.js";import{n as i}from"./assets/vendor-00472550.js";i.Notify.init({width:"300px",position:"center-top",fontSize:"16px",fontFamily:"DM Sans",timeout:3e3,failure:{notiflixIconColor:"#111",background:"#4f2ee8",textColor:"#fff"}});d().then(t=>{if(!t||t.length===0){r.booksCaregoriesContainer.insertAdjacentHTML("afterbegin",`<p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
                 <img
                 class="books-not-found-img"
                 srcset="../img/empty-bin@1x.png 1x, ../img/empty-bin@2x.png 2x"
