@@ -5,8 +5,6 @@
 */
 .books-part {
   width: 335px;
-  outline: 2px solid green;
-  outline-offset: -2px;
 }
 .books-part-title {
   margin-bottom: 40px;
@@ -52,8 +50,6 @@
 }
 .book-cards-list-item {
   width: 335px;
-  outline: 2px solid orange;
-  outline-offset: -2px;
   cursor: pointer;
 }
 .book-cards-list-item:not(:first-child) {
