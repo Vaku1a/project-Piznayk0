@@ -1,8 +1,8 @@
 import{g as m,a as u,b as f}from"./assets/api-10e22c30.js";import{n}from"./assets/vendor-00472550.js";const y="bookID";function h(t){try{const o=localStorage.getItem(t);return o===null?void 0:JSON.parse(o)}catch(o){console.error("Get state error: ",o.message)}}h(y);console.log(h(y));const s={body:document.querySelector("body"),categoriesList:document.querySelector(".categories-list"),booksPart:document.querySelector(".books-part"),booksCaregoriesContainer:document.querySelector(".book-categories-container"),shoppingList:document.querySelector(".shopping-list")};n.Notify.init({width:"300px",position:"center-top",fontSize:"16px",fontFamily:"DM Sans",timeout:3e3,failure:{notiflixIconColor:"#111",background:"#4f2ee8",textColor:"#fff"}});m().then(t=>{if(!t||t.length===0){s.booksCaregoriesContainer.insertAdjacentHTML("afterbegin",`<p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
                 <img
                 class="books-not-found-img"
-                srcset="./img/empty-bin@1x.png 1x, ./img/empty-bin@2x.png 2x"
-                src="./img/empty-bin@1x.png"
+                srcset="../img/empty-bin@1x.png 1x, ../img/empty-bin@2x.png 2x"
+                src="../img/empty-bin@1x.png"
                 alt="Books not found"
                 height="241"
                 width="332"
