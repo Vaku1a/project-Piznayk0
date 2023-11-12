@@ -1,49 +1,61 @@
+import { getBooksId } from '../api/api.js';
 console.log('hELLO wORLD!');
 const popupBookCardEl = document.querySelector('.popup-create-markup');
 const popupBtnAddRemoveEl = document.querySelector('.popup-btn-add-remove');
-const popupRemoveMessageEl = document.querySelector('.popup-remove-message');
+const popupAddMessageEl = document.querySelector('.popup-add-message');
 const STORAGE_KEY = 'bookList';
-let dataFromStorage = getDataFromStorage();
+let dataFromStorage = getDataFromStorage(STORAGE_KEY)
+  .then(data => {
+    return data ? data : [];
+  })
+  .catch(error => {
+    console.log(error.message);
+  });
 let newBook = {};
 
-popupRemoveMessageEl.hidden = true;
+popupAddMessageEl.hidden = true;
 popupBtnAddRemoveEl.addEventListener('click', addBookToStorage);
 popupBtnAddRemoveEl.addEventListener('click', removeBookFromStorage);
 
-function getDataFromStorage() {
+async function getDataFromStorage(key) {
+  const response = await localStorage.getItem(key);
+  const data = await JSON.parse(response);
+  return data;
+}
+// getDataFromStorage(STORAGE_KEY).then(a => {
+//   console.log(a);
+//   return data ? JSON.parse(data) : [];
+// }).catch ((error) => {
+//   console.log(error.message);
+//  })
+
+// function getDataFromStorage(key) {
+//   try {
+//     let data = localStorage.getItem(STORAGE_KEY);
+//     return data ? JSON.parse(data) : [];
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// }
+function checkingBookList(data) {
+  let arr = [];
+  dataFromStorage.then(res => {
+    arr = res;
+  });
   try {
-    let data = localStorage.getItem(STORAGE_KEY);
-    return data ? JSON.parse(data) : [];
+    const bookId = data._id;
+    let status = true;
+    status = arr.some(({ _id }) => _id === bookId);
+    if (status) {
+      popupBtnAddRemoveEl.removeEventListener('click', addBookToStorage);
+      popupBtnAddRemoveEl.textContent = 'remove from the shopping list';
+      popupAddMessageEl.hidden = false;
+    } else {
+      popupBtnAddRemoveEl.removeEventListener('click', removeBookFromStorage);
+      popupBtnAddRemoveEl.textContent = 'Add to shopping list';
+    }
   } catch (error) {
     console.log(error.message);
-  }
-}
-// console.log(dataFromStorage);
-function fetchBookInfo(id = '643282b1e85766588626a0dc') {
-  return fetch(`https://books-backend.p.goit.global/books/${id}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.status);
-      }
-      // console.log(response);
-      // newBook = response.json();
-      // console.log(newBook);
-      return response.json();
-    })
-    .catch(error => {
-      // Error handling
-    });
-}
-function checkingBookList(data) {
-  const bookId = data._id;
-  let status = true;
-  status = dataFromStorage.some(({ _id }) => _id === bookId);
-  if (status) {
-    popupBtnAddRemoveEl.removeEventListener('click', addBookToStorage);
-    popupBtnAddRemoveEl.textContent = 'remove from the shopping list';
-  } else {
-    popupBtnAddRemoveEl.removeEventListener('click', removeBookFromStorage);
-    popupBtnAddRemoveEl.textContent = 'Add to shopping list';
   }
 }
 
@@ -53,25 +65,36 @@ function addBookMarkup(markup) {
 
 function createMarkup({
   book_image,
-  // book_image_width,
-  // book_image_height,
   title,
   author,
   description,
+  buy_links: [amazon, apple],
 }) {
   const markup = `<img src="${book_image}" class="popup-image" />
             <h2 class="popup-book-title">${title}</h2>
             <p class="popup-book-author">${author}</p>
             <p class="popup-book-description">${description}</p>
+            <div class="popup-links">
+                <a href="${amazon.url}" target="_blank"><img class="popup-link-img" src="./img/modal-shop/amazon@1x.png"
+                        srcset="./img/modal-shop/amazon@1x.png, ./img/modal-shop/amazon@2x.png"
+                        alt="link to amazon" /></a>
+                <a href="${apple.url}" target="_blank"><img class="popup-link-img"  src="./img/modal-shop/apple-books@1x.png"
+                        srcset="./img/modal-shop/apple-books@1x.png, ./img/modal-shop/apple-books@2x.png"
+                        alt="link to apple books" /></a>
+            </div>
             `;
 
   return markup;
 }
+
 function addBookToStorage() {
-  dataFromStorage.push(newBook);
-  console.log(dataFromStorage);
-  console.log(typeof dataFromStorage);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(dataFromStorage));
+  let arr = [];
+  dataFromStorage.then(res => {
+    arr = res;
+  });
+  console.log(arr);
+  arr.push(newBook);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
   location.reload();
 }
 function removeBookFromStorage() {
@@ -82,7 +105,7 @@ function removeBookFromStorage() {
   location.reload();
 }
 
-fetchBookInfo('643282b1e85766588626a0dc').then(data => {
+getBooksId('643282b1e85766588626a0dc').then(data => {
   newBook = data;
   checkingBookList(newBook);
   let markup = createMarkup(newBook);
