@@ -1,4 +1,4 @@
-import { Notify } from "notiflix/build/notiflix-notify-aio";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getAllCategories, getTopBooks, getCategoryId } from "../api/api";
 import { createBooksCategoriesCardsMarkup } from "./booklist"
 import { refs } from "../refs/refs";

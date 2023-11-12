@@ -1,6 +1,20 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getTopBooks, getCategoryId } from "../api/api";
 import { createBooksCaregoryTitle, createBooksInCategoryMarkup } from "./categories";
 import { refs } from "../refs/refs";
+
+Notify.init({
+    width: '300px',
+    position: 'center-top',
+    fontSize: '16px',
+    fontFamily: 'DM Sans',    
+    timeout: 3000,
+    failure: {
+        notiflixIconColor: '#111',
+        background: '#4f2ee8',
+        textColor: '#fff',
+    }
+});
 
 getTopBooks()
     .then(categories => {        
