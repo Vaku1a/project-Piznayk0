@@ -6,6 +6,7 @@ const popupBtnAddRemoveEl = document.querySelector('.popup-btn-add-remove');
 const popupAddMessageEl = document.querySelector('.popup-add-message');
 const STORAGE_KEY = 'bookList';
 
+<<<<<<< Updated upstream
 let dataFromStorage = getDataFromStorage(STORAGE_KEY)
   .then(data => {
     return data ? data : [];
@@ -19,6 +20,9 @@ refs.booksCaregoriesContainer.addEventListener('click', callPopupWindow);
 popupBookCardEl.previousElementSibling.addEventListener('click', () =>
   popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden')
 );
+=======
+popupAddMessageEl.hidden = true;
+>>>>>>> Stashed changes
 popupBtnAddRemoveEl.addEventListener('click', addBookToStorage);
 popupBtnAddRemoveEl.addEventListener('click', removeBookFromStorage);
 
@@ -93,6 +97,7 @@ function createMarkup({
 
   return markup;
 }
+<<<<<<< Updated upstream
 async function addBookToStorage() {
   try {
     const dataFromStorage = await getDataFromStorage(STORAGE_KEY)
@@ -108,6 +113,22 @@ async function addBookToStorage() {
   } catch (error) {
     console.log(error.message);
   }
+=======
+function addBookToStorage() {
+  dataFromStorage.push(newBook);
+  // console.log(dataFromStorage);
+  // console.log(typeof dataFromStorage);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(dataFromStorage));
+  location.reload();
+  popupAddMessageEl.hidden = false;
+}
+function removeBookFromStorage() {
+  const clearStorage = dataFromStorage.filter(book => {
+    book._id !== newBook._id;
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(clearStorage));
+  location.reload();
+>>>>>>> Stashed changes
 }
 async function removeBookFromStorage() {
   try {
