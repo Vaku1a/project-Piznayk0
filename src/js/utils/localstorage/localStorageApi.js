@@ -12,10 +12,34 @@ export function loadFromLocalStorage(key) {
   }
 }
 
+// Функція додавання книги
+export async function addBookToStorage(bookId) {
+  try {
+    if (!isBookInLocalsStorage(bookId)) {
+      return console.log('the book is already added');
+    }
+    const book = await getBooksId(value);
+    const serializedState = JSON.stringify(book);
+    localStorage.setItem(STORAGE_KEY, serializedState);
+  } catch (error) {
+    console.error('Set state error: ', error.message);
+  }
+}
+
+// Функція видалення
+export function removeBookFromLocalStorage(key) {
+  try {
+    const serializedState = localStorage.removeItem(key);
+    return serializedState === null ? undefined : JSON.parse(serializedState);
+  } catch (error) {
+    console.error('Get state error: ', error.message);
+  }
+}
+
 // saveToLocalStorage(key, value);
 // saveToLocalStorage(key, value);
-loadFromLocalStorage(key);
-console.log(loadFromLocalStorage(key));
+// loadFromLocalStorage(key);
+// console.log(loadFromLocalStorage(key));
 // removeFromLocalStorage(key);
 
 // export async function saveToLocalStorage(key, value) {
@@ -37,15 +61,15 @@ console.log(loadFromLocalStorage(key));
 //   }
 // }
 
-export async function saveToLocalStorage(key, value) {
-  try {
-    const res = await getBooksId(value);
-    const serializedState = JSON.stringify(res);
-    localStorage.setItem(key, serializedState);
-  } catch (error) {
-    console.error('Set state error: ', error.message);
-  }
-}
+// export async function saveToLocalStorage(key, value) {
+//   try {
+//     const res = await getBooksId(value);
+//     const serializedState = JSON.stringify(res);
+//     localStorage.setItem(key, serializedState);
+//   } catch (error) {
+//     console.error('Set state error: ', error.message);
+//   }
+// }
 
 // export function loadFromLocalStorage(key) {
 //   try {
@@ -55,12 +79,3 @@ export async function saveToLocalStorage(key, value) {
 //     console.error('Get state error: ', error.message);
 //   }
 // }
-
-export function removeFromLocalStorage(key) {
-  try {
-    const serializedState = localStorage.removeItem(key);
-    return serializedState === null ? undefined : JSON.parse(serializedState);
-  } catch (error) {
-    console.error('Get state error: ', error.message);
-  }
-}
