@@ -1,6 +1,20 @@
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getAllCategories, getTopBooks, getCategoryId } from "../api/api";
 import { createBooksCategoriesCardsMarkup } from "./booklist"
 import { refs } from "../refs/refs";
+
+Notify.init({
+    width: '300px',
+    position: 'center-top',
+    fontSize: '16px',
+    fontFamily: 'DM Sans',    
+    timeout: 3000,
+    failure: {
+        notiflixIconColor: '#111',
+        background: '#4f2ee8',
+        textColor: '#fff',
+    }
+});
 
 getAllCategories()
     .then(categories => {
@@ -8,7 +22,7 @@ getAllCategories()
     })
     .catch((err) => {
         console.error(err);
-        // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+        Notify.failure('Oops! Something went wrong! Try reloading the page!');
     });
 
 refs.categoriesList.addEventListener('click', onLoadCategory);
@@ -29,37 +43,73 @@ function onLoadCategory(evt) {
     if (categoryName === 'All categories') {
         getTopBooks()
             .then(categories => {
-                refs.booksPart.innerHTML = 
-                `<h1 class="books-part-title">Best Sellers
+                 if (!categories || categories.length === 0) {                      
+                     refs.booksPart.innerHTML =
+                         `<h1 class="books-part-title">Best Sellers
+                        <span class="books-part-title-span"> Books</span>
+                        </h1>
+                        <div class="book-categories-container">
+                        <p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
+                        <img
+                        class="books-not-found-img"
+                        srcset="./img/empty-bin@1x.png 1x, ./img/empty-bin@2x.png 2x"
+                        src="./img/empty-bin@1x.png"
+                        alt="Books not found"
+                        height="241"
+                        width="332"
+                        />
+                        </div>`;
+                     return;
+                }    
+            
+                refs.booksPart.innerHTML =
+                    `<h1 class="books-part-title">Best Sellers
                 <span class="books-part-title-span"> Books</span>
                 </h1>
                 <div class="book-categories-container">
                 ${createBooksCategoriesCardsMarkup(categories)}
-                </div>`
+                </div>`;                
             }
             )
             .catch((err) => {
                 console.error(err);
-                // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+                Notify.failure('Oops! Something went wrong! Try reloading the page!');
             });
-        return
-    }    
+        return;
+    }     
            
     getCategoryId(categoryName)
         .then(books => {
-            console.log(books);
+            if (!books || books.length === 0) {
+                refs.booksPart.innerHTML = 
+                `${createBooksCaregoryTitle(categoryName)}
+                <div class="book-category-wrapper">
+                <p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
+                <img
+                class="books-not-found-img"
+                srcset="./img/empty-bin@1x.png 1x, ./img/empty-bin@2x.png 2x"
+                src="./img/empty-bin@1x.png"
+                alt="Books not found"
+                height="241"
+                width="332"
+                />                                
+                </div>`
+                return;
+            }
             refs.booksPart.innerHTML = 
             `${createBooksCaregoryTitle(categoryName)}
             <div class="book-category-wrapper">
                 <ul class="book-cards-list book-cards-list-one-category">
                 ${createBooksInCategoryMarkup(books)}                  
                 </ul>                             
-            </div>`            
+            </div>`
+
+            refs.booksPart.querySelectorAll('.book-cards-list-item').forEach((item) => item.style.display = 'block');            
         })
         .catch((err) => {
             console.error(err);
-            // Notify.failure('Oops! Something went wrong! Try reloading the page!');
-        });           
+            Notify.failure('Oops! Something went wrong! Try reloading the page!');
+        });          
 };
 
 function createCategoriesListMarkup(categories) {
