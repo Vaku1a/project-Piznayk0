@@ -8,6 +8,7 @@
 /* partials styles */
 @import url('./common.css');
 @import url('./partials/header.css');
+@import url('./partials/sign-in.css');
 @import url('./partials/categories.css');
 @import url('./partials/support.css');
 @import url('./partials/books-list.css');
