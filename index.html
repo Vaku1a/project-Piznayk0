@@ -14,8 +14,8 @@
   <title>Book Shelf | Home</title>
   <script type="module" crossorigin src="/project-Piznayk0/commonHelpers.js"></script>
   <link rel="modulepreload" crossorigin href="/project-Piznayk0/assets/vendor-313c7975.js">
-  <link rel="modulepreload" crossorigin href="/project-Piznayk0/assets/header-31a56aa2.js">
-  <link rel="stylesheet" href="/project-Piznayk0/assets/index-d5432e67.css">
+  <link rel="modulepreload" crossorigin href="/project-Piznayk0/assets/header-aa16f653.js">
+  <link rel="stylesheet" href="/project-Piznayk0/assets/index-6f646257.css">
 </head>
 
 <body>
@@ -169,10 +169,33 @@
 
       <!-- Volodymyr modal -->
       <!-- Volodymyr -->
-<!-- Sample how it workk delete below after start -->
-<div>
-    <h2>Volodymyr -> book-card</h2>
-</div>
+<div class="popup-backdrop is-hidden" data-modal>
+    <div class="popup">
+
+        <button class="popup-btn-close" type="button" data-popup-close>
+            <svg class="popup-icon-close" width="12" height="12">
+                <use href="/project-Piznayk0/assets/icons-fcab5df6.svg#icon-x-close"></use>
+            </svg>
+        </button>
+        <div class="popup-create-markup">
+            <!-- <img src="" class="popup-image" />
+            <h2 class="popup-book-title">book Title</h2>
+            <p class="popup-book-author">book Author</p>
+            <p class="popup-book-description">book description</p>
+            <div class="popup-links">
+                <a href="#"><img class="popup-link-img" target="_blank" src="./img/modal-shop/amazon@1x.png"
+                        srcset="./img/modal-shop/amazon@1x.png, ./img/modal-shop/amazon@2x.png"
+                        alt="link to amazon" /></a>
+                <a href="#"><img class="popup-link-img" target="_blank" src="./img/modal-shop/apple-books@1x.png"
+                        srcset="./img/modal-shop/apple-books@1x.png, ./img/modal-shop/apple-books@2x.png"
+                        alt="link to apple books" /></a>
+            </div> -->
+        </div>
+        <button class="popup-btn-add-remove" type="button">Add to shopping list</button>
+        <p class="popup-add-message">Congratulations! You have added the book to the shopping list.
+            To delete, press the button "Remove from the shopping
+            list".</p>
+    </div>
       <!-- Daria scrollup-->
       <button id="back-to-up" class="scroll-up-btn is-hidden" type="button">
     <svg class="scroll-up-icon" width="24" height="24">
