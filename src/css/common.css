@@ -3,19 +3,8 @@ body {
   font-weight: bold;
   font-family: 'DM Sans', sans-serif;
   padding: 0 24px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
-
-.section {
-  display: flex;
-  flex-direction: column;
-}
-@media only screen and (min-width: 1440px) {
-  .section {
-    flex-direction: row;
-  }
-}
-/* Mobile devices styles */
 
 .sidebar {
   display: flex;
@@ -27,7 +16,7 @@ body {
 /* Tablet screen styles */
 @media only screen and (min-width: 768px) {
   .sidebar {
-    flex-direction: row;
+    flex-direction: column;
     gap: 32px;
     min-width: 704px;
   }
@@ -40,6 +29,11 @@ body {
     float: left;
     min-width: 356px;
   }
+}
+
+/* Mobile devices styles */
+.section {
+  display: flex;
 }
 
 .container {
