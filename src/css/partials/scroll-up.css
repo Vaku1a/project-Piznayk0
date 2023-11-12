@@ -1,0 +1,12 @@
+.scroll-up-btn{
+    width: 54px;
+    height: 54px;
+    background-color: var(--violet-cl);
+    border: none;
+    border-radius: 50%;
+    position: fixed;
+    right: 15px;
+    bottom: 145px;
+    z-index: 900;
+    box-shadow: 0 0 0 5px var(--scroll-up-accent);
+}

@@ -17,20 +17,27 @@ body {
 }
 /* Mobile devices styles */
 
-.gl-sidebar {
-  max-width: 335px;
-  outline: 1px solid red;
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  min-width: 335px;
+  margin: 0 auto;
 }
 /* Tablet screen styles */
 @media only screen and (min-width: 768px) {
-  .gl-sidebar {
-    max-width: 704px;
+  .sidebar {
+    flex-direction: row;
+    gap: 32px;
+    min-width: 704px;
   }
 }
 /* Desktop screen styles */
 @media only screen and (min-width: 1440px) {
-  .gl-sidebar {
-    max-width: 376px;
-    padding-right: 20px;
+  .sidebar {
+    flex-direction: column;
+    gap: 86px;
+    float: left;
+    min-width: 356px;
   }
 }
