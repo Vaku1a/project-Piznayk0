@@ -23,7 +23,11 @@ function toggleCloseModal() {
 
 refs.toggleEl.addEventListener('click', toggleClass);
 
-function toggleClass() {
-    refs.body.classList.toggle('body-dark-theme');
-
+function toggleClass(evt) {    
+  refs.body.classList.toggle('body-dark-theme');
+  localStorage.setItem('darkTheme', refs.body.classList.contains('body-dark-theme'))
 }
+if (localStorage.getItem('darkTheme') === 'true') {
+  refs.body.classList.add('body-dark-theme')
+}
+
