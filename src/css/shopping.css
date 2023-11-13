@@ -7,10 +7,12 @@
 @import url('./../fonts/stylesheet.css');
 @import url('../../node_modules/slim-select/dist/slimselect.css');
 @import url('./reset.css');
+@import url('./common.css');
 /* partials styles */
 @import url('./partials/sign-in.css');
 @import url('./partials/header.css');
 @import url('./partials/shoping-list.css');
+@import url('./partials/support.css');
 
 :root {
   /* Colors */
