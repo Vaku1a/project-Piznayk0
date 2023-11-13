@@ -1,30 +1,27 @@
 import { getBooksId } from '../api/api.js';
 import { refs } from '../refs/refs';
 
-const popupBookCardEl = document.querySelector('.popup-create-markup');
-const popupBtnAddRemoveEl = document.querySelector('.popup-btn-add-remove');
-const popupAddMessageEl = document.querySelector('.popup-add-message');
+// const popupBookCardEl = document.querySelector('.popup-create-markup');
 const STORAGE_KEY = 'bookList';
-
-let dataFromStorage = getDataFromStorage(STORAGE_KEY)
-  .then(data => {
-    return data ? data : [];
-  })
-  .catch(error => {
-    console.log(error.message);
-  });
 let newBook = {};
-popupAddMessageEl.hidden = true;
-refs.booksCaregoriesContainer.addEventListener('click', callPopupWindow);
-popupBookCardEl.previousElementSibling.addEventListener('click', () =>
-  popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden')
-);
-popupBtnAddRemoveEl.addEventListener('click', addBookToStorage);
-popupBtnAddRemoveEl.addEventListener('click', removeBookFromStorage);
 
+refs.booksPart.addEventListener('click', callPopupWindow);
+
+refs.popupBookCardEl.previousElementSibling.addEventListener('click', onOff);
+refs.popupBookCardEl.parentNode.parentNode.addEventListener('click', onOff);
+document.addEventListener('keydown', onOff);
+function onOff(evt) {
+  if (evt.target === evt.currentTarget || evt.key === 'Escape') {
+    refs.popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
+    refs.body.classList.toggle('modal-open');
+  }
+}
 function callPopupWindow(evt) {
   evt.preventDefault();
-  popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
+
+  refs.popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
+  refs.body.classList.toggle('modal-open');
+
   getBooksId(evt.target.dataset.bookId).then(data => {
     newBook = data;
     checkingBookList(newBook);
@@ -56,19 +53,36 @@ async function checkingBookList(data) {
       });
     const status = arr.some(({ _id }) => _id === data._id);
     if (status) {
-      popupBtnAddRemoveEl.removeEventListener('click', addBookToStorage);
-      popupBtnAddRemoveEl.textContent = 'remove from the shopping list';
-      popupAddMessageEl.hidden = false;
+      refs.popupBookCardEl.nextElementSibling.removeEventListener(
+        'click',
+        addBookToStorage
+      );
+      refs.popupBookCardEl.nextElementSibling.addEventListener(
+        'click',
+        removeBookFromStorage
+      );
+      refs.popupBookCardEl.nextElementSibling.textContent =
+        'remove from the shopping list';
+      refs.popupBookCardEl.nextElementSibling.nextElementSibling.hidden = false;
     } else {
-      popupBtnAddRemoveEl.removeEventListener('click', removeBookFromStorage);
-      popupBtnAddRemoveEl.textContent = 'Add to shopping list';
+      refs.popupBookCardEl.nextElementSibling.removeEventListener(
+        'click',
+        removeBookFromStorage
+      );
+      refs.popupBookCardEl.nextElementSibling.addEventListener(
+        'click',
+        addBookToStorage
+      );
+      refs.popupBookCardEl.nextElementSibling.textContent =
+        'Add to shopping list';
+      refs.popupBookCardEl.nextElementSibling.nextElementSibling.hidden = true;
     }
   } catch (error) {
     console.log(error.message);
   }
 }
 function addBookMarkup(markup) {
-  popupBookCardEl.innerHTML = markup;
+  refs.popupBookCardEl.innerHTML = markup;
 }
 function createMarkup({
   book_image,
@@ -104,11 +118,12 @@ async function addBookToStorage() {
       });
     dataFromStorage.push(newBook);
     addDataToStorage(STORAGE_KEY, dataFromStorage);
-    location.reload();
+    checkingBookList(newBook);
   } catch (error) {
     console.log(error.message);
   }
 }
+
 async function removeBookFromStorage() {
   try {
     const dataFromStorage = await getDataFromStorage(STORAGE_KEY);
@@ -117,8 +132,7 @@ async function removeBookFromStorage() {
       book => book._id !== newBook._id
     );
     addDataToStorage(STORAGE_KEY, clearStorage);
-
-    location.reload();
+    checkingBookList(newBook);
   } catch (error) {
     console.log(error.message);
   }
