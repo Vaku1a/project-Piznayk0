@@ -1,7 +1,6 @@
 import { getBooksId } from '../api/api.js';
 import { refs } from '../refs/refs';
 
-// const popupBookCardEl = document.querySelector('.popup-create-markup');
 const STORAGE_KEY = 'bookList';
 let newBook = {};
 
@@ -13,16 +12,23 @@ document.addEventListener('keydown', onOff);
 function onOff(evt) {
   if (evt.target === evt.currentTarget || evt.key === 'Escape') {
     refs.popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
-    refs.body.classList.toggle('modal-open');
+    refs.body.classList.toggle('popup-modal-open');
   }
 }
 function callPopupWindow(evt) {
+  if (evt.target === evt.currentTarget) {
+    return;
+  }
+
   evt.preventDefault();
 
   refs.popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
-  refs.body.classList.toggle('modal-open');
+  refs.body.classList.toggle('popup-modal-open');
+  const id =
+    evt.target.closest('LI').dataset.bookId ||
+    evt.target.parentNode.dataset.bookId;
 
-  getBooksId(evt.target.dataset.bookId).then(data => {
+  getBooksId(id).then(data => {
     newBook = data;
     checkingBookList(newBook);
     let markup = createMarkup(newBook);

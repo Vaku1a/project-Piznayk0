@@ -18,7 +18,7 @@ export const refs = {
   //book-list
   booksPart: document.querySelector('.books-part'),
   booksCategoryContainer: document.querySelector('.categories-list'),
-  //book-card-popup
+
   popupBookCardEl: document.querySelector('.popup-create-markup'),
   //shopping list
   shoppingList: document.querySelector('.shopping-list'),
