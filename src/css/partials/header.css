@@ -122,9 +122,11 @@ right: 20px;
 
 }
 
-/* .modal-close-icon{
+.modal-close-icon{
   stroke: var(--black-cl);
-} */
+  top: 22px;
+
+}
 .header-user-block.modal-sign-up{
   display: flex;
   justify-content: space-between;
@@ -271,7 +273,7 @@ fill: var(--black-cl)
   stroke: var(--white-cl);
 }
 .body-dark-theme .modal-close-icon{
-  fill: var(--white-cl);
+  stroke: var(--white-cl);
 }
 
 @media only screen and (min-width: 768px){
