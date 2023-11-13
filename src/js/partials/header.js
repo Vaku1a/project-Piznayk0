@@ -9,14 +9,16 @@ function toggleOpenModal() {
   if (refs.mobileMenu.classList.contains('is-hidden')) {
     refs.mobileMenu.classList.remove('is-hidden');
       refs.closeMenuBtn.classList.remove('is-hidden');
-      refs.openMenuBtn.classList.add('is-hidden')
+    refs.openMenuBtn.classList.add('is-hidden');
+    refs.body.classList.add('none-scroll');
     return;
   } 
 }
 function toggleCloseModal() {
     refs.mobileMenu.classList.add('is-hidden');
     refs.closeMenuBtn.classList.add('is-hidden');
-    refs.openMenuBtn.classList.remove('is-hidden')
+  refs.openMenuBtn.classList.remove('is-hidden');
+  refs.body.classList.remove('none-scroll');
 }
 
 /* TOGGLE THEME */

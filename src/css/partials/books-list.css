@@ -100,9 +100,14 @@
   letter-spacing: -0.14px;
   text-transform: uppercase;
 }
-.see-more-btn:hover,
-.see-more-btn:focus {
-  background-color: var(--violet-cl);
+.body-dark-theme .see-more-btn {
+  background-color: var(--dark-theme-bg-cl);
+  color: var(--white-cl);
+}
+.body-dark-theme .books-part-title {
+  color: var(--white-cl);
+}
+.body-dark-theme .book-card-title{
   color: var(--white-cl);
 }
 @media only screen and (min-width: 768px) {
@@ -149,6 +154,11 @@
   .book-cards-list-item:nth-child(n) {
     display: block;
   }
+  .see-more-btn:hover,
+.see-more-btn:focus {
+  background-color: var(--violet-cl);
+  color: var(--white-cl);
+}
 }
 
 .books-not-found-message {
