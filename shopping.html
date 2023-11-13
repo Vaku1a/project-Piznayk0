@@ -116,7 +116,98 @@
     <!-- Vlad -->
     <ul class="shopping-list"></ul>
 <div id="pagination" class="tui-pagination"></div>
+    <header class="header-studio ">
+    <div class="container header-container">
+        <div class="header-logo">
+            <a href="./index.html" class="link">
+                <svg class="header-logo-icon header-logo-light" width="109" height="28">
+                    <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-logo-on-light-bg"></use>
+                </svg>
+                <svg class="header-logo-icon header-logo-dark" width="109" height="28">
+                    <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-logo-on-dark-bg"></use>
+                </svg>
+            </a>
+        </div>
+        <nav class="header-menu">
+            <ul class="header-menu-list">
+                <li class="header-menu-list-item">
+                    <a href="./index.html" class="link header-menu-link ">Home</a>
+                </li>
+                <li class="header-menu-list-item header-item-shopping_list">
+                    <a href="./shopping.html" class="link header-menu-link header-active">
+                        <span>Shopping list</span>
+                        <svg class="header-cart-svg" width="20" height="20">
+                            <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-dark_cart"></use>
+                        </svg></a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header-toggle-bg  js-toggle-bg">
+            <div class="header-toggle-circle"></div>
+        </div>
 
+        <div class="header-user-block" data-modal-open>
+            <p>Sign up</p>
+            <svg width="20" height="20">
+                <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-arrow-right"></use>
+            </svg>
+        </div>
+
+        <div class="header-burger-menu js-open-menu toggle-position">
+            <svg class="header-burger-icon" width="28" height="28">
+                <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-menu-burger"></use>
+            </svg>
+        </div>
+        <div class="modal-close-icon js-close-menu toggle-position is-hidden">
+            <svg width="28" height="28">
+                <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-x-close"></use>
+            </svg>
+        </div>
+
+        <!---------------- MODAL WINDOW ----------------------->
+        <div class="modal-wrapper  js-menu-container is-hidden" id="mobile-menu">
+            <div class="container modal-picture">
+
+                <div class="modal-main">
+                    <!-- <div class="modal-user">
+                        <img src="./images/users-foto@1x.png" alt="user-foto" srcset="./images/users-foto@2x.png 2x,
+                    ./images/users-foto@1x.png 1x
+                    " width="37" height="37">
+                        <p>Stephen</p>
+                    </div> -->
+                    <div class="header-user-block modal-sign-up" data-modal-open>
+                        <p>Sign up</p>
+                        <svg width="20" height="20">
+                            <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-arrow-right"></use>
+                        </svg>
+                    </div>
+                    <nav class="modal-menu">
+                        <ul class="modal-menu-list">
+                            <li class="modal-menu-list-item">
+                                <a href="./index.html" class="link modal-menu-link modal-menu-home">Home</a>
+                            </li>
+                            <li class="modal-menu-list-item">
+                                <a href="#" class="link modal-menu-link modal-menu-shopping header-active">
+                                    <span>Shopping list</span>
+                                    <svg class="modal-cart" width="20" height="20">
+                                        <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-light_cart"></use>
+                                    </svg></a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="modal-user-log_out">
+                        <p>Log out</p>
+                        <svg width="20" height="20">
+                            <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-arrow-right"></use>
+                        </svg>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+</header>
   </main>
   <!-- Sergiy/Maks modal sign-up -->
   <div>
