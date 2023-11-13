@@ -29,5 +29,5 @@ export const refs = {
   modal: document.querySelector("[data-form]"),
 
   //loader
-  loaderForAllCategories: document.querySelector('.loader'),
+  loaderForAllCategories: document.querySelector('.category-list-loader.loader'),
 };
