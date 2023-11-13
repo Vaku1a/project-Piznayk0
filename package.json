@@ -18,12 +18,16 @@
   "dependencies": {
     "axios": "^1.6.0",
     "firebaseui": "^6.1.0",
+    "install": "^0.13.0",
     "modern-normalize": "^2.0.0",
     "notiflix": "^3.2.6",
+    "npm": "^10.2.3",
     "paginationjs": "^2.6.0",
     "pretty-checkbox": "^3.0.3",
+    "simplelightbox": "^2.14.2",
     "slim-select": "^2.6.0",
     "swiper": "^11.0.3",
+    "tui-pagination": "^3.4.1",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
   }
