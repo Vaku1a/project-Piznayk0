@@ -24,4 +24,7 @@ export const refs = {
   shoppingList: document.querySelector('.shopping-list'),
 
   //sign-in
+  openModalBtn: document.querySelector("[data-form-open]"),
+  closeModalBtn: document.querySelector("[data-form-close]"),
+  modal: document.querySelector("[data-form]"),
 };

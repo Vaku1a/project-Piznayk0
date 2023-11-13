@@ -140,6 +140,7 @@
 @media only screen and (min-width: 1440px) {
   .book-cards-list-item {
     position: relative;
+    transform: scale(1.1);
   }
   .book-card-hover{
     width: 180px;
