@@ -15,6 +15,7 @@ function onOff(evt) {
     refs.body.classList.toggle('popup-modal-open');
   }
 }
+// виклик вікна
 function callPopupWindow(evt) {
   if (evt.target === evt.currentTarget) {
     return;
