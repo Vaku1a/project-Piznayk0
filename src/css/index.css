@@ -36,4 +36,5 @@
   );
   --support-Ukraine-box-shadow: 0px 10px 10px 0px rgba(245, 245, 247, 0.1);
   --scroll-up-accent: rgba(79, 46, 232, 0.3);
+  --main-transition-function: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }

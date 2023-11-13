@@ -27,12 +27,14 @@
   line-height: 1.13;
   letter-spacing: -0.32px;
 }
-.body-dark-theme  .categories-list{
-  color: var(--book-list-dark-theme-cl)
-}
 .categories-list-item {
   cursor: pointer;
+  transition: color var(--main-transition-function), text-transform var(--main-transition-function);
 }
+.body-dark-theme .categories-list{
+  color: var(--book-list-dark-theme-cl)
+}
+
 .categories-list-item:not(:last-child) {
   margin-bottom: 24px;
 }
@@ -74,7 +76,7 @@
     width: 328px;
   }
   .body-dark-theme .categories-list-item:hover {
-  color: var(--yellow-cl);
+    color: var(--yellow-cl);
   }
   .categories-list-item.active,
   .categories-list-item:hover,
