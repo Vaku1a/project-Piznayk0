@@ -99,7 +99,7 @@
   line-height: 1.29;
   letter-spacing: -0.14px;
   text-transform: uppercase;
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--main-transition-function), var(--main-transition-function);
 }
 .body-dark-theme .see-more-btn {
   background-color: var(--dark-theme-bg-cl);
@@ -149,7 +149,7 @@
     background: #eac645;
     border-radius: 0 0 8px 8px;
     padding: 26px 0;
-    transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity var(--main-transition-function);
     position: absolute;
     top: 186px;
     left: 0;
