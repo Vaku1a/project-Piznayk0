@@ -1,11 +1,13 @@
 .popup-backdrop {
   position: fixed;
-  /* pointer-events: none; */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: var(--book-list-light-theme-cl);
+  z-index: 1000;
+
+  overflow: hidden;
 }
 .popup-backdrop.is-hidden {
   visibility: hidden;
@@ -14,8 +16,13 @@
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .popup {
   position: absolute;
+  /* position: fixed; */
+  overflow: hidden;
+
+  pointer-events: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

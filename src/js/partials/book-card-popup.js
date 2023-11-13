@@ -16,12 +16,17 @@ let dataFromStorage = getDataFromStorage(STORAGE_KEY)
 let newBook = {};
 popupAddMessageEl.hidden = true;
 refs.booksCaregoriesContainer.addEventListener('click', callPopupWindow);
-popupBookCardEl.previousElementSibling.addEventListener('click', () =>
-  popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden')
-);
+popupBookCardEl.previousElementSibling.addEventListener('click', onOff);
 popupBtnAddRemoveEl.addEventListener('click', addBookToStorage);
 popupBtnAddRemoveEl.addEventListener('click', removeBookFromStorage);
+popupBookCardEl.parentNode.parentNode.addEventListener('click', onOff);
 
+function onOff(evt) {
+  if (evt.target === evt.currentTarget) {
+    popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
+    location.reload();
+  }
+}
 function callPopupWindow(evt) {
   evt.preventDefault();
   popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
@@ -104,7 +109,10 @@ async function addBookToStorage() {
       });
     dataFromStorage.push(newBook);
     addDataToStorage(STORAGE_KEY, dataFromStorage);
-    location.reload();
+    popupBtnAddRemoveEl.removeEventListener('click', addBookToStorage);
+    popupBtnAddRemoveEl.addEventListener('click', removeBookFromStorage);
+    popupBtnAddRemoveEl.textContent = 'remove from the shopping list';
+    popupAddMessageEl.hidden = false;
   } catch (error) {
     console.log(error.message);
   }
@@ -117,8 +125,11 @@ async function removeBookFromStorage() {
       book => book._id !== newBook._id
     );
     addDataToStorage(STORAGE_KEY, clearStorage);
-
-    location.reload();
+    popupBtnAddRemoveEl.removeEventListener('click', removeBookFromStorage);
+    popupBtnAddRemoveEl.addEventListener('click', addBookToStorage);
+    popupBtnAddRemoveEl.textContent = 'Add to shopping list';
+    popupAddMessageEl.hidden = true;
+    // location.reload();
   } catch (error) {
     console.log(error.message);
   }
