@@ -3,6 +3,8 @@ import { getAllCategories, getTopBooks, getCategoryId } from "../api/api";
 import { createBooksCategoriesCardsMarkup } from "./booklist"
 import { refs } from "../refs/refs";
 
+console.log(refs.loaderForAllCategories);
+
 // Notify.init({
 //     width: '300px',
 //     position: 'center-top',
@@ -20,12 +22,13 @@ import { refs } from "../refs/refs";
 
 getAllCategories()
     .then(categories => {
-        refs.categoriesList.innerHTML = createCategoriesListMarkup(categories);        
+        refs.categoriesList.innerHTML = createCategoriesListMarkup(categories);
     })
     .catch((err) => {
         console.error(err);
         // Notify.failure('Oops! Something went wrong! Try reloading the page!');
-    });
+    })
+    .finally(_ => refs.loaderForAllCategories.style.display = 'none');
 
 refs.categoriesList.addEventListener('click', onLoadCategory);
 

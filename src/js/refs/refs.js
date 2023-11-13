@@ -27,4 +27,7 @@ export const refs = {
   openModalBtn: document.querySelector("[data-form-open]"),
   closeModalBtn: document.querySelector("[data-form-close]"),
   modal: document.querySelector("[data-form]"),
+
+  //loader
+  loaderForAllCategories: document.querySelector('.loader'),
 };
