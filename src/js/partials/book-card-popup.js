@@ -2,11 +2,11 @@ import { getBooksId } from '../api/api.js';
 import { refs } from '../refs/refs';
 
 // const popupBookCardEl = document.querySelector('.popup-create-markup');
-console.log(refs.booksCategoryContainer);
 const STORAGE_KEY = 'bookList';
 let newBook = {};
 
-refs.booksCategoryContainer.addEventListener('click', callPopupWindow);
+refs.booksPart.addEventListener('click', callPopupWindow);
+
 refs.popupBookCardEl.previousElementSibling.addEventListener('click', onOff);
 refs.popupBookCardEl.parentNode.parentNode.addEventListener('click', onOff);
 document.addEventListener('keydown', onOff);
@@ -17,12 +17,11 @@ function onOff(evt) {
   }
 }
 function callPopupWindow(evt) {
-  console.log('work');
   evt.preventDefault();
-  console.log(refs.booksCategoryContainer);
+
   refs.popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
   refs.body.classList.toggle('modal-open');
-  console.log(evt.target);
+
   getBooksId(evt.target.dataset.bookId).then(data => {
     newBook = data;
     checkingBookList(newBook);

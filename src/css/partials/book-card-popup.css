@@ -22,8 +22,8 @@
 }
 
 .popup {
-  position: absolute;
-  /* position: fixed; */
+  /* position: absolute; */
+  position: fixed;
   overflow: hidden;
 
   pointer-events: auto;
