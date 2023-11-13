@@ -1,4 +1,4 @@
-import{g as b,r as a,a as A,b as T,c as S}from"./assets/header-aa16f653.js";import"./assets/vendor-313c7975.js";b().then(t=>{if(!t||t.length===0){a.booksCaregoriesContainer.insertAdjacentHTML("afterbegin",`<p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
+import{g as b,r as a,a as A,b as T,c as S}from"./assets/header-e3f4bf2a.js";import"./assets/vendor-313c7975.js";b().then(t=>{if(!t||t.length===0){a.booksCaregoriesContainer.insertAdjacentHTML("afterbegin",`<p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
                 <img
                 class="books-not-found-img"
                 srcset="../img/empty-bin@1x.png 1x, ../img/empty-bin@2x.png 2x"
