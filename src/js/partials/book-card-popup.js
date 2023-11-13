@@ -20,9 +20,12 @@ popupBookCardEl.previousElementSibling.addEventListener('click', onOff);
 popupBtnAddRemoveEl.addEventListener('click', addBookToStorage);
 popupBtnAddRemoveEl.addEventListener('click', removeBookFromStorage);
 popupBookCardEl.parentNode.parentNode.addEventListener('click', onOff);
+document.addEventListener('keydown', onOff);
+
+// var lightbox = new SimpleLightbox('.popup');
 
 function onOff(evt) {
-  if (evt.target === evt.currentTarget) {
+  if (evt.target === evt.currentTarget || evt.key === 'Escape') {
     popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
     location.reload();
   }
