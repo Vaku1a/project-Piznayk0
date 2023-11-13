@@ -4,30 +4,6 @@
   |============================
 */
 /* Mobile devices styles */
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  min-width: 335px;
-  margin: 0 auto;
-}
-/* Tablet screen styles */
-@media only screen and (min-width: 768px) {
-  .sidebar {
-    flex-direction: row;
-    gap: 32px;
-    min-width: 704px;
-  }
-}
-/* Desktop screen styles */
-@media only screen and (min-width: 1440px) {
-  .sidebar {
-    flex-direction: column;
-    gap: 86px;
-    float: left;
-    min-width: 356px;
-  }
-}
 /*
   |============================
   | Categories list styles
@@ -70,8 +46,8 @@
 /* Tablet and desktop screen styles */
 @media only screen and (min-width: 768px) {
   .categories-list-wrapper {
-    width: 337px;
     height: 474px;
+    width: calc(50% - 16px);
   }
   .categories-list {
     width: 309px;
@@ -92,7 +68,7 @@
 }
 @media only screen and (min-width: 1440px) {
   .categories-list-wrapper {
-    width: 356px;
+    width: 100%;
   }
   .categories-list {
     width: 328px;
