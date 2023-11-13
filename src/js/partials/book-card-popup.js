@@ -12,7 +12,7 @@ document.addEventListener('keydown', onOff);
 function onOff(evt) {
   if (evt.target === evt.currentTarget || evt.key === 'Escape') {
     refs.popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
-    refs.body.classList.toggle('modal-open');
+    refs.body.classList.toggle('popup-modal-open');
   }
 }
 function callPopupWindow(evt) {
@@ -23,7 +23,7 @@ function callPopupWindow(evt) {
   evt.preventDefault();
 
   refs.popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
-  refs.body.classList.toggle('modal-open');
+  refs.body.classList.toggle('popup-modal-open');
   const id =
     evt.target.closest('LI').dataset.bookId ||
     evt.target.parentNode.dataset.bookId;
