@@ -1,4 +1,4 @@
-import{g as h,r as a,a as y,b as E,c as x}from"./assets/sign-in-f1cdd1c9.js";import"./assets/vendor-313c7975.js";h().then(o=>{if(!o||o.length===0){a.booksPart.insertAdjacentHTML("afterbegin",`<div class="books-not-found-wrapper">
+import{g as h,r as a,a as y,b as E,c as x}from"./assets/sign-in-0b001ff7.js";import"./assets/vendor-c1cf73b3.js";h().then(o=>{if(!o||o.length===0){a.booksPart.insertAdjacentHTML("afterbegin",`<div class="books-not-found-wrapper">
                 <p class="books-not-found-message">No books were found😒<br> Please, reload the page or try later😉</p>
                 <img
                 class="books-not-found-img"
