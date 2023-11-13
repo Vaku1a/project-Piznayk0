@@ -14,8 +14,8 @@
   <title>Book Shelf | Shooping list</title>
   <script type="module" crossorigin src="/project-Piznayk0/commonHelpers2.js"></script>
   <link rel="modulepreload" crossorigin href="/project-Piznayk0/assets/vendor-313c7975.js">
-  <link rel="modulepreload" crossorigin href="/project-Piznayk0/assets/header-cbd8d5e5.js">
-  <link rel="stylesheet" href="/project-Piznayk0/assets/shopping-cbc90932.css">
+  <link rel="modulepreload" crossorigin href="/project-Piznayk0/assets/sign-in-3b349d97.js">
+  <link rel="stylesheet" href="/project-Piznayk0/assets/shopping-8e7e7520.css">
 </head>
 
 <body>
@@ -52,7 +52,7 @@
             <div class="header-toggle-circle"></div>
         </div>
 
-        <div class="header-user-block" data-modal-open>
+        <div class="header-user-block" data-form-open>
             <p>Sign up</p>
             <svg width="20" height="20">
                 <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-arrow-right"></use>
@@ -65,7 +65,7 @@
             </svg>
         </div>
         <div class="modal-close-icon js-close-menu toggle-position is-hidden">
-            <svg width="28" height="28">
+            <svg width="20" height="20">
                 <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-x-close"></use>
             </svg>
         </div>
@@ -81,7 +81,7 @@
                     " width="37" height="37">
                         <p>Stephen</p>
                     </div> -->
-                    <div class="header-user-block modal-sign-up" data-modal-open>
+                    <div class="header-user-block modal-sign-up" data-form-open>
                         <p>Sign up</p>
                         <svg width="20" height="20">
                             <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-arrow-right"></use>
@@ -102,12 +102,12 @@
                         </ul>
                     </nav>
 
-                    <div class="modal-user-log_out">
+                    <!--  <div class="modal-user-log_out">
                         <p>Log out</p>
                         <svg width="20" height="20">
-                            <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-arrow-right"></use>
+                            <use href="./img/icons.svg#icon-arrow-right"></use>
                         </svg>
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -117,6 +117,51 @@
 <ul class="shopping-list"></ul>
 
   </main>
+  <!-- Sergiy/Maks modal sign-up -->
+  <div>
+    <div class="form-hidden is-hidden" data-form>
+  <div class="registration-window">
+    <button class="close-btn btn" type="button" data-form-close>
+      <svg class="close-icon" width="14" height="14">
+        <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-x-close"></use>
+      </svg>
+    </button>
+
+    <form class="form form-sign-in js-form">
+      <ul class="sign-up-list form-list">
+        <li class="input-container">
+          <input class="form-input" type="text" name="user-name" placeholder="Name" required />
+        </li>
+        <li class="input-container">
+          <input class="form-input" id="user-email" type="email" name="user_email" placeholder="Email" required />
+          <svg class="form-icon" width="28" height="28" aria-label="Message input icon">
+            <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-mail"></use>
+          </svg>
+        </li>
+        <li class="input-container">
+          <input class="form-input" id="user-password" type="password" name="user_password" placeholder="Password"
+            required />
+          <svg class="form-icon" width="28" height="28" aria-label="Password input icon">
+            <use href="/project-Piznayk0/assets/icons-b287a3c7.svg#icon-lock"></use>
+          </svg>
+        </li>
+      </ul>
+      <button class="form-main-btn" type="submit" aria-label="Sign up button">
+        Sign up
+      </button>
+    </form>
+
+    <div class="form-btns">
+      <button class="sign-up-btn active-btn" id="btn-sign-up" aria-label="Sign up button">
+        Sign up
+      </button>
+      <button class="sign-in-btn" id="btn-sign-in" aria-label="Sign in button">
+        Sign in
+      </button>
+    </div>
+  </div>
+</div>
+  </div>
   
 </body>
 
