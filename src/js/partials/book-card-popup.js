@@ -1,26 +1,28 @@
 import { getBooksId } from '../api/api.js';
 import { refs } from '../refs/refs';
 
-const popupBookCardEl = document.querySelector('.popup-create-markup');
-
+// const popupBookCardEl = document.querySelector('.popup-create-markup');
+console.log(refs.booksCategoryContainer);
 const STORAGE_KEY = 'bookList';
 let newBook = {};
 
-refs.booksCaregoriesContainer.addEventListener('click', callPopupWindow);
-popupBookCardEl.previousElementSibling.addEventListener('click', onOff);
-popupBookCardEl.parentNode.parentNode.addEventListener('click', onOff);
+refs.booksCategoryContainer.addEventListener('click', callPopupWindow);
+refs.popupBookCardEl.previousElementSibling.addEventListener('click', onOff);
+refs.popupBookCardEl.parentNode.parentNode.addEventListener('click', onOff);
 document.addEventListener('keydown', onOff);
-
 function onOff(evt) {
   if (evt.target === evt.currentTarget || evt.key === 'Escape') {
-    popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
+    refs.popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
     refs.body.classList.toggle('modal-open');
   }
 }
 function callPopupWindow(evt) {
+  console.log('work');
   evt.preventDefault();
-  popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
+  console.log(refs.booksCategoryContainer);
+  refs.popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
   refs.body.classList.toggle('modal-open');
+  console.log(evt.target);
   getBooksId(evt.target.dataset.bookId).then(data => {
     newBook = data;
     checkingBookList(newBook);
@@ -52,35 +54,36 @@ async function checkingBookList(data) {
       });
     const status = arr.some(({ _id }) => _id === data._id);
     if (status) {
-      popupBookCardEl.nextElementSibling.removeEventListener(
+      refs.popupBookCardEl.nextElementSibling.removeEventListener(
         'click',
         addBookToStorage
       );
-      popupBookCardEl.nextElementSibling.addEventListener(
+      refs.popupBookCardEl.nextElementSibling.addEventListener(
         'click',
         removeBookFromStorage
       );
-      popupBookCardEl.nextElementSibling.textContent =
+      refs.popupBookCardEl.nextElementSibling.textContent =
         'remove from the shopping list';
-      popupBookCardEl.nextElementSibling.nextElementSibling.hidden = false;
+      refs.popupBookCardEl.nextElementSibling.nextElementSibling.hidden = false;
     } else {
-      popupBookCardEl.nextElementSibling.removeEventListener(
+      refs.popupBookCardEl.nextElementSibling.removeEventListener(
         'click',
         removeBookFromStorage
       );
-      popupBookCardEl.nextElementSibling.addEventListener(
+      refs.popupBookCardEl.nextElementSibling.addEventListener(
         'click',
         addBookToStorage
       );
-      popupBookCardEl.nextElementSibling.textContent = 'Add to shopping list';
-      popupBookCardEl.nextElementSibling.nextElementSibling.hidden = true;
+      refs.popupBookCardEl.nextElementSibling.textContent =
+        'Add to shopping list';
+      refs.popupBookCardEl.nextElementSibling.nextElementSibling.hidden = true;
     }
   } catch (error) {
     console.log(error.message);
   }
 }
 function addBookMarkup(markup) {
-  popupBookCardEl.innerHTML = markup;
+  refs.popupBookCardEl.innerHTML = markup;
 }
 function createMarkup({
   book_image,
