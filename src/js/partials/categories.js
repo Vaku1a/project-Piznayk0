@@ -129,6 +129,17 @@ function createCategoriesListMarkup(categories) {
 
 function createBooksCaregoryTitle(categoryName) {
     const categoryNameArr = categoryName.split(' ');
+    if (categoryNameArr.includes('and')) {
+        const indexOfAnd = categoryNameArr.indexOf('and');
+        const mainCategoryTitlePart = categoryNameArr.slice(0, indexOfAnd + 1).join(' ');
+        const categoryTitleSpan = categoryNameArr.slice(indexOfAnd + 1).join(' ');
+        return `<h2 class="books-part-title">${mainCategoryTitlePart} <span class="books-part-title-span">${categoryTitleSpan}</span></h2>`
+    }
+    if (categoryNameArr.length > 3) {
+        const mainCategoryTitlePart = categoryNameArr.slice(0, categoryNameArr.length / 2).join(' ');
+        const categoryTitleSpan = categoryNameArr.slice((categoryNameArr.length / 2)).join(' ');
+        return `<h2 class="books-part-title">${mainCategoryTitlePart} <span class="books-part-title-span">${categoryTitleSpan}</span></h2>`
+    }
     const categoryTitleSpan = categoryNameArr.pop();
     const mainCategoryTitlePart = categoryNameArr.join(' ');
     return `<h2 class="books-part-title">${mainCategoryTitlePart} <span class="books-part-title-span">${categoryTitleSpan}</span></h2>`
@@ -136,12 +147,11 @@ function createBooksCaregoryTitle(categoryName) {
 
 function createBooksInCategoryMarkup(books) {
     return books.map(({ _id, book_image, author, title }) =>
-            `<li class="book-cards-list-item">
+            `<li class="book-cards-list-item" data-book-id="${_id}">
             <img
             class="book-card-img"
             src="${book_image}"
-            alt="${title}"
-            data-book-id="${_id}"
+            alt="${title}"            
             loading="lazy"
             />
             <div class="book-card-hover">
