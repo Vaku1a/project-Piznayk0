@@ -150,9 +150,21 @@
     display: block;
   }
 }
-
+.books-not-found-wrapper {
+  background: var(--support-Ukraine-bg);
+  border-radius: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
 .books-not-found-message {
-  color: var(--black-cl);
-  font-size: 18px;
+  padding: 16px;
   text-align: center;
+  color: var(--white-cl);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.96px;
+  font-style: normal;
+  text-transform: capitalize;
 }
