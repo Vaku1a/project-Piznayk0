@@ -1,8 +1,4 @@
-import {
-  getBooksId,
-  // getDataFromStorage,
-  // addDataToStorage,
-} from '../api/api.js';
+import { getBooksId } from '../api/api.js';
 import { refs } from '../refs/refs';
 
 const STORAGE_KEY = 'bookList';
