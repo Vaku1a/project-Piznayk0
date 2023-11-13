@@ -123,6 +123,7 @@ async function addBookToStorage() {
     console.log(error.message);
   }
 }
+
 async function removeBookFromStorage() {
   try {
     const dataFromStorage = await getDataFromStorage(STORAGE_KEY);
