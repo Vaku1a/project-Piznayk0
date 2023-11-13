@@ -140,6 +140,9 @@ function createBooksInCategoryMarkup(books) {
             data-book-id="${_id}"
             loading="lazy"
             />
+            <div class="book-card-hover">
+                <p>quick view</p>
+            </div>
             <p class="book-card-title">${title}</p>
             <p class="book-card-author">${author}</p>
         </li>`
