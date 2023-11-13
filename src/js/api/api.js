@@ -50,18 +50,3 @@ export async function getBooksId(id) {
   const response = await axios.get(`${GET_BOOKS_BY_ID}${id}`);
   return response.data;
 }
-
-// Повертає значення ключа (key) з localeStorage
-export async function getDataFromStorage(key) {
-  const response = await localStorage.getItem(key);
-  const data = await JSON.parse(response);
-  return data;
-}
-// Зберігає в localeStorage пару "key" : "value";
-export async function addDataToStorage(key, value) {
-  try {
-    await localStorage.setItem(key, JSON.stringify(value));
-  } catch (error) {
-    console.log(error.message);
-  }
-}
