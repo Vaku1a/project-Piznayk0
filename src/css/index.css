@@ -13,6 +13,7 @@
 @import url('./partials/books-list.css');
 @import url('./partials/book-card-popup.css');
 @import url('./partials/scroll-up.css');
+@import url('./partials/sign-in.css');
 
 :root {
   /* Colors */

@@ -5,3 +5,9 @@
 Олександр: проблема з селекторами як повісити 
 Микола: Стилі подивитися як підключені шрифти, як додати розмітку в індекс
 Влад Як динамічно рендерити Шопінгліст
+
+Даша pull:
+https://github.com/Vaku1a/project-Piznayk0/pull/3
+https://github.com/Vaku1a/project-Piznayk0/pull/19
+https://github.com/Vaku1a/project-Piznayk0/pull/31
+https://github.com/Vaku1a/project-Piznayk0/pull/35
