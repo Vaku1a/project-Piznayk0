@@ -18,13 +18,13 @@ export const refs = {
   //book-list
   booksPart: document.querySelector('.books-part'),
   booksCategoryContainer: document.querySelector('.categories-list'),
-  //book-card-popup
+
   popupBookCardEl: document.querySelector('.popup-create-markup'),
   //shopping list
   shoppingList: document.querySelector('.shopping-list'),
 
   //sign-in
-  openModalBtn: document.querySelector("[data-form-open]"),
-  closeModalBtn: document.querySelector("[data-form-close]"),
-  modal: document.querySelector("[data-form]"),
+  openModalBtn: document.querySelector('[data-form-open]'),
+  closeModalBtn: document.querySelector('[data-form-close]'),
+  modal: document.querySelector('[data-form]'),
 };

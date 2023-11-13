@@ -1,7 +1,10 @@
-import { getBooksId } from '../api/api.js';
+import {
+  getBooksId,
+  getDataFromStorage,
+  addDataToStorage,
+} from '../api/api.js';
 import { refs } from '../refs/refs';
 
-// const popupBookCardEl = document.querySelector('.popup-create-markup');
 const STORAGE_KEY = 'bookList';
 let newBook = {};
 
@@ -17,12 +20,19 @@ function onOff(evt) {
   }
 }
 function callPopupWindow(evt) {
+  if (evt.target === evt.currentTarget) {
+    return;
+  }
+
   evt.preventDefault();
 
   refs.popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
   refs.body.classList.toggle('modal-open');
+  const id =
+    evt.target.closest('LI').dataset.bookId ||
+    evt.target.parentNode.dataset.bookId;
 
-  getBooksId(evt.target.dataset.bookId).then(data => {
+  getBooksId(id).then(data => {
     newBook = data;
     checkingBookList(newBook);
     let markup = createMarkup(newBook);
@@ -30,18 +40,18 @@ function callPopupWindow(evt) {
   });
 }
 
-async function getDataFromStorage(key) {
-  const response = await localStorage.getItem(key);
-  const data = await JSON.parse(response);
-  return data;
-}
-async function addDataToStorage(key, value) {
-  try {
-    await localStorage.setItem(key, JSON.stringify(value));
-  } catch (error) {
-    console.log(error.message);
-  }
-}
+// async function getDataFromStorage(key) {
+//   const response = await localStorage.getItem(key);
+//   const data = await JSON.parse(response);
+//   return data;
+// }
+// async function addDataToStorage(key, value) {
+//   try {
+//     await localStorage.setItem(key, JSON.stringify(value));
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// }
 async function checkingBookList(data) {
   try {
     const arr = await getDataFromStorage(STORAGE_KEY)
