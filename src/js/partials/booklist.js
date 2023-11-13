@@ -21,8 +21,9 @@ import { refs } from "../refs/refs";
 getTopBooks()
     .then(categories => {        
         if (!categories || categories.length === 0) {
-            refs.booksCaregoriesContainer.insertAdjacentHTML('afterbegin',
-                `<p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
+            refs.booksPart.insertAdjacentHTML('afterbegin',
+                `<div class="books-not-found-wrapper">
+                <p class="books-not-found-message">No books were found😒<br> Please, reload the page or try later😉</p>
                 <img
                 class="books-not-found-img"
                 srcset="../img/empty-bin@1x.png 1x, ../img/empty-bin@2x.png 2x"
@@ -30,12 +31,20 @@ getTopBooks()
                 alt="Books not found"
                 height="241"
                 width="332"
-                />`
+                />
+                </div>`
             );
             return;
         }
         
-        refs.booksCaregoriesContainer.insertAdjacentHTML('beforeend', createBooksCategoriesCardsMarkup(categories));        
+        refs.booksPart.insertAdjacentHTML('beforeend',
+            `<h2 class="books-part-title">Best Sellers
+                <span class="books-part-title-span"> Books</span>
+            </h2>
+            <div class="book-categories-container">
+            ${createBooksCategoriesCardsMarkup(categories)}
+            </div>`
+        );
     }
     )
     .catch((err) => {
@@ -61,6 +70,7 @@ function onSeeMoreBtn(evt) {
                 refs.booksPart.innerHTML = 
                 `${createBooksCaregoryTitle(categoryName)}
                 <div class="book-category-wrapper">
+                <div class="books-not-found-wrapper">
                 <p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
                 <img
                 class="books-not-found-img"
@@ -69,7 +79,8 @@ function onSeeMoreBtn(evt) {
                 alt="Books not found"
                 height="241"
                 width="332"
-                />                                
+                />
+                </div>                                
                 </div>`
                 return;
             }
@@ -92,7 +103,7 @@ function onSeeMoreBtn(evt) {
 function createBooksCategoriesCardsMarkup(categories) {
     return categories.map(({ list_name, books }) => {              
         return `<div class="book-category-container">
-                <h2 class="book-category-title">${list_name}</h2>
+                <h3 class="book-category-title">${list_name}</h3>
                 <ul class="book-cards-list">
                 ${createBooksInCategoryMarkup(books)}                  
                 </ul>

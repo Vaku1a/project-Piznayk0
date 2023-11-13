@@ -47,10 +47,11 @@ function onLoadCategory(evt) {
             .then(categories => {
                  if (!categories || categories.length === 0) {                      
                      refs.booksPart.innerHTML =
-                         `<h1 class="books-part-title">Best Sellers
+                        `<h2 class="books-part-title">Best Sellers
                         <span class="books-part-title-span"> Books</span>
-                        </h1>
+                        </h2>
                         <div class="book-categories-container">
+                        <div class="books-not-found-wrapper">
                         <p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
                         <img
                         class="books-not-found-img"
@@ -60,17 +61,18 @@ function onLoadCategory(evt) {
                         height="241"
                         width="332"
                         />
+                        </div>
                         </div>`;
                      return;
                 }    
             
                 refs.booksPart.innerHTML =
-                    `<h1 class="books-part-title">Best Sellers
-                <span class="books-part-title-span"> Books</span>
-                </h1>
-                <div class="book-categories-container">
-                ${createBooksCategoriesCardsMarkup(categories)}
-                </div>`;                
+                    `<h2 class="books-part-title">Best Sellers
+                    <span class="books-part-title-span"> Books</span>
+                    </h2>
+                    <div class="book-categories-container">
+                    ${createBooksCategoriesCardsMarkup(categories)}
+                    </div>`;                
             }
             )
             .catch((err) => {
@@ -84,18 +86,20 @@ function onLoadCategory(evt) {
         .then(books => {
             if (!books || books.length === 0) {
                 refs.booksPart.innerHTML = 
-                `${createBooksCaregoryTitle(categoryName)}
-                <div class="book-category-wrapper">
-                <p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
-                <img
-                class="books-not-found-img"
-                srcset="./img/empty-bin@1x.png 1x, ./img/empty-bin@2x.png 2x"
-                src="./img/empty-bin@1x.png"
-                alt="Books not found"
-                height="241"
-                width="332"
-                />                                
-                </div>`
+                    `${createBooksCaregoryTitle(categoryName)}
+                    <div class="book-category-wrapper">
+                    <div class="books-not-found-wrapper">
+                    <p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
+                    <img
+                    class="books-not-found-img"
+                    srcset="./img/empty-bin@1x.png 1x, ./img/empty-bin@2x.png 2x"
+                    src="./img/empty-bin@1x.png"
+                    alt="Books not found"
+                    height="241"
+                    width="332"
+                    />
+                    </div>                                
+                    </div>`
                 return;
             }
             refs.booksPart.innerHTML = 
@@ -127,7 +131,7 @@ function createBooksCaregoryTitle(categoryName) {
     const categoryNameArr = categoryName.split(' ');
     const categoryTitleSpan = categoryNameArr.pop();
     const mainCategoryTitlePart = categoryNameArr.join(' ');
-    return `<h1 class="books-part-title">${mainCategoryTitlePart} <span class="books-part-title-span">${categoryTitleSpan}</span></h1>`
+    return `<h2 class="books-part-title">${mainCategoryTitlePart} <span class="books-part-title-span">${categoryTitleSpan}</span></h2>`
 };
 
 function createBooksInCategoryMarkup(books) {
