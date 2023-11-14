@@ -8,11 +8,7 @@ import booksNotFound_2x from '../../img/shopping-list/empty-bin@2x.png';
 
 Notify.init({
     width: '300px',
-<<<<<<< Updated upstream
     position: 'center-center',
-=======
-    position: 'center-top',
->>>>>>> Stashed changes
     fontSize: '16px',
     fontFamily: 'DM Sans',
     showOnlyTheLastOne: true,
