@@ -3,6 +3,9 @@ import { getAllCategories, getTopBooks, getCategoryId } from "../api/api";
 import { createBooksCategoriesCardsMarkup } from "./booklist"
 import { refs } from "../refs/refs";
 
+import booksNotFound_1x from '../../img/empty-img@1x.png';
+import booksNotFound_2x from '../../img/empty-img@2x.png';
+
 // Notify.init({
 //     width: '300px',
 //     position: 'center-top',
@@ -33,19 +36,25 @@ function onLoadCategory(evt) {
     if (evt.target.nodeName !== "LI") {
         return;
     }
-
-    window.scrollTo(0, 0);
-
+    
     const curr = evt.target;
+
+    if (curr.classList.contains('active')) {
+        console.log('Repeat click on acrive category - No GET request - Just return');
+        return
+    }  
+    
+    window.scrollTo(0, 0);
+    
     curr.parentElement.querySelector('.categories-list-item.active').classList.remove('active');
     curr.classList.add('active');
 
     const categoryName = evt.target.dataset.categoryName;
         
-    if (categoryName === 'All categories') {
+    if (categoryName === 'All categories') {        
         getTopBooks()
             .then(categories => {
-                 if (!categories || categories.length === 0) {                      
+                //  if (!categories || categories.length === 0) {                      
                      refs.booksPart.innerHTML =
                         `<h2 class="books-part-title">Best Sellers
                         <span class="books-part-title-span"> Books</span>
@@ -55,24 +64,24 @@ function onLoadCategory(evt) {
                         <p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
                         <img
                         class="books-not-found-img"
-                        srcset="./img/empty-bin@1x.png 1x, ./img/empty-bin@2x.png 2x"
-                        src="./img/empty-bin@1x.png"
+                        srcset="${booksNotFound_1x} 1x, ${booksNotFound_2x} 2x"
+                        src="${booksNotFound_1x}"
                         alt="Books not found"
                         height="241"
                         width="332"
                         />
                         </div>
                         </div>`;
-                     return;
-                }    
+                //      return;
+                // }    
             
-                refs.booksPart.innerHTML =
-                    `<h2 class="books-part-title">Best Sellers
-                    <span class="books-part-title-span"> Books</span>
-                    </h2>
-                    <div class="book-categories-container">
-                    ${createBooksCategoriesCardsMarkup(categories)}
-                    </div>`;                
+                // refs.booksPart.innerHTML =
+                //     `<h2 class="books-part-title">Best Sellers
+                //     <span class="books-part-title-span"> Books</span>
+                //     </h2>
+                //     <div class="book-categories-container">
+                //     ${createBooksCategoriesCardsMarkup(categories)}
+                //     </div>`;                
             }
             )
             .catch((err) => {
