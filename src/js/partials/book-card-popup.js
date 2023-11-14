@@ -32,9 +32,7 @@ function callPopupWindow(evt) {
   if (evt.target === evt.currentTarget) {
     return;
   }
-
   evt.preventDefault();
-
   refs.popupEl.parentNode.classList.toggle('is-hidden');
   refs.body.classList.toggle('popup-modal-open');
   const id =
