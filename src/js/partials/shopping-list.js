@@ -122,11 +122,11 @@ shoppingList.addEventListener('click', onClick);
 
 // Обробник події видалення книги
 function onClick(event) {
-  if (
-    event.target.classList.contains('delete-book') ||
-    event.target.classList.contains('trash-delete')
-  ) {
-    const listItem = event.target.closest('.shopping-item');
+  const deleteButton = event.target.closest('.delete-book');
+
+  if (deleteButton) {
+    const listItem = deleteButton.closest('.shopping-item');
+
     if (listItem) {
       const itemId = listItem.id;
       shoppingList.removeChild(listItem);
