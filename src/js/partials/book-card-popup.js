@@ -112,10 +112,10 @@ function createMarkup({
             <p class="popup-book-author">${author}</p>
             <p class="popup-book-description">${description}</p>
               <div class="popup-links">
-                <a href="${amazon = '../../img/modal-shop/amazon.png'}" target="_blank">
+                <a href="${amazon.url}" target="_blank">
                   <img class="popup-link-img" src="${amazonimg}" alt="link to amazon" />
                 </a>
-                <a href="${apple = '../../img/modal-shop/apple-books.png'}" target="_blank">
+                <a href="${apple.url}" target="_blank">
                   <img class="popup-link-img" src="${appleimg}" alt="link to apple books" />
                 </a>
               </div>
