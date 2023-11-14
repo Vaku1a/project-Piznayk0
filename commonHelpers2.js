@@ -1,4 +1,4 @@
-import"./assets/sign-in-3895db2b.js";import{P as g}from"./assets/vendor-c1cf73b3.js";const a=JSON.parse(localStorage.getItem("bookList"))||[],i=3,r=a.length>i,m={totalItems:a.length,itemsPerPage:i,visiblePages:4,page:1};r&&new g("pagination",m).on("afterMove",s=>{const n=s.page;console.log(s);const e=(n-1)*i,c=e+i;p(e,c)});const d=new g("pagination",m),l=document.querySelector(".shopping-list");function p(t,s){const e=a.slice(t,s).map(o=>`
+import"./assets/sign-in-c985d0e5.js";import{P as g}from"./assets/vendor-01ef8b03.js";const a=JSON.parse(localStorage.getItem("bookList"))||[],i=3,r=a.length>i,m={totalItems:a.length,itemsPerPage:i,visiblePages:4,page:1};r&&new g("pagination",m).on("afterMove",s=>{const n=s.page;console.log(s);const e=(n-1)*i,c=e+i;p(e,c)});const d=new g("pagination",m),l=document.querySelector(".shopping-list");function p(t,s){const e=a.slice(t,s).map(o=>`
       <li class="shopping-item" id="${o._id}">
         <div class="shopping-card">
           <div class="shopping-image">
