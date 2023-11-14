@@ -1,4 +1,4 @@
-import"./assets/sign-in-0b001ff7.js";import{P as c}from"./assets/vendor-c1cf73b3.js";const a=JSON.parse(localStorage.getItem("bookList"))||[],n=4,g={totalItems:a.length,itemsPerPage:n,visiblePages:4,page:1},r=new c("pagination",g),p=document.querySelector(".shopping-list");function l(s,t){const o=a.slice(s,t).map(e=>`
+import"./assets/sign-in-3895db2b.js";import{P as c}from"./assets/vendor-c1cf73b3.js";const a=JSON.parse(localStorage.getItem("bookList"))||[],n=4,g={totalItems:a.length,itemsPerPage:n,visiblePages:4,page:1},r=new c("pagination",g),p=document.querySelector(".shopping-list");function l(s,t){const o=a.slice(s,t).map(e=>`
       <li class="shopping-item" id="${e._id}">
         <div class="shopping-card">
           <div class="shopping-image">
