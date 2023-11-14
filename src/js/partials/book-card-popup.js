@@ -13,6 +13,7 @@ refs.booksPart.addEventListener('click', callPopupWindow);
 refs.popupEl.firstElementChild.addEventListener('click', onOffBtn);
 
 refs.popupEl.parentNode.addEventListener('click', onOff);
+
 document.addEventListener('keydown', onOff);
 
 function onOff(evt) {
@@ -121,10 +122,12 @@ function createMarkup({
             <p class="popup-book-author">${author}</p>
             <p class="popup-book-description">${description}</p>
               <div class="popup-links">
-                <a href="${amazon = '../../img/modal-shop/amazon.png'}" target="_blank">
+                <a href="${(amazon =
+                  '../../img/modal-shop/amazon.png')}" target="_blank">
                   <img class="popup-link-img" src="${amazonimg}" alt="link to amazon" />
                 </a>
-                <a href="${apple = '../../img/modal-shop/apple-books.png'}" target="_blank">
+                <a href="${(apple =
+                  '../../img/modal-shop/apple-books.png')}" target="_blank">
                   <img class="popup-link-img" src="${appleimg}" alt="link to apple books" />
                 </a>
               </div>
