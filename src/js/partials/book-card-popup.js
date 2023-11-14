@@ -32,17 +32,17 @@ function onOffBtn(evt) {
 
 // виклик вікна
 function callPopupWindow(evt) {
-  if (evt.target === evt.currentTarget) {
+  if (
+    !evt.target.closest('LI') === evt.target.closest('.book-cards-list-item') ||
+    evt.target.closest('LI') === null
+  ) {
     return;
   }
-
   evt.preventDefault();
-
   refs.popupEl.parentNode.classList.toggle('is-hidden');
   refs.body.classList.toggle('popup-modal-open');
-  const id =
-    evt.target.closest('LI').dataset.bookId ||
-    evt.target.parentNode.dataset.bookId;
+  const id = evt.target.closest('LI').dataset.bookId; //||
+  // evt.target.parentNode.dataset.bookId;
 
   getBooksId(id).then(data => {
     newBook = data;
@@ -104,8 +104,7 @@ async function checkingBookList(data) {
     console.log(error.message);
   }
 }
-// console.log(refs.popupEl.firstElementChild.nextElementSibling);
-// console.log(refs.popupBookCardEl);
+
 function addBookMarkup(markup) {
   refs.popupEl.firstElementChild.nextElementSibling.innerHTML = markup;
 }
