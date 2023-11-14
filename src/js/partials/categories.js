@@ -54,7 +54,7 @@ function onLoadCategory(evt) {
     if (categoryName === 'All categories') {        
         getTopBooks()
             .then(categories => {
-                //  if (!categories || categories.length === 0) {                      
+                 if (categories.length === 0) {                      
                      refs.booksPart.innerHTML =
                         `<h2 class="books-part-title">Best Sellers
                         <span class="books-part-title-span"> Books</span>
@@ -72,16 +72,16 @@ function onLoadCategory(evt) {
                         />
                         </div>
                         </div>`;
-                //      return;
-                // }    
+                     return;
+                }    
             
-                // refs.booksPart.innerHTML =
-                //     `<h2 class="books-part-title">Best Sellers
-                //     <span class="books-part-title-span"> Books</span>
-                //     </h2>
-                //     <div class="book-categories-container">
-                //     ${createBooksCategoriesCardsMarkup(categories)}
-                //     </div>`;                
+                refs.booksPart.innerHTML =
+                    `<h2 class="books-part-title">Best Sellers
+                    <span class="books-part-title-span"> Books</span>
+                    </h2>
+                    <div class="book-categories-container">
+                    ${createBooksCategoriesCardsMarkup(categories)}
+                    </div>`;                
             }
             )
             .catch((err) => {
@@ -93,7 +93,7 @@ function onLoadCategory(evt) {
            
     getCategoryId(categoryName)
         .then(books => {
-            if (!books || books.length === 0) {
+            if (books.length === 0) {
                 refs.booksPart.innerHTML = 
                     `${createBooksCaregoryTitle(categoryName)}
                     <div class="book-category-wrapper">
