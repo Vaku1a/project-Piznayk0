@@ -7,11 +7,21 @@ let newBook = {};
 // const popupEl = document.querySelector('.popup');
 refs.booksPart.addEventListener('click', callPopupWindow);
 
-refs.popupEl.firstElementChild.addEventListener('click', onOff);
+refs.popupEl.firstElementChild.addEventListener('click', onOffBtn);
+
 refs.popupEl.parentNode.addEventListener('click', onOff);
 document.addEventListener('keydown', onOff);
+
 function onOff(evt) {
   if (evt.target === evt.currentTarget || evt.key === 'Escape') {
+    refs.popupEl.parentNode.classList.toggle('is-hidden');
+    refs.body.classList.toggle('popup-modal-open');
+  }
+}
+function onOffBtn(evt) {
+  if (
+    evt.target.closest('.popup-btn-close') === refs.popupEl.firstElementChild
+  ) {
     refs.popupEl.parentNode.classList.toggle('is-hidden');
     refs.body.classList.toggle('popup-modal-open');
   }
@@ -104,6 +114,7 @@ function createMarkup({
   buy_links: [amazon, apple],
 }) {
   const markup = `<img src="${book_image}" class="popup-image" />
+            <div class ="info-book">
             <h2 class="popup-book-title">${title}</h2>
             <p class="popup-book-author">${author}</p>
             <p class="popup-book-description">${description}</p>
@@ -114,6 +125,7 @@ function createMarkup({
                 <a href="${apple.url}" target="_blank"><img class="popup-link-img"  src="./img/modal-shop/apple-books@1x.png"
                         srcset="./img/modal-shop/apple-books@1x.png, ./img/modal-shop/apple-books@2x.png"
                         alt="link to apple books" /></a>
+            </div>
             </div>
             `;
 
