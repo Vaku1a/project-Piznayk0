@@ -8,7 +8,7 @@ import booksNotFound_2x from '../../img/shopping-list/empty-bin@2x.png';
 
 // Notify.init({
 //     width: '300px',
-//     position: 'center-top',
+//     position: 'center-center',
 //     fontSize: '16px',
 //     fontFamily: 'DM Sans',
 //     showOnlyTheLastOne: true,
