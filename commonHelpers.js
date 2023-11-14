@@ -1,4 +1,4 @@
-import{g as h,r as e,a as E,b as B,c as L}from"./assets/sign-in-3895db2b.js";import"./assets/vendor-c1cf73b3.js";const r="/project-Piznayk0/assets/empty-bin@1x-a278a77f.png",p="/project-Piznayk0/assets/empty-bin@2x-1268a808.png";h().then(o=>{if(o.length===0){e.booksPart.insertAdjacentHTML("afterbegin",`<div class="books-not-found-wrapper">
+import{g as h,r as e,e as r,a as p,b as E,c as B,d as L}from"./assets/sign-in-ebfc0d37.js";import"./assets/vendor-c1cf73b3.js";h().then(o=>{if(o.length===0){e.booksPart.insertAdjacentHTML("afterbegin",`<div class="books-not-found-wrapper">
                 <p class="books-not-found-message">No books found😒<br> Try other categories😉</p>
                 <img
                 class="books-not-found-img"
@@ -101,5 +101,5 @@ import{g as h,r as e,a as E,b as B,c as L}from"./assets/sign-in-3895db2b.js";imp
                 </a>
               </div>
             </div>
-            `}async function m(){try{const o=await u(c).then(t=>t||[]).catch(t=>{console.log(t.message)});o.push(i),v(c,o),k(i)}catch(o){console.log(o.message)}}async function A(){try{const t=(await u(c)).filter(a=>a._id!==i._id);v(c,t),k(i)}catch(o){console.log(o.message)}}window.onscroll=()=>{j()};function j(){document.body.scrollTop>20||document.documentElement.scrollTop>20?document.getElementById("back-to-up").classList.remove("is-hidden"):document.getElementById("back-to-up").classList.add("is-hidden")}(()=>{function o(){window.scrollTo({top:0,behavior:"smooth"})}document.querySelector("#back-to-up").addEventListener("click",o)})();
+            `}async function m(){try{const o=await u(c).then(t=>t||[]).catch(t=>{console.log(t.message)});o.push(i),v(c,o),k(i)}catch(o){console.log(o.message)}}async function A(){try{const t=(await u(c)).filter(a=>a._id!==i._id);v(c,t),k(i)}catch(o){console.log(o.message)}}window.onscroll=()=>{R()};function R(){document.body.scrollTop>20||document.documentElement.scrollTop>20?document.getElementById("back-to-up").classList.remove("is-hidden"):document.getElementById("back-to-up").classList.add("is-hidden")}(()=>{function o(){window.scrollTo({top:0,behavior:"smooth"})}document.querySelector("#back-to-up").addEventListener("click",o)})();
 //# sourceMappingURL=commonHelpers.js.map
