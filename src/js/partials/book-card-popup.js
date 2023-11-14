@@ -7,11 +7,21 @@ let newBook = {};
 // const popupEl = document.querySelector('.popup');
 refs.booksPart.addEventListener('click', callPopupWindow);
 
-refs.popupEl.firstElementChild.addEventListener('click', onOff);
+refs.popupEl.firstElementChild.addEventListener('click', onOffBtn);
+
 refs.popupEl.parentNode.addEventListener('click', onOff);
 document.addEventListener('keydown', onOff);
+
 function onOff(evt) {
   if (evt.target === evt.currentTarget || evt.key === 'Escape') {
+    refs.popupEl.parentNode.classList.toggle('is-hidden');
+    refs.body.classList.toggle('popup-modal-open');
+  }
+}
+function onOffBtn(evt) {
+  if (
+    evt.target.closest('.popup-btn-close') === refs.popupEl.firstElementChild
+  ) {
     refs.popupEl.parentNode.classList.toggle('is-hidden');
     refs.body.classList.toggle('popup-modal-open');
   }
