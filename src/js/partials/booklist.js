@@ -3,6 +3,9 @@ import { getTopBooks, getCategoryId } from "../api/api";
 import { createBooksCaregoryTitle, createBooksInCategoryMarkup } from "./categories";
 import { refs } from "../refs/refs";
 
+import booksNotFound_1x from '../../img/shopping-list/empty-bin@1x.png';
+import booksNotFound_2x from '../../img/shopping-list/empty-bin@2x.png';
+
 // Notify.init({
 //     width: '300px',
 //     position: 'center-top',
@@ -20,14 +23,14 @@ import { refs } from "../refs/refs";
 
 getTopBooks()
     .then(categories => {        
-        if (!categories || categories.length === 0) {
+        if (categories.length === 0) {
             refs.booksPart.insertAdjacentHTML('afterbegin',
                 `<div class="books-not-found-wrapper">
-                <p class="books-not-found-message">No books were found😒<br> Please, reload the page or try later😉</p>
+                <p class="books-not-found-message">No books found😒<br> Try other categories😉</p>
                 <img
                 class="books-not-found-img"
-                srcset="../img/empty-bin@1x.png 1x, ../img/empty-bin@2x.png 2x"
-                src="../img/empty-bin@1x.png"
+                srcset="${booksNotFound_1x} 1x, ${booksNotFound_2x} 2x"
+                src="${booksNotFound_1x}"
                 alt="Books not found"
                 height="241"
                 width="332"
@@ -66,16 +69,16 @@ function onSeeMoreBtn(evt) {
     
     getCategoryId(categoryName)
         .then(books => {
-            if (!books || books.length === 0) {
+            if (books.length === 0) {
                 refs.booksPart.innerHTML = 
                 `${createBooksCaregoryTitle(categoryName)}
                 <div class="book-category-wrapper">
                 <div class="books-not-found-wrapper">
-                <p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
+                <p class="books-not-found-message">No books found😒<br> Try other categories😉</p>
                 <img
                 class="books-not-found-img"
-                srcset="./img/empty-bin@1x.png 1x, ./img/empty-bin@2x.png 2x"
-                src="./img/empty-bin@1x.png"
+                srcset="${booksNotFound_1x} 1x, ${booksNotFound_2x} 2x"
+                src="${booksNotFound_1x}"
                 alt="Books not found"
                 height="241"
                 width="332"
