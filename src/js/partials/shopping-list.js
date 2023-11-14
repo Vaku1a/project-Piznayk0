@@ -1,11 +1,17 @@
+// Імпортуємо компонент Pagination та стилі для нього
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-// Initialize fromLocalStr at the beginning
+// Отримуємо дані з локального сховища або створюємо порожній масив
 const fromLocalStr = JSON.parse(localStorage.getItem('bookList')) || [];
 
-const itemsPerPage = 4; // Number of items to display per page
+// Кількість елементів на сторінці
+const itemsPerPage = 3;
 
+// Перевіряємо чи потрібно відображати пагінацію
+const showPagination = fromLocalStr.length > itemsPerPage;
+
+// Опції для пагінації
 const options = {
   totalItems: fromLocalStr.length,
   itemsPerPage: itemsPerPage,
@@ -13,13 +19,33 @@ const options = {
   page: 1,
 };
 
+// Якщо пагінація потрібна, створюємо об'єкт Pagination
+if (showPagination) {
+  const pagination = new Pagination('pagination', options);
+
+  // Додаємо обробник події після переміщення по сторінках пагінації
+  pagination.on('afterMove', event => {
+    const currentPage = event.page;
+    console.log(event)
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+
+    // Рендеримо книги для поточної сторінки
+    renderBooks(startIndex, endIndex);
+  });
+}
+
+// Створюємо об'єкт Pagination для випадку, коли пагінація не потрібна (щоб не було помилок)
 const pagination = new Pagination('pagination', options);
 
+// Елемент, в якому будуть відображені книги
 const shoppingList = document.querySelector('.shopping-list');
 
+// Функція для рендерингу книг для поточної сторінки
 function renderBooks(startIndex, endIndex) {
   const booksToRender = fromLocalStr.slice(startIndex, endIndex);
 
+  // Генеруємо HTML для кожної книги
   const bookCardsHTML = booksToRender
     .map(
       book => `
@@ -40,32 +66,56 @@ function renderBooks(startIndex, endIndex) {
             </svg>
           </button>
           <div class="extra-logo">
-            <img class="amazon" src="./img/shopping-list/amazon.svg" alt="amazon" />
-            <img class="apple" src="./img/shopping-list/apple-books.svg" alt="apple" />
+ ${generateBuyLinks(book.buy_links)}
           </div>
         </div>
       </li>
 
     `
     )
-    .join('');
+     .join('');
 
+  // Змінюємо стилі для заголовка
+  const h1Element = document.querySelector('.shopping-title');
+  h1Element.style.paddingBottom = '40px';
+
+  // Вставляємо HTML з книгами в елемент
   shoppingList.innerHTML = bookCardsHTML;
 }
 
+// Функція для генерації посилань на придбання книги
+function generateBuyLinks(buyLinks) {
+  const amazonLink = buyLinks.find(link => link.name === 'Amazon');
+  const appleBooksLink = buyLinks.find(link => link.name === 'Apple Books');
+
+  return `
+    <a href="${amazonLink.url}" target="_blank">
+      <img class="amazon" src="./img/shopping-list/amazon.svg" alt="amazon" />
+    </a>
+    <a href="${appleBooksLink.url}" target="_blank">
+      <img class="apple" src="./img/shopping-list/apple-books.svg" alt="apple" />
+    </a>
+  `;
+}
+
+// Додаємо обробник події після переміщення по сторінках пагінації (дублюємо код)
 pagination.on('afterMove', event => {
   const currentPage = event.page;
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
+  // Рендеримо книги для поточної сторінки
   renderBooks(startIndex, endIndex);
 });
 
-// Initial rendering
+// Рендеримо книги для першої сторінки
 renderBooks(0, itemsPerPage);
 
+// Додаємо обробник подій для видалення книг
 shoppingList.addEventListener('click', onClick);
 
+
+// Обробник події видалення книги
 function onClick(event) {
   if (
     event.target.classList.contains('delete-book') ||
@@ -80,19 +130,29 @@ function onClick(event) {
   }
 }
 
+// Функція для видалення книги з локального сховища
 function removeFromLocalStorage(id) {
   const items = JSON.parse(localStorage.getItem('bookList')) || fromLocalStr;
   const updatedItems = items.filter(item => item._id !== id);
   localStorage.setItem('bookList', JSON.stringify(updatedItems));
 }
 
+// Перевіряємо, чи немає книг або чи не потрібна пагінація
+if (fromLocalStr.length === 0 || !showPagination) {
+  // Ховаємо елемент пагінації
+  const paginationElement = document.querySelector('#pagination');
+  paginationElement.style.display = 'none';
+}
+
+// Якщо немає книг, показуємо повідомлення про порожню сторінку
 if (fromLocalStr.length === 0) {
+  // Ховаємо елемент пагінації
+  const paginationElement = document.querySelector('#pagination');
+  paginationElement.style.display = 'none';
+
+  // Генеруємо HTML для порожньої сторінки
   const emptyPageHTML = `
-  <div class="shopping-wrap-none">
       <div class="container-none-card">
-        <h1 class="shopping-title-none">
-          Shopping <span class="shopping-title-span-none">List</span>
-        </h1>
         <p class="shopping-text-none">
           This page is empty, add some books and proceed to order.
         </p>
@@ -107,8 +167,23 @@ if (fromLocalStr.length === 0) {
           alt="empty list"
         />
       </div>
-    </div>
   `;
 
+  // Змінюємо стилі для заголовка в залежності від ширини вікна
+  const h1Element = document.querySelector('.shopping-title');
+  function setH1Element() {
+    if (window.innerWidth >= 768) {
+      h1Element.style.paddingBottom = '140px';
+    } else {
+      h1Element.style.paddingBottom = '120px';
+    }
+  }
+
+  // Запускаємо функцію для встановлення стилів
+  setH1Element();
+  // Слухаємо подію зміни розміру вікна
+  window.addEventListener('resize', setH1Element);
+  
+  // Вставляємо HTML для порожньої сторінки в елемент
   shoppingList.innerHTML = emptyPageHTML;
 }
