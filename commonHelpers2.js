@@ -1,14 +1,14 @@
-import"./assets/sign-in-3895db2b.js";import{P as c}from"./assets/vendor-c1cf73b3.js";const a=JSON.parse(localStorage.getItem("bookList"))||[],n=4,g={totalItems:a.length,itemsPerPage:n,visiblePages:4,page:1},r=new c("pagination",g),p=document.querySelector(".shopping-list");function l(s,t){const o=a.slice(s,t).map(e=>`
-      <li class="shopping-item" id="${e._id}">
+import"./assets/sign-in-3895db2b.js";import{P as g}from"./assets/vendor-c1cf73b3.js";const a=JSON.parse(localStorage.getItem("bookList"))||[],i=3,r=a.length>i,m={totalItems:a.length,itemsPerPage:i,visiblePages:4,page:1};r&&new g("pagination",m).on("afterMove",s=>{const n=s.page;console.log(s);const e=(n-1)*i,c=e+i;p(e,c)});const d=new g("pagination",m),l=document.querySelector(".shopping-list");function p(t,s){const e=a.slice(t,s).map(o=>`
+      <li class="shopping-item" id="${o._id}">
         <div class="shopping-card">
           <div class="shopping-image">
-            <img src="${e.book_image}" alt="${e.title}" class="shopping-image">
+            <img src="${o.book_image}" alt="${o.title}" class="shopping-image">
           </div>
           <div class="shopping-info">
-            <h2 class="book-title">${e.title}</h2>
-            <p class="book-category">${e.publisher}</p>
-            <p class="book-desc">${e.description}</p>
-            <p class="book-author">${e.author}</p>
+            <h2 class="book-title">${o.title}</h2>
+            <p class="book-category">${o.publisher}</p>
+            <p class="book-desc">${o.description}</p>
+            <p class="book-author">${o.author}</p>
           </div>
           <button class="delete-book">
             <svg class="trash-delete">
@@ -16,18 +16,20 @@ import"./assets/sign-in-3895db2b.js";import{P as c}from"./assets/vendor-c1cf73b3
             </svg>
           </button>
           <div class="extra-logo">
-            <img class="amazon" src="./img/shopping-list/amazon.svg" alt="amazon" />
-            <img class="apple" src="./img/shopping-list/apple-books.svg" alt="apple" />
+ ${h(o.buy_links)}
           </div>
         </div>
       </li>
 
-    `).join("");p.innerHTML=o}r.on("afterMove",s=>{const i=(s.page-1)*n,o=i+n;l(i,o)});l(0,n);p.addEventListener("click",m);function m(s){if(s.target.classList.contains("delete-book")||s.target.classList.contains("trash-delete")){const t=s.target.closest(".shopping-item");if(t){const i=t.id;p.removeChild(t),d(i)}}}function d(s){const i=(JSON.parse(localStorage.getItem("bookList"))||a).filter(o=>o._id!==s);localStorage.setItem("bookList",JSON.stringify(i))}if(a.length===0){const s=`
-  <div class="shopping-wrap-none">
+    `).join(""),c=document.querySelector(".shopping-title");c.style.paddingBottom="40px",l.innerHTML=e}function h(t){const s=t.find(e=>e.name==="Amazon"),n=t.find(e=>e.name==="Apple Books");return`
+    <a href="${s.url}" target="_blank">
+      <img class="amazon" src="./img/shopping-list/amazon.svg" alt="amazon" />
+    </a>
+    <a href="${n.url}" target="_blank">
+      <img class="apple" src="./img/shopping-list/apple-books.svg" alt="apple" />
+    </a>
+  `}d.on("afterMove",t=>{const n=(t.page-1)*i,e=n+i;p(n,e)});p(0,i);l.addEventListener("click",u);function u(t){if(t.target.classList.contains("delete-book")||t.target.classList.contains("trash-delete")){const s=t.target.closest(".shopping-item");if(s){const n=s.id;l.removeChild(s),f(n)}}}function f(t){const n=(JSON.parse(localStorage.getItem("bookList"))||a).filter(e=>e._id!==t);localStorage.setItem("bookList",JSON.stringify(n))}if(a.length===0||!r){const t=document.querySelector("#pagination");t.style.display="none"}if(a.length===0){let e=function(){window.innerWidth>=768?n.style.paddingBottom="140px":n.style.paddingBottom="120px"};const t=document.querySelector("#pagination");t.style.display="none";const s=`
       <div class="container-none-card">
-        <h1 class="shopping-title-none">
-          Shopping <span class="shopping-title-span-none">List</span>
-        </h1>
         <p class="shopping-text-none">
           This page is empty, add some books and proceed to order.
         </p>
@@ -42,6 +44,5 @@ import"./assets/sign-in-3895db2b.js";import{P as c}from"./assets/vendor-c1cf73b3
           alt="empty list"
         />
       </div>
-    </div>
-  `;p.innerHTML=s}
+  `,n=document.querySelector(".shopping-title");e(),window.addEventListener("resize",e),l.innerHTML=s}
 //# sourceMappingURL=commonHelpers2.js.map
