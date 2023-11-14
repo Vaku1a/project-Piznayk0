@@ -1,8 +1,8 @@
 import { getBooksId } from '../api/api.js';
 import { refs } from '../refs/refs';
 
-import amazon from '../../img/modal-shop/amazon.png';
-import apple from '../../img/modal-shop/apple-books.png';
+import amazonimg from '../../img/modal-shop/amazon.png';
+import appleimg from '../../img/modal-shop/apple-books.png';
 
 const STORAGE_KEY = 'bookList';
 let newBook = {};
@@ -123,10 +123,10 @@ function createMarkup({
             <p class="popup-book-description">${description}</p>
               <div class="popup-links">
                 <a href="${amazon = '../../img/modal-shop/amazon.png'}" target="_blank">
-                  <img class="popup-link-img" src="${amazon}" alt="link to amazon" />
+                  <img class="popup-link-img" src="${amazonimg}" alt="link to amazon" />
                 </a>
                 <a href="${apple = '../../img/modal-shop/apple-books.png'}" target="_blank">
-                  <img class="popup-link-img" src="${apple}" alt="link to apple books" />
+                  <img class="popup-link-img" src="${appleimg}" alt="link to apple books" />
                 </a>
               </div>
             </div>
