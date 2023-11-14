@@ -33,11 +33,12 @@ getAllCategories()
 refs.categoriesList.addEventListener('click', onLoadCategory);
 
 function onLoadCategory(evt) {
+    refs.loaderForAllCategories.style.display = 'block';
     if (evt.target.nodeName !== "LI") {
         return;
     }
 
-    window.scrollTo(0, 0);
+ 
 
     const curr = evt.target;
     curr.parentElement.querySelector('.categories-list-item.active').classList.remove('active');
