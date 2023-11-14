@@ -1,22 +1,22 @@
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getTopBooks, getCategoryId } from "../api/api";
 import { createBooksCaregoryTitle, createBooksInCategoryMarkup } from "./categories";
 import { refs } from "../refs/refs";
 
-// Notify.init({
-//     width: '300px',
-//     position: 'center-top',
-//     fontSize: '16px',
-//     fontFamily: 'DM Sans',
-//     showOnlyTheLastOne: true,
-//     clickToClose: true,
-//     timeout: 5000,
-//     failure: {
-//         notiflixIconColor: '#111',
-//         background: '#4f2ee8',
-//         textColor: '#fff',
-//     }
-// });
+Notify.init({
+    width: '300px',
+    position: 'center-center',
+    fontSize: '16px',
+    fontFamily: 'DM Sans',
+    showOnlyTheLastOne: true,
+    clickToClose: true,
+    timeout: 5000,
+    failure: {
+        notiflixIconColor: '#111',
+        background: '#4f2ee8',
+        textColor: '#fff',
+    }
+});
 
 getTopBooks()
     .then(categories => {        
@@ -49,7 +49,7 @@ getTopBooks()
     )
     .catch((err) => {
         console.error(err);
-        // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+        Notify.failure('Oops! Something went wrong! Try reloading the page!');
     });
 
 refs.booksPart.addEventListener('click', onSeeMoreBtn);
@@ -66,7 +66,7 @@ function onSeeMoreBtn(evt) {
     
     getCategoryId(categoryName)
         .then(books => {
-            if (!books || books.length === 0) {
+            if (books.length === 0) {
                 refs.booksPart.innerHTML = 
                 `${createBooksCaregoryTitle(categoryName)}
                 <div class="book-category-wrapper">
@@ -96,7 +96,7 @@ function onSeeMoreBtn(evt) {
         })
         .catch((err) => {
             console.error(err);
-            // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+            Notify.failure('Oops! Something went wrong! Try reloading the page!');
         });  
 }
 

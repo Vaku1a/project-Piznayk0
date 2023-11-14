@@ -1,4 +1,4 @@
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getAllCategories, getTopBooks, getCategoryId } from "../api/api";
 import { createBooksCategoriesCardsMarkup } from "./booklist"
 import { refs } from "../refs/refs";
@@ -6,20 +6,20 @@ import { refs } from "../refs/refs";
 import booksNotFound_1x from '../../img/empty-img@1x.png';
 import booksNotFound_2x from '../../img/empty-img@2x.png';
 
-// Notify.init({
-//     width: '300px',
-//     position: 'center-top',
-//     fontSize: '16px',
-//     fontFamily: 'DM Sans',
-//     showOnlyTheLastOne: true,
-//     clickToClose: true,
-//     timeout: 5000,
-//     failure: {
-//         notiflixIconColor: '#111',
-//         background: '#4f2ee8',
-//         textColor: '#fff',
-//     }
-// });
+Notify.init({
+    width: '300px',
+    position: 'center-center',
+    fontSize: '16px',
+    fontFamily: 'DM Sans',
+    showOnlyTheLastOne: true,
+    clickToClose: true,
+    timeout: 5000,
+    failure: {
+        notiflixIconColor: '#111',
+        background: '#4f2ee8',
+        textColor: '#fff',
+    }
+});
 
 getAllCategories()
     .then(categories => {
@@ -27,7 +27,7 @@ getAllCategories()
     })
     .catch((err) => {
         console.error(err);
-        // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+        Notify.failure('Oops! Something went wrong! Try reloading the page!');
     });
 
 refs.categoriesList.addEventListener('click', onLoadCategory);
@@ -54,7 +54,7 @@ function onLoadCategory(evt) {
     if (categoryName === 'All categories') {        
         getTopBooks()
             .then(categories => {
-                //  if (!categories || categories.length === 0) {                      
+                 if (categories.length === 0) {                      
                      refs.booksPart.innerHTML =
                         `<h2 class="books-part-title">Best Sellers
                         <span class="books-part-title-span"> Books</span>
@@ -72,28 +72,28 @@ function onLoadCategory(evt) {
                         />
                         </div>
                         </div>`;
-                //      return;
-                // }    
+                     return;
+                }    
             
-                // refs.booksPart.innerHTML =
-                //     `<h2 class="books-part-title">Best Sellers
-                //     <span class="books-part-title-span"> Books</span>
-                //     </h2>
-                //     <div class="book-categories-container">
-                //     ${createBooksCategoriesCardsMarkup(categories)}
-                //     </div>`;                
+                refs.booksPart.innerHTML =
+                    `<h2 class="books-part-title">Best Sellers
+                    <span class="books-part-title-span"> Books</span>
+                    </h2>
+                    <div class="book-categories-container">
+                    ${createBooksCategoriesCardsMarkup(categories)}
+                    </div>`;                
             }
             )
             .catch((err) => {
                 console.error(err);
-                // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+                Notify.failure('Oops! Something went wrong! Try reloading the page!');
             });
         return;
     }     
            
     getCategoryId(categoryName)
         .then(books => {
-            if (!books || books.length === 0) {
+            if (books.length === 0) {
                 refs.booksPart.innerHTML = 
                     `${createBooksCaregoryTitle(categoryName)}
                     <div class="book-category-wrapper">
@@ -123,7 +123,7 @@ function onLoadCategory(evt) {
         })
         .catch((err) => {
             console.error(err);
-            // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+            Notify.failure('Oops! Something went wrong! Try reloading the page!');
         });          
 };
 
