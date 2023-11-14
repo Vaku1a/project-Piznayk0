@@ -33,10 +33,16 @@ function onLoadCategory(evt) {
     if (evt.target.nodeName !== "LI") {
         return;
     }
-
-    window.scrollTo(0, 0);
-
+    
     const curr = evt.target;
+
+    if (curr.classList.contains('active')) {
+        console.log('Repeat click on acrive category - No GET request - Just return');
+        return
+    }  
+    
+    window.scrollTo(0, 0);
+    
     curr.parentElement.querySelector('.categories-list-item.active').classList.remove('active');
     curr.classList.add('active');
 
