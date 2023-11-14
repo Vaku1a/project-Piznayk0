@@ -93,10 +93,10 @@ import{g as h,r as e,e as r,a as p,b as E,c as B,d as L}from"./assets/sign-in-eb
             <p class="popup-book-author">${a}</p>
             <p class="popup-book-description">${s}</p>
               <div class="popup-links">
-                <a href="${n="../../img/modal-shop/amazon.png"}" target="_blank">
+                <a href="${n.url}" target="_blank">
                   <img class="popup-link-img" src="${w}" alt="link to amazon" />
                 </a>
-                <a href="${l="../../img/modal-shop/apple-books.png"}" target="_blank">
+                <a href="${l.url}" target="_blank">
                   <img class="popup-link-img" src="${I}" alt="link to apple books" />
                 </a>
               </div>
