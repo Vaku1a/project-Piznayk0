@@ -12,7 +12,7 @@
   margin-right: auto;
 }
 
-.shopping-titile {
+.shopping-title {
   color: var(--black-cl);
   font-family: DM Sans;
   font-style: normal;
@@ -20,9 +20,26 @@
   letter-spacing: -1.28px;
   font-size: 32px;
   line-height: 38px;
+  margin-top: 40px;
 }
 
+.trash-delete {
+width: 16px;
+height: 16px;
+}
+
+
 @media screen and (min-width: 768px) {
+.trash-delete {
+    width: 18px;
+    height: 18px;
+  }
+
+.shopping-title {
+  font-size: 48px;
+  line-height: 52px;
+}
+
   .section {
     padding-top: 64px;
     padding-bottom: 64px;
@@ -32,10 +49,6 @@
     max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
-  }
-  .shopping-titile {
-    font-size: 48px;
-    line-height: 52px;
   }
 }
 
@@ -64,14 +77,13 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: 40px;
 }
 
 .shopping-card {
   position: relative;
   display: flex;
   column-gap: 14px;
-  width: 100%;
+  max-width: 335px;
   height: 170px;
   padding: 14px;
   border-radius: 16px;
@@ -170,6 +182,10 @@
   height: 11px;
   filter: grayscale(100%);
 }
+.amazon:hover {
+  cursor: pointer;
+  filter: grayscale(100%) drop-shadow(0 1mm 1mm rgb(192, 192, 192));
+}
 
 .apple {
   width: 16px;
@@ -177,9 +193,15 @@
   filter: grayscale(100%);
 }
 
+.apple:hover {
+  cursor: pointer;
+  filter: drop-shadow(0 1mm 1mm rgb(192, 192, 192));
+}
+
 /* TABLET */
 @media screen and (min-width: 768px) {
   .shopping-card {
+    max-width: 704px;
     height: 213px;
     padding: 24px;
   }
@@ -227,6 +249,9 @@
 
 /* DESCKTOP */
 @media screen and (min-width: 1280px) {
+  .shopping-card{
+    min-width: 996px;
+  }
   .shopping-section {
     display: flex;
     column-gap: 40px;
@@ -247,10 +272,6 @@
 }
 
 /*! ПОРОЖНЯ СТОРІНКА */
-
-/* */
-
-/* Загальний контейнер в якому текст і картинка */
 @media screen and (min-width: 1280px) {
   .shopping-section-none {
     display: flex;
@@ -272,9 +293,6 @@
     min-width: 1020px;
   }
 
-  .shopping-titile-none {
-    align-self: flex-start;
-  }
 }
 
 .container-none-card {
@@ -328,8 +346,8 @@
   font-weight: 700;
   line-height: 1.18;
   letter-spacing: -1.28px;
-  margin-bottom: 120px;
   align-self: flex-start;
+  margin-top: 40px;
 }
 
 .shopping-title-span-none {
@@ -339,11 +357,6 @@
 /* заголовок */
 
 @media screen and (min-width: 768px) {
-  .shopping-titile-none {
-    font-size: 48px;
-    line-height: 52px;
-  }
-
   .image-small {
     display: none;
   }
@@ -368,6 +381,92 @@
     letter-spacing: -0.36px;
     margin-bottom: 20px;
   }
-
-  /* текст */
+/* текст */
+  
 }
+
+
+/* ..::PAGINATION::.. */
+
+.tui-pagination{
+margin-top: 40px !important;
+margin-bottom: 40px !important;
+}
+
+.tui-pagination .tui-page-btn{
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  transition: transform 0.2s;
+}
+
+.tui-pagination .tui-page-btn:hover {
+  transform: scale(1.1);
+}
+
+.tui-page-btn {
+border-radius: 50%;
+min-width: 38px;
+  min-height: 38px;
+  margin-right: 10px !important;
+  line-height: 22px !important;
+  border: 1px solid #000 !important;
+}
+
+/* arrows << < > >> */
+.tui-is-disabled {
+  border-radius: 50%;
+}
+
+/* arrow left  styles*/
+.tui-first{
+  color: var(--white-cl);
+  background-color: var(--black-cl);
+  margin-right: 8px !important;
+}
+.tui-prev{
+  color: var(--white-cl);
+background-color: var(--black-cl);
+    margin-right: 24px !important;
+}
+
+.tui-ico-first{
+  background-position: -13px 0px !important;
+}
+
+.tui-ico-prev {
+background-position: -26px -12px !important;
+}
+
+/* button page */
+.tui-is-selected{
+background-color: var(--black-cl)!important;
+}
+
+
+/* arrow right  styles*/
+.tui-next{
+margin-left: 14px!important;
+margin-right: 8px!important;
+background-color: var(--yellow-cl);
+}
+.tui-last{
+background-color: var(--yellow-cl);
+}
+
+.tui-ico-next{
+  background-position: -13px -24px !important;
+}
+.tui-ico-last{
+  background-position: 0px -12px !important;
+}
+
+@media screen and (min-width: 768px){
+.tui-page-btn{
+  min-width: 44px;
+    min-height: 44px;
+}
+}
+/* END PAGINATION */
