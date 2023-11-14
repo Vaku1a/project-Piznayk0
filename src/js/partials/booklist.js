@@ -25,18 +25,8 @@ getTopBooks()
     .then(categories => {        
         if (categories.length === 0) {
             refs.booksPart.insertAdjacentHTML('afterbegin',
-                `<div class="books-not-found-wrapper">
-                <p class="books-not-found-message">No books found😒<br> Try other categories😉</p>
-                <img
-                class="books-not-found-img"
-                srcset="${booksNotFound_1x} 1x, ${booksNotFound_2x} 2x"
-                src="${booksNotFound_1x}"
-                alt="Books not found"
-                height="241"
-                width="332"
-                />
-                </div>`
-            );
+                `${booksNotFoundWrapperMarkup}`
+             );
             return;
         }
         
@@ -66,24 +56,31 @@ function onSeeMoreBtn(evt) {
 
     const btn = evt.target;
     const categoryName = btn.parentElement.querySelector('.book-category-title').textContent;
-    
+    const categoriesListItems = [...document.querySelectorAll('.categories-list-item')];
+        
+    categoriesListItems.find(category => {
+        if (category.classList.contains('active')) {
+            category.classList.remove('active');
+        }
+    }
+    );
+
+    categoriesListItems.find(category => {
+        if (category.textContent === categoryName) {
+            category.classList.add('active');
+            console.log(categoriesListItems.find(category => category.textContent === categoryName));
+            // refs.categoriesList.scrollIntoView(categoriesListItems.find(category => category.textContent === categoryName));
+        }
+    }
+    );
+
     getCategoryId(categoryName)
         .then(books => {
             if (books.length === 0) {
                 refs.booksPart.innerHTML = 
                 `${createBooksCaregoryTitle(categoryName)}
                 <div class="book-category-wrapper">
-                <div class="books-not-found-wrapper">
-                <p class="books-not-found-message">No books found😒<br> Try other categories😉</p>
-                <img
-                class="books-not-found-img"
-                srcset="${booksNotFound_1x} 1x, ${booksNotFound_2x} 2x"
-                src="${booksNotFound_1x}"
-                alt="Books not found"
-                height="241"
-                width="332"
-                />
-                </div>                                
+                ${booksNotFoundWrapperMarkup}                                
                 </div>`
                 return;
             }
@@ -115,4 +112,17 @@ function createBooksCategoriesCardsMarkup(categories) {
     }).join('');
 };
 
-export { createBooksCategoriesCardsMarkup };
+const booksNotFoundWrapperMarkup = `
+<div class="books-not-found-wrapper">
+<p class="books-not-found-message">No books found😒<br> Try other categories😉</p>
+<img
+class="books-not-found-img"
+srcset="${booksNotFound_1x} 1x, ${booksNotFound_2x} 2x"
+src="${booksNotFound_1x}"
+alt="Books not found"
+height="241"
+width="332"
+/>
+</div>`;
+
+export { createBooksCategoriesCardsMarkup, booksNotFoundWrapperMarkup };
