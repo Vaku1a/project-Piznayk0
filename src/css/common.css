@@ -11,7 +11,7 @@ body {
   max-width: 375px;
   margin: 0 auto;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 104px;
   padding: 0 20px;
 }
 
@@ -20,6 +20,7 @@ body {
     max-width: 768px;
     padding: 0 32px;
     display: flex;
+    margin-top: 114px;
     justify-content: space-between; 
   }
 }

@@ -4,10 +4,13 @@
   height: 64px;
   border-radius: 0px 0px 8px 8px;
   border: 1.5px solid var(--black-cl);
-  max-width: 375px;
   margin: 0 auto;
   background-color: var(--white-cl);
-  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 6000;
+  min-width: 320px;
+  width: 100%;
 }
 .header-container{
   display: flex;
@@ -15,6 +18,8 @@
   height: 64px;
   position: relative;
   padding: 0 20px 0 20px;
+  max-width: 375px;
+  margin: 0 auto;
 }
 .header-logo-dark{
   display: none;
@@ -276,6 +281,8 @@ fill: var(--black-cl)
   stroke: var(--white-cl);
 }
 
+
+
 @media only screen and (min-width: 768px){
   .body-dark-theme .header-cart-svg{
       fill: var(--white-cl);
@@ -305,8 +312,6 @@ fill: var(--black-cl)
   .modal-wrapper{
       display: none;
   }
- 
-
 
   .header-user-block{
     display: flex;
@@ -318,8 +323,86 @@ fill: var(--black-cl)
       border: 1.5px solid var(--black-cl);
       background: var(--violet-cl);
       padding: 15px 14px;
-      
+      position: relative;
+      cursor: pointer;
   }
+
+  @property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+  }
+  .body-dark-theme .header-user-block:hover{
+    border: none;
+    width: 182px;
+    height: 46px;
+    background-color: var(--black-cl);
+  }
+  .body-dark-theme .header-user-block:hover p{
+   color: var(--white-cl);
+  }
+  .body-dark-theme .header-user-block:hover::before{
+    content: "";
+    width: 184px;
+    height: 48px;
+    border-radius: 18px;
+    background-image: linear-gradient( var(--rotate) , #eac645, #9b8ae7 43%, #4f2ee8);
+    position: absolute;
+    z-index: -1;
+    left: -1px;
+    animation: spin 1.5s linear infinite;
+  }
+  .header-user-block:hover{
+    border: none;
+    width: 182px;
+    height: 46px;
+    background-color: var(--white-cl);
+  }
+  .header-user-block:hover p{
+    color: var(--black-cl);
+  }
+
+  .header-user-block:hover::before{
+    content: "";
+    width: 184px;
+    height: 48px;
+    border-radius: 18px;
+    background-image: linear-gradient( var(--rotate) , #eac645, #9b8ae7 43%, #4f2ee8);
+    position: absolute;
+    z-index: -1;
+    left: -1px;
+    animation: spin 1.5s linear infinite;
+  }
+
+
+
+  @keyframes spin {
+    0% {
+      --rotate: 0deg;
+    }
+    25%{
+      --rotate: 90deg;
+    }
+    75%{
+      --rotate: 180deg;
+    }
+    100% {
+      --rotate: 360deg;
+    }
+  }
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
   .header-user-block p{
       color: var(--white-cl);
       font-size: 14px;
@@ -331,8 +414,8 @@ fill: var(--black-cl)
       display: flex;
       cursor: pointer;
   }
+  
   .header-studio {
-      max-width: 768px;
       height: 72px;
   }
   .header-toggle-bg {
@@ -371,6 +454,7 @@ fill: var(--black-cl)
       padding: 0;
   }
   .header-container {
+    max-width: 768px;
       height: 72px;
       padding: 0 32px 0 32px;
   }
@@ -442,11 +526,10 @@ fill: var(--black-cl)
     fill: var(--black-cl);
   }
   .header-container{
+    max-width: 1440px;
     padding: 0 24px 0 24px;
   }
-  .header-studio {
-      max-width: 1440px;
-  }
+
   .header-logo {
       margin-right: 76px;
   }
