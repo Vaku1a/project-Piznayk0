@@ -23,15 +23,17 @@ function OffFunction(evt) {
   if (evt.target === evt.currentTarget || evt.key === 'Escape') {
     refs.popupEl.parentNode.classList.toggle('is-hidden');
     refs.body.classList.toggle('popup-modal-open');
+    refs.popupEl.firstElementChild.nextElementSibling.innerHTML = '';
   }
 }
 // Функція закриття модального вікна для кнопки
 function OffFunctionBtn(evt) {
   if (
-    evt.target.closest('.popup-btn-close') === refs.popupEl.firstElementChild
+    evt.target.closest('.popup-btn-close') //=== refs.popupEl.firstElementChild
   ) {
     refs.popupEl.parentNode.classList.toggle('is-hidden');
     refs.body.classList.toggle('popup-modal-open');
+    refs.popupEl.firstElementChild.nextElementSibling.innerHTML = '';
   }
 }
 
