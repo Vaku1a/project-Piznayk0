@@ -77,6 +77,8 @@
 @media (min-width: 1440px) {
   .support-wrapper {
     width: 100%;
+    position: sticky;
+    top: 114px;
   }
 }
 
