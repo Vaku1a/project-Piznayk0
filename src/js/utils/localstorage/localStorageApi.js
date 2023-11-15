@@ -1,10 +1,11 @@
-async function getDataFromStorage(key) {
+// Отримання ланих з локального сховища за ключем key
+export async function getDataFromStorage(key) {
   const response = await localStorage.getItem(key);
   const data = await JSON.parse(response);
   return data;
 }
-
-async function addDataToStorage(key, value) {
+// Розміщення даних в локальному сховищі ключ key значення value
+export async function addDataToStorage(key, value) {
   try {
     await localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {

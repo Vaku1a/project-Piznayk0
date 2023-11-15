@@ -1,4 +1,5 @@
 // popup markup
+
 export function createMarkupForPopup({
   book_image,
   title,
@@ -13,10 +14,10 @@ export function createMarkupForPopup({
             <p class="popup-book-description">${description}</p>
               <div class="popup-links">
                 <a href="${amazon.url}" target="_blank">
-                  <img class="popup-link-img" src="${amazonimg}" alt="link to amazon" />
+                  <img class="popup-link-img" src="./img/modal-shop/amazon.png" alt="link to amazon" />
                 </a>
-                <a href="${apple.url}" target="_blank">
-                  <img class="popup-link-img" src="${appleimg}" alt="link to apple books" />
+                <a href="${apple}" target="_blank">
+                  <img class="popup-link-img" src="./img/modal-shop/apple-books.png" alt="link to apple books" />
                 </a>
               </div>
             </div>
