@@ -4,7 +4,8 @@
   width: 100%;
   height: 100%;
   justify-content: center;
-  transition: opacity .25s cubic-bezier(.4, 0, .2, 1), visibility .25s cubic-bezier(.4, 0, .2, 1);
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   position: fixed;
   top: 0;
@@ -141,19 +142,19 @@
   stroke: var(--violet-cl);
 }
 
-.body-dark-theme .registration-window{
+.body-dark-theme .registration-window {
   background: var(--black-cl);
   border-color: var(--white-cl);
 }
-.body-dark-theme .input-container{
+.body-dark-theme .input-container {
   background-color: var(--black-cl);
 }
-.body-dark-theme .form-input{
+.body-dark-theme .form-input {
   background-color: var(--black-cl);
-border-color: var(--white-cl);
-color: var(--white-cl);
+  border-color: var(--white-cl);
+  color: var(--white-cl);
 }
-.body-dark-theme .form-btns button{
+.body-dark-theme .form-btns button {
   color: var(--accent);
 }
 .body-dark-theme .form-btns .active-btn {
@@ -162,17 +163,17 @@ color: var(--white-cl);
 .body-dark-theme .form-icon {
   stroke: var(--white-cl);
 }
-.body-dark-theme .close-icon{
+.body-dark-theme .close-icon {
   stroke: var(--white-cl);
 }
-.body-dark-theme .form-input::placeholder{
+.body-dark-theme .form-input::placeholder {
   color: var(--white-cl);
 }
-.body-dark-theme .form-main-btn{
+.body-dark-theme .form-main-btn {
   background-color: var(--white-cl);
   color: var(--black-cl);
 }
-.body-dark-theme .sign-in-btn:hover{
+.body-dark-theme .sign-in-btn:hover {
   color: var(--violet-cl);
   transform: scale(1.1);
   text-decoration-line: underline;
