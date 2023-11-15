@@ -1,28 +1,32 @@
 import { getBooksId } from '../api/api.js';
+// import { createMarkupForPopup } from '../utils/markup/markup.js';
 import { refs } from '../refs/refs';
-
+console.log(createMarkupForPopup);
+// імпорт логотипів
 import amazonimg from '../../img/modal-shop/amazon.png';
 import appleimg from '../../img/modal-shop/apple-books.png';
 
+// назва ключа для localStorage та змінна що зберігає обєкт поточної книги
 const STORAGE_KEY = 'bookList';
 let newBook = {};
 
-// const popupEl = document.querySelector('.popup');
+// слухач для виклику модального вікна
 refs.booksPart.addEventListener('click', callPopupWindow);
 
-refs.popupEl.firstElementChild.addEventListener('click', onOffBtn);
+// слухачі для виклику функції, що закриває модальне вікно
+refs.popupEl.firstElementChild.addEventListener('click', OffFunctionBtn);
+refs.popupEl.parentNode.addEventListener('click', OffFunction);
+document.addEventListener('keydown', OffFunction);
 
-refs.popupEl.parentNode.addEventListener('click', onOff);
-
-document.addEventListener('keydown', onOff);
-
-function onOff(evt) {
+// Функція закриття модального вікна для бекдропу та кнопки ESC
+function OffFunction(evt) {
   if (evt.target === evt.currentTarget || evt.key === 'Escape') {
     refs.popupEl.parentNode.classList.toggle('is-hidden');
     refs.body.classList.toggle('popup-modal-open');
   }
 }
-function onOffBtn(evt) {
+// Функція закриття модального вікна для кнопки
+function OffFunctionBtn(evt) {
   if (
     evt.target.closest('.popup-btn-close') === refs.popupEl.firstElementChild
   ) {
@@ -31,24 +35,27 @@ function onOffBtn(evt) {
   }
 }
 
-// виклик вікна
+// Функція виклику модального вікна
 function callPopupWindow(evt) {
-  if (
-    !evt.target.closest('LI') === evt.target.closest('.book-cards-list-item') ||
-    evt.target.closest('LI') === null
-  ) {
+  // перевічка того чи клік справді ввідбувся по елементу li
+  if (!evt.target.closest('.book-cards-list-item')) {
     return;
   }
-  evt.preventDefault();
+  // evt.preventDefault();
+
+  // Робить модальне вікно не прихованим, заморожує скрол на бекдроп, отримує id книги
   refs.popupEl.parentNode.classList.toggle('is-hidden');
   refs.body.classList.toggle('popup-modal-open');
-  const id = evt.target.closest('LI').dataset.bookId; //||
-  // evt.target.parentNode.dataset.bookId;
-
+  const id = evt.target.closest('LI').dataset.bookId;
+  // Виклик функції, що робить запит на бекенд
   getBooksId(id).then(data => {
     newBook = data;
+    // Виклик функції перевірки наявності даної книги в локальному сховищі
     checkingBookList(newBook);
-    let markup = createMarkup(newBook);
+    // створення розмітки
+    // let markup = createMarkupForPopup(newBook);
+    let markup = createMarkupForPopup(newBook);
+    // Додавання розмітки до ДОМу
     addBookMarkup(markup);
   });
 }
@@ -109,7 +116,7 @@ async function checkingBookList(data) {
 function addBookMarkup(markup) {
   refs.popupEl.firstElementChild.nextElementSibling.innerHTML = markup;
 }
-function createMarkup({
+function createMarkupForPopup({
   book_image,
   title,
   author,
@@ -122,19 +129,10 @@ function createMarkup({
             <p class="popup-book-author">${author}</p>
             <p class="popup-book-description">${description}</p>
               <div class="popup-links">
-<<<<<<< HEAD
-                <a href="${(amazon =
-                  '../../img/modal-shop/amazon.png')}" target="_blank">
-                  <img class="popup-link-img" src="${amazonimg}" alt="link to amazon" />
-                </a>
-                <a href="${(apple =
-                  '../../img/modal-shop/apple-books.png')}" target="_blank">
-=======
                 <a href="${amazon.url}" target="_blank">
                   <img class="popup-link-img" src="${amazonimg}" alt="link to amazon" />
                 </a>
                 <a href="${apple.url}" target="_blank">
->>>>>>> main
                   <img class="popup-link-img" src="${appleimg}" alt="link to apple books" />
                 </a>
               </div>
