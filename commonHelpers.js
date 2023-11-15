@@ -1,4 +1,4 @@
-import{g as E,r as e,a as h,b as v,c as B}from"./assets/sign-in-693325ed.js";import"./assets/vendor-313c7975.js";const A="/project-Piznayk0/assets/empty-bin@1x-a278a77f.png",C="/project-Piznayk0/assets/empty-bin@2x-1268a808.png";E().then(t=>{if(t.length===0){e.booksPart.insertAdjacentHTML("afterbegin",`${c}`);return}e.booksPart.insertAdjacentHTML("beforeend",`<h2 class="books-part-title">Best Sellers
+import{g as E,r as e,a as h,b as v,c as B}from"./assets/sign-in-05cc8f21.js";import"./assets/vendor-313c7975.js";const A="/project-Piznayk0/assets/empty-bin@1x-a278a77f.png",C="/project-Piznayk0/assets/empty-bin@2x-1268a808.png";E().then(t=>{if(t.length===0){e.booksPart.insertAdjacentHTML("afterbegin",`${c}`);return}e.booksPart.insertAdjacentHTML("beforeend",`<h2 class="books-part-title">Best Sellers
                 <span class="books-part-title-span"> Books</span>
             </h2>
             <div class="book-categories-container">
