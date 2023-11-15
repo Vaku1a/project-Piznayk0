@@ -1,6 +1,9 @@
 import { getBooksId } from '../api/api.js';
 import { refs } from '../refs/refs';
 
+import amazonimg from '../../img/modal-shop/amazon.png';
+import appleimg from '../../img/modal-shop/apple-books.png';
+
 const STORAGE_KEY = 'bookList';
 let newBook = {};
 
@@ -29,17 +32,17 @@ function onOffBtn(evt) {
 
 // виклик вікна
 function callPopupWindow(evt) {
-  if (evt.target === evt.currentTarget) {
+  if (
+    !evt.target.closest('LI') === evt.target.closest('.book-cards-list-item') ||
+    evt.target.closest('LI') === null
+  ) {
     return;
   }
-
   evt.preventDefault();
-
   refs.popupEl.parentNode.classList.toggle('is-hidden');
   refs.body.classList.toggle('popup-modal-open');
-  const id =
-    evt.target.closest('LI').dataset.bookId ||
-    evt.target.parentNode.dataset.bookId;
+  const id = evt.target.closest('LI').dataset.bookId; //||
+  // evt.target.parentNode.dataset.bookId;
 
   getBooksId(id).then(data => {
     newBook = data;
@@ -101,8 +104,7 @@ async function checkingBookList(data) {
     console.log(error.message);
   }
 }
-// console.log(refs.popupEl.firstElementChild.nextElementSibling);
-// console.log(refs.popupBookCardEl);
+
 function addBookMarkup(markup) {
   refs.popupEl.firstElementChild.nextElementSibling.innerHTML = markup;
 }
@@ -118,14 +120,14 @@ function createMarkup({
             <h2 class="popup-book-title">${title}</h2>
             <p class="popup-book-author">${author}</p>
             <p class="popup-book-description">${description}</p>
-            <div class="popup-links">
-                <a href="${amazon.url}" target="_blank"><img class="popup-link-img" src="./img/modal-shop/amazon@1x.png"
-                        srcset="./img/modal-shop/amazon@1x.png, ./img/modal-shop/amazon@2x.png"
-                        alt="link to amazon" /></a>
-                <a href="${apple.url}" target="_blank"><img class="popup-link-img"  src="./img/modal-shop/apple-books@1x.png"
-                        srcset="./img/modal-shop/apple-books@1x.png, ./img/modal-shop/apple-books@2x.png"
-                        alt="link to apple books" /></a>
-            </div>
+              <div class="popup-links">
+                <a href="${amazon.url}" target="_blank">
+                  <img class="popup-link-img" src="${amazonimg}" alt="link to amazon" />
+                </a>
+                <a href="${apple.url}" target="_blank">
+                  <img class="popup-link-img" src="${appleimg}" alt="link to apple books" />
+                </a>
+              </div>
             </div>
             `;
 
