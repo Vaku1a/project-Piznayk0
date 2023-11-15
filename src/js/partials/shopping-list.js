@@ -50,8 +50,8 @@ function generateBuyLinks(buyLinks) {
   const amazonLink = buyLinks.find(link => link.name === 'Amazon');
   const appleBooksLink = buyLinks.find(link => link.name === 'Apple Books');
 
-const amazonSvgPath = "./img/shopping-list/amazon.svg";
-const appleSvgPath = "./img/shopping-list/apple-books.svg";
+const amazonSvgPath = "./img/shopping-list/amazon.png";
+const appleSvgPath = "./img/shopping-list/apple-book.png";
 
   return `
     <a href="${amazonLink.url}" target="_blank">
@@ -127,8 +127,8 @@ if (fromLocalStr.length === 0) {
 
 function showEmptyPage() {
   // Якщо немає книг, показуємо порожню сторінку
-const bigImagePath = "../img/shopping-list/empty-bin@2x.png";
-const smallImagePath = "../img/shopping-list/empty-bin@1x.png";
+const bigImagePath = "../../img/shopping-list/empty-bin@2x.png";
+const smallImagePath = "../../img/shopping-list/empty-bin@1x.png";
 
 
   // Генеруємо HTML для порожньої сторінки
