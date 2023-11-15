@@ -321,10 +321,11 @@ fill: var(--black-cl)
       height: 48px;
       border-radius: 18px;
       border: 1.5px solid var(--black-cl);
-      background: var(--violet-cl);
+      background-color: var(--violet-cl);
       padding: 15px 14px;
       position: relative;
       cursor: pointer;
+      transition: background-color var(--main-transition-function);
   }
 
   @property --rotate {
@@ -333,44 +334,49 @@ fill: var(--black-cl)
     inherits: false;
   }
   .body-dark-theme .header-user-block:hover{
-    border: none;
-    width: 182px;
-    height: 46px;
+    border-color: transparent;
     background-color: var(--black-cl);
   }
+  .body-da .header-user-block::before{
+    content: "";
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    border-radius: 18px;
+    position: absolute;
+    z-index: -1;
+    left: -2px;
+    top: -2px;
+  }
+
   .body-dark-theme .header-user-block:hover p{
    color: var(--white-cl);
   }
   .body-dark-theme .header-user-block:hover::before{
-    content: "";
-    width: 184px;
-    height: 48px;
-    border-radius: 18px;
-    background-image: linear-gradient( var(--rotate) , #eac645, #9b8ae7 43%, #4f2ee8);
-    position: absolute;
-    z-index: -1;
-    left: -1px;
-    animation: spin 1.5s linear infinite;
+      background-image: linear-gradient( var(--rotate) , #eac645, #9b8ae7 43%, #4f2ee8);
+      animation: spin 1.5s linear infinite;
   }
+
+
   .header-user-block:hover{
-    border: none;
-    width: 182px;
-    height: 46px;
     background-color: var(--white-cl);
+    border-color: transparent;
   }
   .header-user-block:hover p{
     color: var(--black-cl);
   }
-
-  .header-user-block:hover::before{
+  .header-user-block::before{
     content: "";
-    width: 184px;
-    height: 48px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
     border-radius: 18px;
-    background-image: linear-gradient( var(--rotate) , #eac645, #9b8ae7 43%, #4f2ee8);
     position: absolute;
     z-index: -1;
-    left: -1px;
+    left: -2px;
+    top: -2px;
+  }
+
+  .header-user-block:hover::before{
+    background-image: linear-gradient( var(--rotate) , #eac645, #9b8ae7 43%, #4f2ee8);
     animation: spin 1.5s linear infinite;
   }
 
