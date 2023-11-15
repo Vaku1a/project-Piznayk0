@@ -27,6 +27,11 @@
 width: 16px;
 height: 16px;
 }
+/* dark theme */
+.body-dark-theme .shopping-title {
+  color: var(--white-cl);
+}
+
 
 
 @media screen and (min-width: 768px) {
@@ -89,6 +94,9 @@ height: 16px;
   border-radius: 16px;
   border: 2px solid rgba(79, 46, 232, 0.4);
 }
+.body-dark-theme .shopping-card{
+  background-color: var(--black-cl);
+}
 
 .shopping-image {
   min-width: 100px;
@@ -114,6 +122,10 @@ height: 16px;
   overflow: hidden;
 }
 
+.body-dark-theme .book-title {
+  color: var(--white-cl);
+}
+
 .book-category {
   color: var(--gray-cl);
   font-size: 12px;
@@ -134,6 +146,10 @@ height: 16px;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.body-dark-theme .book-desc{
+  color: var(--white-cl);
 }
 
 .book-author {
@@ -182,6 +198,16 @@ height: 16px;
   height: 11px;
   filter: grayscale(100%);
 }
+
+.body-dark-theme .amazon{
+  filter: brightness(0) invert(1);
+}
+
+.body-dark-theme .amazon:hover,
+.body-dark-theme .apple:hover{
+  filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+}
+
 .amazon:hover {
   cursor: pointer;
   filter: grayscale(100%) drop-shadow(0 1mm 1mm rgb(192, 192, 192));
@@ -190,6 +216,10 @@ height: 16px;
 .apple {
   width: 16px;
   height: 16px;
+  filter: grayscale(100%);
+}
+
+.body-dark-theme .apple{
   filter: grayscale(100%);
 }
 
