@@ -18,14 +18,15 @@ export const refs = {
   //book-list
   booksPart: document.querySelector('.books-part'),
   booksCategoryContainer: document.querySelector('.categories-list'),
-
+  //popup
+  popupEl: document.querySelector('.popup'),
   popupBookCardEl: document.querySelector('.popup-create-markup'),
   //shopping list
   shoppingList: document.querySelector('.shopping-list'),
 
   //sign-in
-  openModalBtn: document.querySelectorAll("[data-form-open]"),
-  closeModalBtn: document.querySelector("[data-form-close]"),
-  modal: document.querySelector("[data-form]"),
+  openModalBtn: document.querySelectorAll('[data-form-open]'),
+  closeModalBtn: document.querySelector('[data-form-close]'),
+  modal: document.querySelector('[data-form]'),
   formEl: document.querySelector('.js-form'),
 };
