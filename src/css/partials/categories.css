@@ -48,6 +48,8 @@
   font-size: 16px;
   line-height: 1.13;
   letter-spacing: -0.32px;
+}
+.categories-list-item.active {
   text-transform: uppercase;
 }
 .body-dark-theme .categories-list-item.active {

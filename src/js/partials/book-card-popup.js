@@ -1,28 +1,50 @@
 import { getBooksId } from '../api/api.js';
 import { refs } from '../refs/refs';
 
-// const popupBookCardEl = document.querySelector('.popup-create-markup');
+import amazonimg from '../../img/modal-shop/amazon.png';
+import appleimg from '../../img/modal-shop/apple-books.png';
+
 const STORAGE_KEY = 'bookList';
 let newBook = {};
 
+// const popupEl = document.querySelector('.popup');
 refs.booksPart.addEventListener('click', callPopupWindow);
 
-refs.popupBookCardEl.previousElementSibling.addEventListener('click', onOff);
-refs.popupBookCardEl.parentNode.parentNode.addEventListener('click', onOff);
+refs.popupEl.firstElementChild.addEventListener('click', onOffBtn);
+
+refs.popupEl.parentNode.addEventListener('click', onOff);
 document.addEventListener('keydown', onOff);
+
 function onOff(evt) {
   if (evt.target === evt.currentTarget || evt.key === 'Escape') {
-    refs.popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
-    refs.body.classList.toggle('modal-open');
+    refs.popupEl.parentNode.classList.toggle('is-hidden');
+    refs.body.classList.toggle('popup-modal-open');
   }
 }
+function onOffBtn(evt) {
+  if (
+    evt.target.closest('.popup-btn-close') === refs.popupEl.firstElementChild
+  ) {
+    refs.popupEl.parentNode.classList.toggle('is-hidden');
+    refs.body.classList.toggle('popup-modal-open');
+  }
+}
+
+// виклик вікна
 function callPopupWindow(evt) {
+  if (
+    !evt.target.closest('LI') === evt.target.closest('.book-cards-list-item') ||
+    evt.target.closest('LI') === null
+  ) {
+    return;
+  }
   evt.preventDefault();
+  refs.popupEl.parentNode.classList.toggle('is-hidden');
+  refs.body.classList.toggle('popup-modal-open');
+  const id = evt.target.closest('LI').dataset.bookId; //||
+  // evt.target.parentNode.dataset.bookId;
 
-  refs.popupBookCardEl.parentNode.parentNode.classList.toggle('is-hidden');
-  refs.body.classList.toggle('modal-open');
-
-  getBooksId(evt.target.dataset.bookId).then(data => {
+  getBooksId(id).then(data => {
     newBook = data;
     checkingBookList(newBook);
     let markup = createMarkup(newBook);
@@ -42,6 +64,7 @@ async function addDataToStorage(key, value) {
     console.log(error.message);
   }
 }
+
 async function checkingBookList(data) {
   try {
     const arr = await getDataFromStorage(STORAGE_KEY)
@@ -53,36 +76,37 @@ async function checkingBookList(data) {
       });
     const status = arr.some(({ _id }) => _id === data._id);
     if (status) {
-      refs.popupBookCardEl.nextElementSibling.removeEventListener(
+      refs.popupEl.lastElementChild.previousElementSibling.removeEventListener(
         'click',
         addBookToStorage
       );
-      refs.popupBookCardEl.nextElementSibling.addEventListener(
+      refs.popupEl.lastElementChild.previousElementSibling.addEventListener(
         'click',
         removeBookFromStorage
       );
-      refs.popupBookCardEl.nextElementSibling.textContent =
+      refs.popupEl.lastElementChild.previousElementSibling.textContent =
         'remove from the shopping list';
-      refs.popupBookCardEl.nextElementSibling.nextElementSibling.hidden = false;
+      refs.popupEl.lastElementChild.hidden = false;
     } else {
-      refs.popupBookCardEl.nextElementSibling.removeEventListener(
+      refs.popupEl.lastElementChild.previousElementSibling.removeEventListener(
         'click',
         removeBookFromStorage
       );
-      refs.popupBookCardEl.nextElementSibling.addEventListener(
+      refs.popupEl.lastElementChild.previousElementSibling.addEventListener(
         'click',
         addBookToStorage
       );
-      refs.popupBookCardEl.nextElementSibling.textContent =
+      refs.popupEl.lastElementChild.previousElementSibling.textContent =
         'Add to shopping list';
-      refs.popupBookCardEl.nextElementSibling.nextElementSibling.hidden = true;
+      refs.popupEl.lastElementChild.hidden = true;
     }
   } catch (error) {
     console.log(error.message);
   }
 }
+
 function addBookMarkup(markup) {
-  refs.popupBookCardEl.innerHTML = markup;
+  refs.popupEl.firstElementChild.nextElementSibling.innerHTML = markup;
 }
 function createMarkup({
   book_image,
@@ -92,16 +116,18 @@ function createMarkup({
   buy_links: [amazon, apple],
 }) {
   const markup = `<img src="${book_image}" class="popup-image" />
+            <div class ="info-book">
             <h2 class="popup-book-title">${title}</h2>
             <p class="popup-book-author">${author}</p>
             <p class="popup-book-description">${description}</p>
-            <div class="popup-links">
-                <a href="${amazon.url}" target="_blank"><img class="popup-link-img" src="./img/modal-shop/amazon@1x.png"
-                        srcset="./img/modal-shop/amazon@1x.png, ./img/modal-shop/amazon@2x.png"
-                        alt="link to amazon" /></a>
-                <a href="${apple.url}" target="_blank"><img class="popup-link-img"  src="./img/modal-shop/apple-books@1x.png"
-                        srcset="./img/modal-shop/apple-books@1x.png, ./img/modal-shop/apple-books@2x.png"
-                        alt="link to apple books" /></a>
+              <div class="popup-links">
+                <a href="${amazon.url}" target="_blank">
+                  <img class="popup-link-img" src="${amazonimg}" alt="link to amazon" />
+                </a>
+                <a href="${apple.url}" target="_blank">
+                  <img class="popup-link-img" src="${appleimg}" alt="link to apple books" />
+                </a>
+              </div>
             </div>
             `;
 

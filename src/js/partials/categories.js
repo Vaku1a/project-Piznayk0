@@ -1,13 +1,14 @@
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getAllCategories, getTopBooks, getCategoryId } from "../api/api";
-import { createBooksCategoriesCardsMarkup } from "./booklist"
+import { createBooksCategoriesCardsMarkup, booksNotFoundWrapperMarkup } from "./booklist"
 import { refs } from "../refs/refs";
 
-console.log(refs.loaderForAllCategories);
+import booksNotFound_1x from '../../img/shopping-list/empty-bin@1x.png';
+import booksNotFound_2x from '../../img/shopping-list/empty-bin@2x.png';
 
 // Notify.init({
 //     width: '300px',
-//     position: 'center-top',
+//     position: 'center-center',
 //     fontSize: '16px',
 //     fontFamily: 'DM Sans',
 //     showOnlyTheLastOne: true,
@@ -38,35 +39,32 @@ function onLoadCategory(evt) {
     if (evt.target.nodeName !== "LI") {
         return;
     }
-
-
+    
     const curr = evt.target;
+
+    if (curr.classList.contains('active')) {
+        console.log('Repeat click on acrive category - No GET request - Just return');
+        return
+    }  
+    
+    window.scrollTo(0, 0);
+    
     curr.parentElement.querySelector('.categories-list-item.active').classList.remove('active');
     curr.classList.add('active');
 
     const categoryName = evt.target.dataset.categoryName;
         
-    if (categoryName === 'All categories') {
+    if (categoryName === 'All categories') {        
         getTopBooks()
             .then(categories => {
                 refs.loaderForAllCategories.style.display = 'block';
-                 if (!categories || categories.length === 0) {                      
+                 if (categories.length === 0) {                      
                      refs.booksPart.innerHTML =
                         `<h2 class="books-part-title">Best Sellers
                         <span class="books-part-title-span"> Books</span>
                         </h2>
                         <div class="book-categories-container">
-                        <div class="books-not-found-wrapper">
-                        <p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
-                        <img
-                        class="books-not-found-img"
-                        srcset="./img/empty-bin@1x.png 1x, ./img/empty-bin@2x.png 2x"
-                        src="./img/empty-bin@1x.png"
-                        alt="Books not found"
-                        height="241"
-                        width="332"
-                        />
-                        </div>
+                        ${booksNotFoundWrapperMarkup}
                         </div>`;
                      return;
                 }    
@@ -89,21 +87,11 @@ function onLoadCategory(evt) {
            
     getCategoryId(categoryName)
         .then(books => {
-            if (!books || books.length === 0) {
+            if (books.length === 0) {
                 refs.booksPart.innerHTML = 
                     `${createBooksCaregoryTitle(categoryName)}
                     <div class="book-category-wrapper">
-                    <div class="books-not-found-wrapper">
-                    <p class="books-not-found-message">No books were found in this category😒<br> Please, try other categories😉</p>
-                    <img
-                    class="books-not-found-img"
-                    srcset="./img/empty-bin@1x.png 1x, ./img/empty-bin@2x.png 2x"
-                    src="./img/empty-bin@1x.png"
-                    alt="Books not found"
-                    height="241"
-                    width="332"
-                    />
-                    </div>                                
+                    ${booksNotFoundWrapperMarkup}                                
                     </div>`
                 return;
             }

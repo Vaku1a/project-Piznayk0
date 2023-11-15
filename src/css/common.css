@@ -81,3 +81,34 @@ body {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.shopping-wrapper{
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .shopping-wrapper{
+    max-width: 768px;
+    padding: 0 32px;
+  }
+}
+
+.shopping-sidebar{
+  display: none;
+}
+
+@media only screen and (min-width: 1440px) {
+  .shopping-wrapper{
+    display: flex;
+    max-width: 1440px;
+    gap: 40px;
+    padding: 0 24px;
+  }
+  .shopping-sidebar{
+    display: block;
+    padding-top: 40px;
+    min-width: 356px;
+  }
+}

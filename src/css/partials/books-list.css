@@ -7,6 +7,9 @@
 .books-part {
   width: 335px;
 }
+.book-categories-container {
+  position: relative;
+}
 .books-part-title {
   margin-bottom: 40px;
   color: var(--black-cl);
@@ -100,7 +103,8 @@
   line-height: 1.29;
   letter-spacing: -0.14px;
   text-transform: uppercase;
-  transition: background-color var(--main-transition-function), var(--main-transition-function);
+  transition: background-color var(--main-transition-function),
+    var(--main-transition-function);
 }
 .body-dark-theme .see-more-btn {
   background-color: var(--dark-theme-bg-cl);
@@ -109,7 +113,7 @@
 .body-dark-theme .books-part-title {
   color: var(--white-cl);
 }
-.body-dark-theme .book-card-title{
+.body-dark-theme .book-card-title {
   color: var(--white-cl);
 }
 @media only screen and (min-width: 768px) {
@@ -143,7 +147,7 @@
     position: relative;
     transform: scale(1.1);
   }
-  .book-card-hover{
+  .book-card-hover {
     width: 180px;
     height: 70px;
     opacity: 0;
@@ -155,15 +159,15 @@
     position: absolute;
     top: 186px;
     left: 0;
-}
-.book-card-hover p{
-  text-align: center;
+  }
+  .book-card-hover p {
+    text-align: center;
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 500;
     line-height: 18px;
-}
-  .book-cards-list-item:hover .book-card-hover{
+  }
+  .book-cards-list-item:hover .book-card-hover {
     opacity: 1;
   }
   .books-part {
@@ -184,10 +188,10 @@
     display: block;
   }
   .see-more-btn:hover,
-.see-more-btn:focus {
-  background-color: var(--violet-cl);
-  color: var(--white-cl);
-}
+  .see-more-btn:focus {
+    background-color: var(--violet-cl);
+    color: var(--white-cl);
+  }
 }
 .books-not-found-wrapper {
   background: var(--support-Ukraine-bg);
@@ -195,6 +199,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%);
 }
 .books-not-found-message {
   padding: 16px;
@@ -206,4 +211,7 @@
   letter-spacing: -0.96px;
   font-style: normal;
   text-transform: capitalize;
+}
+.books-not-found-img {
+  margin: 0 auto;
 }
