@@ -1,5 +1,7 @@
 
 
+
+
 // Отримуємо дані з локального сховища або створюємо порожній масив
 const fromLocalStr = JSON.parse(localStorage.getItem('bookList')) || [];
 // Елемент, в якому будуть відображені книги
@@ -159,8 +161,4 @@ function showEmptyPage() {
 }
 
 
-  
-   
-
-
-
+//coment
