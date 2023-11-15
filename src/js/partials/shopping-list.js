@@ -3,10 +3,10 @@ const fromLocalStr = JSON.parse(localStorage.getItem('bookList')) || [];
 // Елемент, в якому будуть відображені книги
 const shoppingList = document.querySelector('.shopping-list');
 
-import { amazonSvgPath } from '../../img/shopping-list/amazon.png';
-import { appleSvgPath } from '../../img/shopping-list/apple-book.png';
-import { bigImagePath } from '../../img/shopping-list/empty-bin@2x.png';
-import { smallImagePath } from '../../img/shopping-list/empty-bin@1x.png';
+import amazonSvgPath from '../../img/shopping-list/amazon.png';
+import appleSvgPath from '../../img/shopping-list/apple-book.png';
+import bigImagePath from '../../img/shopping-list/empty-bin@2x.png';
+import smallImagePath from '../../img/shopping-list/empty-bin@1x.png';
 
 // Функція для рендерингу книг для поточної сторінки
 export function renderBooks(startIndex, endIndex) {
