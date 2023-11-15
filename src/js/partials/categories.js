@@ -1,6 +1,6 @@
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getAllCategories, getTopBooks, getCategoryId } from "../api/api";
-import { createBooksCategoriesCardsMarkup } from "./booklist"
+import { createBooksCategoriesCardsMarkup, booksNotFoundWrapperMarkup } from "./booklist"
 import { refs } from "../refs/refs";
 
 import booksNotFound_1x from '../../img/shopping-list/empty-bin@1x.png';
@@ -60,17 +60,7 @@ function onLoadCategory(evt) {
                         <span class="books-part-title-span"> Books</span>
                         </h2>
                         <div class="book-categories-container">
-                        <div class="books-not-found-wrapper">
-                        <p class="books-not-found-message">No books found😒<br> Try other categories😉</p>
-                        <img
-                        class="books-not-found-img"
-                        srcset="${booksNotFound_1x} 1x, ${booksNotFound_2x} 2x"
-                        src="${booksNotFound_1x}"
-                        alt="Books not found"
-                        height="241"
-                        width="332"
-                        />
-                        </div>
+                        ${booksNotFoundWrapperMarkup}
                         </div>`;
                      return;
                 }    
@@ -97,17 +87,7 @@ function onLoadCategory(evt) {
                 refs.booksPart.innerHTML = 
                     `${createBooksCaregoryTitle(categoryName)}
                     <div class="book-category-wrapper">
-                    <div class="books-not-found-wrapper">
-                    <p class="books-not-found-message">No books found😒<br> Try other categories😉</p>
-                    <img
-                    class="books-not-found-img"
-                    srcset="${booksNotFound_1x} 1x, ${booksNotFound_2x} 2x"
-                    src="${booksNotFound_1x}"
-                    alt="Books not found"
-                    height="241"
-                    width="332"
-                    />
-                    </div>                                
+                    ${booksNotFoundWrapperMarkup}                                
                     </div>`
                 return;
             }
