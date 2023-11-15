@@ -22,13 +22,14 @@ console.log(refs.loaderForAllCategories);
 
 getAllCategories()
     .then(categories => {
+        refs.loaderForAllCategories.style.display = 'block';
         refs.categoriesList.innerHTML = createCategoriesListMarkup(categories);
     })
     .catch((err) => {
         console.error(err);
         // Notify.failure('Oops! Something went wrong! Try reloading the page!');
     })
-    .finally(_ => refs.loaderForAllCategories.style.display = 'none');
+    /* .finally(_ => refs.loaderForAllCategories.style.display = 'none'); */
 
 refs.categoriesList.addEventListener('click', onLoadCategory);
 
@@ -38,7 +39,6 @@ function onLoadCategory(evt) {
         return;
     }
 
- 
 
     const curr = evt.target;
     curr.parentElement.querySelector('.categories-list-item.active').classList.remove('active');
@@ -49,6 +49,7 @@ function onLoadCategory(evt) {
     if (categoryName === 'All categories') {
         getTopBooks()
             .then(categories => {
+                refs.loaderForAllCategories.style.display = 'block';
                  if (!categories || categories.length === 0) {                      
                      refs.booksPart.innerHTML =
                         `<h2 class="books-part-title">Best Sellers
@@ -119,7 +120,7 @@ function onLoadCategory(evt) {
         .catch((err) => {
             console.error(err);
             // Notify.failure('Oops! Something went wrong! Try reloading the page!');
-        });          
+        }).finally(_=> refs.loaderForAllCategories.style.display = 'none');         
 };
 
 function createCategoriesListMarkup(categories) {

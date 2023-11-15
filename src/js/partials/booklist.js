@@ -19,7 +19,8 @@ import { refs } from "../refs/refs";
 // });
 
 getTopBooks()
-    .then(categories => {        
+    .then(categories => {  
+        refs.loaderForAllCategories.style.display = 'block';
         if (!categories || categories.length === 0) {
             refs.booksPart.insertAdjacentHTML('afterbegin',
                 `<div class="books-not-found-wrapper">
@@ -50,7 +51,8 @@ getTopBooks()
     .catch((err) => {
         console.error(err);
         // Notify.failure('Oops! Something went wrong! Try reloading the page!');
-    });
+    }).finally(_=>refs.loaderForAllCategories.style.display = 'none')
+    ;
 
 refs.booksPart.addEventListener('click', onSeeMoreBtn);
 
@@ -66,6 +68,7 @@ function onSeeMoreBtn(evt) {
     
     getCategoryId(categoryName)
         .then(books => {
+            
             if (!books || books.length === 0) {
                 refs.booksPart.innerHTML = 
                 `${createBooksCaregoryTitle(categoryName)}
@@ -97,7 +100,7 @@ function onSeeMoreBtn(evt) {
         .catch((err) => {
             console.error(err);
             // Notify.failure('Oops! Something went wrong! Try reloading the page!');
-        });  
+        })
 }
 
 function createBooksCategoriesCardsMarkup(categories) {
@@ -111,5 +114,6 @@ function createBooksCategoriesCardsMarkup(categories) {
             </div>`
     }).join('');
 };
+
 
 export { createBooksCategoriesCardsMarkup };

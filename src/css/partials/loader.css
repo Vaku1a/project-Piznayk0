@@ -17,7 +17,7 @@
   width: 50px;
   position: absolute;
   top: 50%;
-  transrorm: translateY(-50%);
+  left: 50%;
 }
 
 .loader:before,

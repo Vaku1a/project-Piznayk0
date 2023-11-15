@@ -3,6 +3,7 @@
   | Book list styles
   |============================
 */
+@import url('./loader.css');
 .books-part {
   width: 335px;
 }
