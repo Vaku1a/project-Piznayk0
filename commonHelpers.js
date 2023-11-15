@@ -65,10 +65,10 @@ width="332"
             <p class="popup-book-description">${a}</p>
               <div class="popup-links">
                 <a href="${n.url}" target="_blank">
-                  <img class="popup-link-img" src="${w}" alt="link to amazon" />
+                  <img class="popup-link-img amazon-icon" src="${w}" alt="link to amazon" />
                 </a>
                 <a href="${r.url}" target="_blank">
-                  <img class="popup-link-img" src="${P}" alt="link to apple books" />
+                  <img class="popup-link-img apple-icon" src="${P}" alt="link to apple books" />
                 </a>
               </div>
             </div>
