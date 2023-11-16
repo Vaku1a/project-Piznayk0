@@ -30,7 +30,7 @@ getAllCategories()
         console.error(err);
         // Notify.failure('Oops! Something went wrong! Try reloading the page!');
     })
-    /* .finally(_ => refs.loaderForAllCategories.style.display = 'none'); */
+   
 
 refs.categoriesList.addEventListener('click', onLoadCategory);
 
@@ -81,12 +81,13 @@ function onLoadCategory(evt) {
             .catch((err) => {
                 console.error(err);
                 // Notify.failure('Oops! Something went wrong! Try reloading the page!');
-            });
+            }).finally(_ => refs.loaderForAllCategories.style.display = 'none'); 
         return;
     }     
            
     getCategoryId(categoryName)
         .then(books => {
+            refs.loaderForAllCategories.style.display = 'none';
             if (books.length === 0) {
                 refs.booksPart.innerHTML = 
                     `${createBooksCaregoryTitle(categoryName)}

@@ -49,7 +49,9 @@ function callPopupWindow(evt) {
     checkingBookList(newBook);
     let markup = createMarkup(newBook);
     addBookMarkup(markup);
-  });
+  }).catch((err) => {
+    console.error(err);
+}).finally(_ => refs.loaderForAllCategories.style.display = 'none'); 
 }
 
 async function getDataFromStorage(key) {
