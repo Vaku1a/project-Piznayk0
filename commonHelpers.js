@@ -1,8 +1,8 @@
-import{g as v,r as t,a as L,s as y,b as T,c as C,d as S}from"./assets/sign-in-0db434d3.js";import"./assets/vendor-27c5a77b.js";async function g(o){const e=await localStorage.getItem(o);return await JSON.parse(e)}async function E(o,e){try{await localStorage.setItem(o,JSON.stringify(e))}catch(s){console.log(s.message)}}v().then(o=>{if(t.loaderForAllCategories.style.display="block",o.length===0){t.booksPart.insertAdjacentHTML("afterbegin",`${p}`);return}t.booksPart.insertAdjacentHTML("beforeend",`<h2 class="books-part-title">Best Sellers
+import{g as v,r as t,a as L,s as y,b as $,c as C,d as S}from"./assets/sign-in-0db434d3.js";import"./assets/vendor-27c5a77b.js";async function g(o){const e=await localStorage.getItem(o);return await JSON.parse(e)}async function E(o,e){try{await localStorage.setItem(o,JSON.stringify(e))}catch(s){console.log(s.message)}}v().then(o=>{if(t.loaderForAllCategories.style.display="block",o.length===0){t.booksPart.insertAdjacentHTML("afterbegin",`${p}`);return}t.booksPart.insertAdjacentHTML("beforeend",`<h2 class="books-part-title">Best Sellers
                 <span class="books-part-title-span"> Books</span>
             </h2>
             <div class="book-categories-container">
-            ${$(o)}
+            ${T(o)}
             </div>`)}).catch(o=>{console.error(o)}).finally(o=>t.loaderForAllCategories.style.display="none");t.booksPart.addEventListener("click",A);function A(o){if(t.loaderForAllCategories.style.display="block",o.target.nodeName!=="BUTTON")return;window.scrollTo(0,0);const s=o.target.parentElement.querySelector(".book-category-title").textContent,a=[...document.querySelectorAll(".categories-list-item")];a.find(r=>{r.classList.contains("active")&&r.classList.remove("active")}),a.find(r=>{r.textContent===s&&(r.classList.add("active"),console.log(a.find(l=>l.textContent===s)))}),L(s).then(r=>{if(r.length===0){t.booksPart.innerHTML=`${d(s)}
                 <div class="book-category-wrapper">
                 ${p}                                
@@ -11,7 +11,7 @@ import{g as v,r as t,a as L,s as y,b as T,c as C,d as S}from"./assets/sign-in-0d
                 <ul class="book-cards-list book-cards-list-one-category">
                 ${u(r)}                  
                 </ul>                             
-            </div>`,t.booksPart.querySelectorAll(".book-cards-list-item").forEach(l=>l.style.display="block")}).catch(r=>{console.error(r)}).finally(r=>t.loaderForAllCategories.style.display="none")}function $(o){return o.map(({list_name:e,books:s})=>`<div class="book-category-container">
+            </div>`,t.booksPart.querySelectorAll(".book-cards-list-item").forEach(l=>l.style.display="block")}).catch(r=>{console.error(r)}).finally(r=>t.loaderForAllCategories.style.display="none")}function T(o){return o.map(({list_name:e,books:s})=>`<div class="book-category-container">
                 <h3 class="book-category-title">${e}</h3>
                 <ul class="book-cards-list">
                 ${u(s)}                  
@@ -22,7 +22,7 @@ import{g as v,r as t,a as L,s as y,b as T,c as C,d as S}from"./assets/sign-in-0d
 <p class="books-not-found-message">No books found😒<br> Try other categories😉</p>
 <img
 class="books-not-found-img"
-srcset="${y} 1x, ${T} 2x"
+srcset="${y} 1x, ${$} 2x"
 src="${y}"
 alt="Books not found"
 height="241"
@@ -37,7 +37,7 @@ width="332"
                     <span class="books-part-title-span"> Books</span>
                     </h2>
                     <div class="book-categories-container">
-                    ${$(a)}
+                    ${T(a)}
                     </div>`}).catch(a=>{console.error(a)}).finally(a=>t.loaderForAllCategories.style.display="none");return}L(s).then(a=>{if(t.loaderForAllCategories.style.display="none",a.length===0){t.booksPart.innerHTML=`${d(s)}
                     <div class="book-category-wrapper">
                     ${p}                                
@@ -72,5 +72,5 @@ width="332"
                 </a>
               </div>
             </div>
-            `}const c="bookList";let n={};const i=t.popupEl.lastElementChild.previousElementSibling;t.booksPart.addEventListener("click",F);t.popupEl.firstElementChild.addEventListener("click",k);t.popupEl.parentNode.addEventListener("click",k);document.addEventListener("keydown",k);function k(o){(o.target===o.currentTarget||o.key==="Escape"||o.target.closest(".popup-btn-close"))&&(t.popupEl.parentNode.classList.add("is-hidden"),t.body.classList.remove("popup-modal-open"),t.popupEl.firstElementChild.nextElementSibling.innerHTML="")}function F(o){if(!o.target.closest(".book-cards-list-item"))return;t.popupEl.parentNode.classList.toggle("is-hidden"),t.body.classList.toggle("popup-modal-open");const e=o.target.closest("LI").dataset.bookId;S(e).then(s=>{n=s,m(n);let a=P(n);addBookMarkup(a)}).catch(s=>{console.error(s)}).finally(s=>t.loaderForAllCategories.style.display="none")}async function m(o){try{(await g(c).then(a=>a||[]).catch(a=>{console.log(a.message)})).some(({_id:a})=>a===o._id)?(i.removeEventListener("click",h),i.addEventListener("click",f),i.textContent="remove from the shopping list",t.popupEl.lastElementChild.hidden=!1):(i.removeEventListener("click",f),i.addEventListener("click",h),i.textContent="Add to shopping list",t.popupEl.lastElementChild.hidden=!0)}catch(e){console.log(e.message)}}async function h(){try{const o=await g(c).then(e=>e||[]).catch(e=>{console.log(e.message)});o.push(n),E(c,o),m(n)}catch(o){console.log(o.message)}}async function f(){try{const e=(await g(c)).filter(s=>s._id!==n._id);E(c,e),m(n)}catch(o){console.log(o.message)}}window.onscroll=()=>{M()};function M(){document.body.scrollTop>20||document.documentElement.scrollTop>20?document.getElementById("back-to-up").classList.remove("is-hidden"):document.getElementById("back-to-up").classList.add("is-hidden")}(()=>{function o(){window.scrollTo({top:0,behavior:"smooth"})}document.querySelector("#back-to-up").addEventListener("click",o)})();
+            `}const c="bookList";let n={};const i=t.popupEl.lastElementChild.previousElementSibling;t.booksPart.addEventListener("click",F);t.popupEl.firstElementChild.addEventListener("click",k);t.popupEl.parentNode.addEventListener("click",k);document.addEventListener("keydown",k);function k(o){(o.target===o.currentTarget||o.key==="Escape"||o.target.closest(".popup-btn-close"))&&(t.popupEl.parentNode.classList.add("is-hidden"),t.body.classList.remove("popup-modal-open"),t.popupEl.firstElementChild.nextElementSibling.innerHTML="")}function F(o){if(!o.target.closest(".book-cards-list-item"))return;t.popupEl.parentNode.classList.toggle("is-hidden"),t.body.classList.toggle("popup-modal-open");const e=o.target.closest("LI").dataset.bookId;S(e).then(s=>{n=s,m(n);let a=P(n);t.popupEl.firstElementChild.nextElementSibling.innerHTML=a}).catch(s=>{console.error(s)}).finally(s=>t.loaderForAllCategories.style.display="none")}async function m(o){try{(await g(c).then(a=>a||[]).catch(a=>{console.log(a.message)})).some(({_id:a})=>a===o._id)?(i.removeEventListener("click",h),i.addEventListener("click",f),i.textContent="remove from the shopping list",t.popupEl.lastElementChild.hidden=!1):(i.removeEventListener("click",f),i.addEventListener("click",h),i.textContent="Add to shopping list",t.popupEl.lastElementChild.hidden=!0)}catch(e){console.log(e.message)}}async function h(){try{const o=await g(c).then(e=>e||[]).catch(e=>{console.log(e.message)});o.push(n),E(c,o),m(n)}catch(o){console.log(o.message)}}async function f(){try{const e=(await g(c)).filter(s=>s._id!==n._id);E(c,e),m(n)}catch(o){console.log(o.message)}}window.onscroll=()=>{M()};function M(){document.body.scrollTop>20||document.documentElement.scrollTop>20?document.getElementById("back-to-up").classList.remove("is-hidden"):document.getElementById("back-to-up").classList.add("is-hidden")}(()=>{function o(){window.scrollTo({top:0,behavior:"smooth"})}document.querySelector("#back-to-up").addEventListener("click",o)})();
 //# sourceMappingURL=commonHelpers.js.map
