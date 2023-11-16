@@ -110,6 +110,9 @@
   background-color: var(--dark-theme-bg-cl);
   color: var(--white-cl);
 }
+.book-card-hover p{
+  display: none;
+}
 .body-dark-theme .books-part-title {
   color: var(--white-cl);
 }
@@ -161,13 +164,14 @@
     left: 0;
   }
   .book-card-hover p {
+    display: block;
     text-align: center;
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 500;
     line-height: 18px;
   }
-  .book-cards-list-item:hover .book-card-hover {
+  .book-cards-list-item:hover .book-card-hover{
     opacity: 1;
   }
   .books-part {
