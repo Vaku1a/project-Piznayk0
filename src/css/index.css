@@ -39,4 +39,5 @@
   --scroll-up-accent: rgba(79, 46, 232, 0.3);
   --main-transition-function: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --accent: rgba(246, 246, 246, 0.50);
+  --rotate: 132deg;
 }

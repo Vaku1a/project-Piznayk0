@@ -30,8 +30,7 @@
 }
 .categories-list-item {
   cursor: pointer;
-  transition: color var(--main-transition-function),
-    text-transform var(--main-transition-function);
+  transition: color var(--main-transition-function);
 }
 .body-dark-theme .categories-list {
   color: var(--book-list-dark-theme-cl);
@@ -40,16 +39,11 @@
 .categories-list-item:not(:last-child) {
   margin-bottom: 24px;
 }
-.categories-list-item.active,
-.categories-list-item:hover,
-.categories-list-item:focus {
+.categories-list-item.active {
   color: var(--violet-cl);
   font-style: normal;
   font-size: 16px;
-  line-height: 1.13;
   letter-spacing: -0.32px;
-}
-.categories-list-item.active {
   text-transform: uppercase;
 }
 .body-dark-theme .categories-list-item.active {
@@ -81,11 +75,10 @@
   .body-dark-theme .categories-list-item:hover {
     color: var(--yellow-cl);
   }
-  .categories-list-item.active,
+ 
   .categories-list-item:hover,
   .categories-list-item:focus {
-    font-size: 18px;
-    line-height: 1.33;
+    color: var(--violet-cl);
     letter-spacing: -0.36px;
   }
 }

@@ -6,7 +6,27 @@
     border-radius: 50%;
     position: fixed;
     right: 15px;
-    bottom: 145px;
+    bottom: 40px;
     z-index: 900;
     box-shadow: 0 0 0 5px var(--scroll-up-accent);
 }
+
+.scroll-up-btn:hover{
+
+    animation: pulse 1.5s;
+    box-shadow:none;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(.85);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(#d45abc, 0);
+      }
+        100% {
+
+        transform: scale(1);
+        box-shadow: 0 0 0 50px rgba(#d45aba, 0);
+      }
+  }
