@@ -3,6 +3,7 @@
   | Book list styles
   |============================
 */
+@import url('./loader.css');
 .books-part {
   width: 335px;
 }
@@ -109,6 +110,9 @@
   background-color: var(--dark-theme-bg-cl);
   color: var(--white-cl);
 }
+.book-card-hover p{
+  display: none;
+}
 .body-dark-theme .books-part-title {
   color: var(--white-cl);
 }
@@ -163,13 +167,14 @@
     left: 0;
   }
   .book-card-hover p {
+    display: block;
     text-align: center;
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 500;
     line-height: 18px;
   }
-  .book-cards-list-item:hover .book-card-hover {
+  .book-cards-list-item:hover .book-card-hover{
     opacity: 1;
   }
   .books-part {
@@ -193,6 +198,7 @@
   .see-more-btn:focus {
     background-color: var(--violet-cl);
     color: var(--white-cl);
+    transform: scale(1.03);
   }
 }
 .books-not-found-wrapper {
