@@ -24,6 +24,7 @@
 
 .popup {
   width: 335px;
+  /* max-height: 90vh; */
   padding-bottom: 20px;
   position: absolute;
   top: 50%;
