@@ -195,6 +195,7 @@
   .see-more-btn:focus {
     background-color: var(--violet-cl);
     color: var(--white-cl);
+    transform: scale(1.03);
   }
 }
 .books-not-found-wrapper {
