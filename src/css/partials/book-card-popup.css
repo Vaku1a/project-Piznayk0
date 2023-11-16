@@ -1,4 +1,3 @@
-/* стилі, що заморожують скрол на фоні модального вікна */
 .popup-modal-open {
   height: 100vh;
   overflow-y: hidden;
@@ -12,6 +11,7 @@
   height: 100%;
   background-color: var(--book-list-light-theme-cl);
   z-index: 10000;
+
   overflow: hidden;
 }
 .popup-backdrop.is-hidden {
@@ -26,7 +26,7 @@
   width: 335px;
   padding-bottom: 20px;
   position: absolute;
-  top: 53%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 18px;
@@ -64,8 +64,8 @@
 .popup-image {
   width: 287px;
   height: 408px;
-  border-radius: 8px;
-  padding-bottom: 14px;
+    border-radius: 8px;
+    padding-bottom: 14px;
 }
 
 .popup-book-title {
@@ -140,106 +140,76 @@
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-@media only screen and (min-width: 375px) {
+@media only screen and (min-width: 375px){
   .popup {
     padding-bottom: 40px;
   }
   .popup-btn-add-remove {
     margin-top: 40px;
   }
-  .body-dark-theme .popup {
-    background-color: var(--dark-theme-bg-cl);
-    border-color: var(--white-cl);
+}
+
+@media only screen and (min-width: 768px) {
+  .popup {
+    width: 579px;
   }
-  .body-dark-theme .popup-icon-close {
-    stroke: var(--white-cl);
+  .popup-btn-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    height: 28px;
+    width: 28px;
   }
-  .body-dark-theme .popup-book-title,
-  .body-dark-theme .popup-book-description {
-    color: var(--white-cl);
+  .popup-image {
+    width: 192px;
+    height: 281px;
+    border-radius: 8px;
   }
-  .body-dark-theme .amazon-icon {
-    filter: brightness(0) invert(1);
+  .popup-create-markup {
+    height: 281px;
+    padding: 40px;
+    list-style: none;
+    display: flex;
   }
-  .body-dark-theme .amazon-icon:hover,
-  .body-dark-theme .apple-icon:hover {
-    filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
-  }
-  .body-dark-theme .apple-icon {
-    filter: grayscale(100%);
-  }
-  .body-dark-theme .popup-btn-add-remove {
-    border-color: var(--violet-cl);
-    color: var(--white-cl);
-  }
-  .body-dark-theme .popup-add-message {
-    color: rgba(255, 255, 255, 0.5);
+  .popup-book-author {
+    padding-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.56px;
   }
 
-  @media only screen and (min-width: 768px) {
-    .popup {
-      width: 579px;
-    }
-    .popup-btn-close {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      height: 28px;
-      width: 28px;
-    }
-    .popup-image {
-      width: 192px;
-      height: 281px;
-      border-radius: 8px;
-    }
-    .popup-create-markup {
-      height: 281px;
-      padding: 40px;
-      list-style: none;
-      display: flex;
-    }
-    .popup-book-author {
-      padding-bottom: 20px;
-      font-size: 14px;
-      line-height: 1.29;
-      letter-spacing: -0.56px;
-    }
-
-    .popup-book-description {
-      font-size: 14px;
-      line-height: 1.3;
-    }
-
-    .popup-links {
-      padding-top: 20px;
-    }
-
-    .popup-btn-add-remove {
-      padding: 20px 150px 20px 150px;
-      font-size: 18px;
-      font-style: normal;
-      line-height: 1.3;
-      text-transform: uppercase;
-      letter-spacing: -0.18px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 60px;
-      display: flex;
-      width: 499px;
-      padding: 20px;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      border-radius: 40px;
-      border: 2px solid var(--black-cl);
-      background-color: transparent;
-      cursor: pointer;
-    }
+  .popup-book-description {
+    font-size: 14px;
+    line-height: 1.3;
   }
-  @media only screen and (max-width: 350px) {
-    .modal {
-      width: calc(100% - 30px);
-    }
+
+  .popup-links {
+    padding-top: 20px;
+  }
+  .popup-btn-add-remove {
+    padding: 20px 150px 20px 150px;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: -0.18px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    display: flex;
+    width: 499px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 40px;
+    border: 2px solid var(--black-cl);
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .modal {
+    width: calc(100% - 30px);
   }
 }
