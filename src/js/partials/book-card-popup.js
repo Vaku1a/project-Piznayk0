@@ -55,15 +55,19 @@ function callPopupWindow(evt) {
   // отримує id книги
   const id = evt.target.closest('LI').dataset.bookId;
   // Виклик функції, що робить запит на бекенд
-  getBooksId(id).then(data => {
-    newBook = data;
-    // Виклик функції перевірки наявності даної книги в локальному сховищі
-    checkingBookList(newBook);
-    let markup = createMarkupForPopup(newBook);
-    addBookMarkup(markup);
-  }).catch((err) => {
-    console.error(err);
-}).finally(_ => refs.loaderForAllCategories.style.display = 'none'); 
+  getBooksId(id)
+    .then(data => {
+      newBook = data;
+      // Виклик функції перевірки наявності даної книги в локальному сховищі
+      checkingBookList(newBook);
+      let markup = createMarkupForPopup(newBook);
+      // додавання ррозмітки
+      refs.popupEl.firstElementChild.nextElementSibling.innerHTML = markup;
+    })
+    .catch(err => {
+      console.error(err);
+    })
+    .finally(_ => (refs.loaderForAllCategories.style.display = 'none'));
 }
 
 // Функція перевірки наявності обєкта книги в локальному сховищі
