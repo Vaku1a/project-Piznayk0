@@ -59,7 +59,7 @@ function callPopupWindow(evt) {
     newBook = data;
     // Виклик функції перевірки наявності даної книги в локальному сховищі
     checkingBookList(newBook);
-    let markup = createMarkup(newBook);
+    let markup = createMarkupForPopup(newBook);
     addBookMarkup(markup);
   }).catch((err) => {
     console.error(err);
