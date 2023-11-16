@@ -64,8 +64,8 @@
 .popup-image {
   width: 287px;
   height: 408px;
-    border-radius: 8px;
-    padding-bottom: 14px;
+  border-radius: 8px;
+  padding-bottom: 14px;
 }
 
 .popup-book-title {
@@ -140,7 +140,7 @@
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-@media only screen and (min-width: 375px){
+@media only screen and (min-width: 375px) {
   .popup {
     padding-bottom: 40px;
   }
