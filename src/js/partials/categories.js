@@ -23,16 +23,19 @@ import booksNotFound_2x from '../../img/shopping-list/empty-bin@2x.png';
 
 getAllCategories()
     .then(categories => {
-        refs.categoriesList.innerHTML = createCategoriesListMarkup(categories);        
+        refs.loaderForAllCategories.style.display = 'block';
+        refs.categoriesList.innerHTML = createCategoriesListMarkup(categories);
     })
     .catch((err) => {
         console.error(err);
         // Notify.failure('Oops! Something went wrong! Try reloading the page!');
-    });
+    })
+   
 
 refs.categoriesList.addEventListener('click', onLoadCategory);
 
 function onLoadCategory(evt) {
+    refs.loaderForAllCategories.style.display = 'block';
     if (evt.target.nodeName !== "LI") {
         return;
     }
@@ -54,6 +57,7 @@ function onLoadCategory(evt) {
     if (categoryName === 'All categories') {        
         getTopBooks()
             .then(categories => {
+                refs.loaderForAllCategories.style.display = 'block';
                  if (categories.length === 0) {                      
                      refs.booksPart.innerHTML =
                         `<h2 class="books-part-title">Best Sellers
@@ -77,12 +81,13 @@ function onLoadCategory(evt) {
             .catch((err) => {
                 console.error(err);
                 // Notify.failure('Oops! Something went wrong! Try reloading the page!');
-            });
+            }).finally(_ => refs.loaderForAllCategories.style.display = 'none'); 
         return;
     }     
            
     getCategoryId(categoryName)
         .then(books => {
+            refs.loaderForAllCategories.style.display = 'none';
             if (books.length === 0) {
                 refs.booksPart.innerHTML = 
                     `${createBooksCaregoryTitle(categoryName)}
@@ -104,7 +109,7 @@ function onLoadCategory(evt) {
         .catch((err) => {
             console.error(err);
             // Notify.failure('Oops! Something went wrong! Try reloading the page!');
-        });          
+        }).finally(_=> refs.loaderForAllCategories.style.display = 'none');         
 };
 
 function createCategoriesListMarkup(categories) {

@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
   <link rel="stylesheet" href="./css/index.css">
   <title>Book Shelf | Home</title>
@@ -11,9 +11,10 @@
 
 <body>
   <!-- Daria header-->
-
   <load src="partials/header.html" />
+
   <h1 class="visually-hidden">Best Sellers Books</h1>
+
   <div class="wrapper">
     <aside class="sidebar">
       <!-- Oleksandr categories -->
@@ -21,6 +22,7 @@
       <!-- Roman/Sergey Support -->
       <load src="partials/support.html" />
     </aside>
+
     <main>
       <!-- Oleksandr books list -->
       <load src="partials/books-list.html" />
@@ -29,11 +31,15 @@
       <!-- Volodymyr modal -->
       <load src="partials/book-card-popup.html" />
     </main>
+
   </div>
   <!-- Sergiy/Maks modal sign-up -->
   <div>
     <load src="partials/sign-in.html" />
   </div>
+  <!-- Loader -->
+  <load scr="partials/loader.html" />
+
   <script type="module" src="./index.js"></script>
 </body>
 

@@ -59,11 +59,11 @@ function callPopupWindow(evt) {
     newBook = data;
     // Виклик функції перевірки наявності даної книги в локальному сховищі
     checkingBookList(newBook);
-    // створення розмітки
     let markup = createMarkupForPopup(newBook);
-    // Додавання розмітки до ДОМу
-    refs.popupEl.firstElementChild.nextElementSibling.innerHTML = markup;
-  });
+    addBookMarkup(markup);
+  }).catch((err) => {
+    console.error(err);
+}).finally(_ => refs.loaderForAllCategories.style.display = 'none'); 
 }
 
 // Функція перевірки наявності обєкта книги в локальному сховищі
