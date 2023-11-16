@@ -1,7 +1,6 @@
  import {refs} from '../refs/refs'
 // refs.body
 (() => {
-    console.log(123);
     refs.openModalBtn.forEach(element => element.addEventListener("click", toggleModal));   
     if (refs.closeModalBtn) {
         
