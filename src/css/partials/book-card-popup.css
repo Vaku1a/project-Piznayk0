@@ -213,3 +213,32 @@
     width: calc(100% - 30px);
   }
 }
+
+.body-dark-theme .popup {
+  background-color: var(--dark-theme-bg-cl);
+  border-color: var(--white-cl);
+}
+.body-dark-theme .popup-icon-close {
+  stroke: var(--white-cl);
+}
+.body-dark-theme .popup-book-title,
+.body-dark-theme .popup-book-description {
+  color: var(--white-cl);
+}
+.body-dark-theme .amazon-icon {
+  filter: brightness(0) invert(1);
+}
+.body-dark-theme .amazon-icon:hover,
+.body-dark-theme .apple-icon:hover {
+  filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+}
+.body-dark-theme .apple-icon {
+  filter: grayscale(100%);
+}
+.body-dark-theme .popup-btn-add-remove {
+  border-color: var(--violet-cl);
+  color: var(--white-cl);
+}
+.body-dark-theme .popup-add-message {
+  color: rgba(255, 255, 255, 0.5);
+}
