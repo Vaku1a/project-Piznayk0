@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.6.0",
+    "firebase": "^10.6.0",
     "firebaseui": "^6.1.0",
     "install": "^0.13.0",
     "modern-normalize": "^2.0.0",
@@ -30,5 +31,8 @@
     "tui-pagination": "^3.4.1",
     "vite-plugin-full-reload": "^1.0.5",
     "vite-plugin-html-inject": "^1.0.1"
-  }
+  },
+  "description": "Этот проект был создан при помощи Vite. Для знакомства и настройки\r дополнительных возможностей [обратись к документации](https://vitejs.dev/).",
+  "main": "vite.config.js",
+  "keywords": []
 }
