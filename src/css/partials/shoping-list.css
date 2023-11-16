@@ -364,6 +364,9 @@ height: 16px;
   letter-spacing: -0.28px;
   margin-bottom: 14px;
 }
+.body-dark-theme .shopping-text-none{
+  color:var( --book-list-dark-theme-cl)
+}
 
 /* текст */
 
