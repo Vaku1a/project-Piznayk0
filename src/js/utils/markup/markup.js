@@ -1,4 +1,6 @@
 // popup markup
+import amazonSvgPath from '../../../img/modal-shop/amazon.png';
+import appleSvgPath from '../../../img/modal-shop/apple-books.png';
 
 export function createMarkupForPopup({
   book_image,
@@ -14,10 +16,10 @@ export function createMarkupForPopup({
             <p class="popup-book-description">${description}</p>
               <div class="popup-links">
                 <a href="${amazon.url}" target="_blank">
-                  <img class="popup-link-img" src="./img/modal-shop/amazon.png" alt="link to amazon" />
+                  <img class="popup-link-img" src="${amazonSvgPath}" />
                 </a>
                 <a href="${apple}" target="_blank">
-                  <img class="popup-link-img" src="./img/modal-shop/apple-books.png" alt="link to apple books" />
+                  <img class="popup-link-img" src="${appleSvgPath}" />
                 </a>
               </div>
             </div>
