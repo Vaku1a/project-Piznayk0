@@ -1,3 +1,4 @@
+/* стилі, що заморожують скрол на фоні модального вікна */
 .popup-modal-open {
   height: 100vh;
   overflow-y: hidden;
@@ -11,8 +12,7 @@
   height: 100%;
   background-color: var(--book-list-light-theme-cl);
   z-index: 1000;
-
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .popup-backdrop.is-hidden {
   visibility: hidden;
@@ -139,33 +139,33 @@
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.body-dark-theme .popup{
+.body-dark-theme .popup {
   background-color: var(--dark-theme-bg-cl);
   border-color: var(--white-cl);
 }
-.body-dark-theme .popup-icon-close{
-stroke: var(--white-cl);
+.body-dark-theme .popup-icon-close {
+  stroke: var(--white-cl);
 }
 .body-dark-theme .popup-book-title,
-.body-dark-theme .popup-book-description{
+.body-dark-theme .popup-book-description {
   color: var(--white-cl);
 }
-.body-dark-theme .amazon-icon{
+.body-dark-theme .amazon-icon {
   filter: brightness(0) invert(1);
 }
 .body-dark-theme .amazon-icon:hover,
-.body-dark-theme .apple-icon:hover{
+.body-dark-theme .apple-icon:hover {
   filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
 }
-.body-dark-theme .apple-icon{
+.body-dark-theme .apple-icon {
   filter: grayscale(100%);
 }
-.body-dark-theme .popup-btn-add-remove{
+.body-dark-theme .popup-btn-add-remove {
   border-color: var(--violet-cl);
   color: var(--white-cl);
 }
-.body-dark-theme .popup-add-message{
-color: rgba(255, 255, 255, 0.50);;
+.body-dark-theme .popup-add-message {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 @media only screen and (min-width: 768px) {
