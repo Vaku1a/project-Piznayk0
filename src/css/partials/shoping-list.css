@@ -205,7 +205,8 @@ height: 16px;
 
 .body-dark-theme .amazon:hover,
 .body-dark-theme .apple:hover{
-  filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+  filter: grayscale(100%) drop-shadow(0 1mm 1mm rgb(192, 192, 192));
+  
 }
 
 .amazon:hover {
@@ -225,7 +226,7 @@ height: 16px;
 
 .apple:hover {
   cursor: pointer;
-  filter: drop-shadow(0 1mm 1mm rgb(192, 192, 192));
+  filter: grayscale(100%) drop-shadow(0 1mm 1mm rgb(192, 192, 192));
 }
 
 /* TABLET */
@@ -416,6 +417,111 @@ height: 16px;
 .hidden {
   display: none;
 }
+
+/* ..::PAGINATION::.. */
+
+.tui-pagination {
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+}
+
+.tui-pagination .tui-page-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  transition: transform 0.2s;
+  vertical-align: middle;
+}
+
+.tui-pagination .tui-page-btn:hover {
+  transform: scale(1.1);
+  background-color: var(--violet-cl)!important;
+  color: var(--white-cl);
+}
+
+.tui-page-btn {
+  border-radius: 50%;
+  min-width: 38px;
+  min-height: 38px;
+  margin-right: 10px !important;
+  line-height: 22px !important;
+  border: 1px solid #000 !important;
+}
+
+/* arrows << < > >> */
+.tui-is-disabled {
+  border-radius: 50%;
+}
+
+/* arrow left  styles*/
+.tui-first {
+  background-color: var(--black-cl) !important;
+  background-size: 24px 24px !important;
+}
+
+
+
+
+.tui-prev {
+  color: var(--white-cl);
+  background-color: var(--black-cl);
+  margin-right: 24px !important;
+}
+
+.tui-ico-first {
+  background-position: -13px 0px !important;
+
+}
+
+.tui-ico-prev {
+  background-position: -26px -12px !important;
+
+}
+
+    /* visibility: hidden; */
+
+/* button page */
+.tui-is-selected {
+  background-color: var(--black-cl) !important;
+}
+
+
+/* arrow right  styles*/
+.tui-next {
+  margin-left: 14px !important;
+  margin-right: 8px !important;
+  background-color: var(--yellow-cl);
+}
+
+.tui-last {
+  background-color: var(--yellow-cl);
+}
+
+.tui-ico-next {
+  background-position: -13px -24px !important;
+
+}
+
+.tui-ico-last {
+  background-position: 0px -12px !important;
+
+}
+
+
+@media screen and (min-width: 768px) {
+  .tui-page-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+.body-dark-theme .tui-is-selected{
+  background-color: var(--white-cl) !important;
+  color: var(--black-cl)!important;
+}
+
 
 
 /* END PAGINATION */
