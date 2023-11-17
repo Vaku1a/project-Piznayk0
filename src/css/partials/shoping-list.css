@@ -120,7 +120,14 @@ height: 16px;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  
 }
+@media screen and (max-width: 768px) {
+  .book-title{
+margin-right: 40px
+  }
+}
+
 
 .body-dark-theme .book-title {
   color: var(--white-cl);
@@ -196,22 +203,26 @@ height: 16px;
 .amazon {
   width: 32px;
   height: 11px;
-  filter: grayscale(100%);
+  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, .35));
 }
 
 .body-dark-theme .amazon{
   filter: brightness(0) invert(1);
 }
 
-.body-dark-theme .amazon:hover,
+.body-dark-theme .amazon:hover {
+filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+
+}
+
 .body-dark-theme .apple:hover{
-  filter: grayscale(100%) drop-shadow(0 1mm 1mm rgb(192, 192, 192));
-  
+filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+
 }
 
 .amazon:hover {
   cursor: pointer;
-  filter: grayscale(100%) drop-shadow(0 1mm 1mm rgb(192, 192, 192));
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, .35));
 }
 
 .apple {
@@ -226,7 +237,7 @@ height: 16px;
 
 .apple:hover {
   cursor: pointer;
-  filter: grayscale(100%) drop-shadow(0 1mm 1mm rgb(192, 192, 192));
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, .35))
 }
 
 /* TABLET */
@@ -426,6 +437,7 @@ height: 16px;
 .tui-pagination {
   margin-top: 40px !important;
   margin-bottom: 40px !important;
+  height: auto !important;
 }
 
 .tui-pagination .tui-page-btn {
@@ -520,11 +532,42 @@ height: 16px;
   }
 }
 
-.body-dark-theme .tui-is-selected{
+
+
+.body-dark-theme .tui-page-btn {
+color: var(--white-cl) !important;
+border-color: var(--white-cl) !important;
+}
+
+
+
+
+.body-dark-theme .tui-is-selected {
   background-color: var(--white-cl) !important;
-  color: var(--black-cl)!important;
+  color: var(--black-cl) !important;
+}
+.body-dark-theme .tui-first,
+.body-dark-theme .tui-prev,
+.body-dark-theme .tui-next,
+.body-dark-theme .tui-last {
+  border-color: var(--black-cl) !important;
 }
 
 
 
 /* END PAGINATION */
+
+/* Медіа-запит для екранів шириною до 768px (телефони) */
+@media screen and (max-width: 768px) {
+  #tui-pagination-container {
+    max-width: 340px;
+    white-space: nowrap;
+  overflow-x: hidden;
+  }
+  .tui-prev{
+    margin-right: 14px !important;
+  }
+.tui-next{
+      margin-left: 4px !important;
+}
+}
