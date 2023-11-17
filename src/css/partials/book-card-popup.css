@@ -149,7 +149,14 @@
     margin-top: 40px;
   }
 }
-
+@media only screen and (orientation: landscape) {
+  .popup-backdrop {
+    overflow-y: auto;
+  }
+  .popup {
+    transform: translate(-50%, -25%);
+  }
+}
 @media only screen and (min-width: 768px) {
   .popup {
     width: 579px;
