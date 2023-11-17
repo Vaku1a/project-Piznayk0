@@ -44,10 +44,13 @@ function OffFunction(evt) {
 }
 // Функція виклику модального вікна
 function callPopupWindow(evt) {
-  // перевічка того чи клік справді ввідбувся по елементу li
+  console.log('123');
+  // перевічка того чи клік справді ввідбувся по елементу li та вимикає лоадер
   if (!evt.target.closest('.book-cards-list-item')) {
+    refs.loaderForAllCategories.style.display = 'none';
     return;
   }
+
   // Робить модальне вікно не прихованим
   refs.popupEl.parentNode.classList.toggle('is-hidden');
   // заморожує скрол на бекдроп
