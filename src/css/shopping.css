@@ -13,6 +13,7 @@
 @import url('./partials/header.css');
 @import url('./partials/shoping-list.css');
 @import url('./partials/support.css');
+@import url('./partials/cursor.css');
 
 :root {
   /* Colors */

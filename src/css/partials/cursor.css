@@ -1,0 +1,34 @@
+.cursor {
+  z-index: 999;
+  position: absolute;
+  background: var(--violet-cl);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 10px var(--violet-cl), 0 0 20px var(--violet-cl),
+    0 0 30px var(--violet-cl);
+  animation: colors 5s infinite;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+@keyframes colors {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.cursor::before {
+  content: '';
+  position: absolute;
+  background: var(--violet-cl);
+  width: 25px;
+  height: 25px;
+  opacity: 0.2;
+  transform: translate(-30%, -30%);
+  border-radius: 50%;
+}

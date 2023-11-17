@@ -16,6 +16,7 @@
 @import url('./partials/scroll-up.css');
 @import url('./partials/sign-in.css');
 @import url('./partials/loader.css');
+@import url('./partials/cursor.css');
 
 :root {
   /* Colors */

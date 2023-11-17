@@ -7,3 +7,4 @@ import './js/partials/booklist';
 import './js/partials/book-card-popup';
 import './js/partials/scroll-up';
 import './js/partials/sign-in';
+import './js/partials/cursor';
