@@ -69,8 +69,7 @@ function onSeeMoreBtn(evt) {
     categoriesListItems.find(category => {
         if (category.textContent === categoryName) {
             category.classList.add('active');
-            console.log(categoriesListItems.find(category => category.textContent === categoryName));
-            // refs.categoriesList.scrollIntoView(categoriesListItems.find(category => category.textContent === categoryName));
+            category.scrollIntoView({ behavior: "smooth", block: "center" });
         }
     }
     );
