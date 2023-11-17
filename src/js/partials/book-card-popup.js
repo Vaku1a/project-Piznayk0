@@ -1,4 +1,4 @@
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getBooksId } from '../api/api.js';
 import {
   getDataFromStorage,
@@ -7,20 +7,20 @@ import {
 import { createMarkupForPopup } from '../utils/markup/markup.js';
 import { refs } from '../refs/refs';
 
-// Notify.init({
-//     width: '300px',
-//     position: 'center-center',
-//     fontSize: '16px',
-//     fontFamily: 'DM Sans',
-//     showOnlyTheLastOne: true,
-//     clickToClose: true,
-//     timeout: 5000,
-//     failure: {
-//         notiflixIconColor: '#111',
-//         background: '#4f2ee8',
-//         textColor: '#fff',
-//     }
-// });
+Notify.init({
+    width: '300px',
+    position: 'center-center',
+    fontSize: '16px',
+    fontFamily: 'DM Sans',
+    showOnlyTheLastOne: true,
+    clickToClose: true,
+    timeout: 5000,
+    failure: {
+        notiflixIconColor: '#111',
+        background: '#4f2ee8',
+        textColor: '#fff',
+    }
+});
 
 // назва ключа для localStorage та змінна що зберігає обєкт поточної книги
 const STORAGE_KEY = 'bookList';
@@ -82,7 +82,7 @@ function callPopupWindow(evt) {
     })
     .catch(err => {
       console.error(err);
-      // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+      Notify.failure('Oops! Something went wrong! Try reloading the page!');
     })
     .finally(_ => (refs.loaderForAllCategories.style.display = 'none'));
 }
@@ -97,7 +97,7 @@ async function checkingBookList(data) {
       })
       .catch(error => {
         console.log(error.message);
-        // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+        Notify.failure('Oops! Something went wrong! Try reloading the page!');
       });
     // перевірка методом some чи є серед масиву обєктів книг, обєкт з таким же id як id поточної книги
     const status = arr.some(({ _id }) => _id === data._id);
@@ -122,7 +122,7 @@ async function checkingBookList(data) {
     }
   } catch (error) {
     console.log(error.message);
-    // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+    Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }
 }
 
@@ -136,7 +136,7 @@ async function addBookToStorage() {
       })
       .catch(error => {
         console.log(error.message);
-        // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+        Notify.failure('Oops! Something went wrong! Try reloading the page!');
       });
     // додавання до масиву книг у сховищі, ще одного обєкту з новою книгою
     dataFromStorage.push(newBook);
@@ -148,7 +148,7 @@ async function addBookToStorage() {
     checkingBookList(newBook);
   } catch (error) {
     console.log(error.message);
-    // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+    Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }
 }
 
@@ -169,6 +169,6 @@ async function removeBookFromStorage() {
     checkingBookList(newBook);
   } catch (error) {
     console.log(error.message);
-    // Notify.failure('Oops! Something went wrong! Try reloading the page!');
+    Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }
 }
