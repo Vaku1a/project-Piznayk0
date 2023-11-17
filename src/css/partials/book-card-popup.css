@@ -10,7 +10,7 @@
   width: 100%;
   height: 100%;
   background-color: var(--book-list-light-theme-cl);
-  z-index: 1000;
+  z-index: 10000;
 
   overflow: hidden;
 }
@@ -24,16 +24,17 @@
 
 .popup {
   width: 335px;
-  padding-bottom: 40px;
+  /* max-height: 90vh; */
+  padding-bottom: 20px;
   position: absolute;
-  top: 53%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 18px;
   border: 2px solid var(--black-cl);
-
   background: var(--white-cl);
 }
+
 .popup-btn-close {
   position: absolute;
   top: 12px;
@@ -67,6 +68,7 @@
   border-radius: 8px;
   padding-bottom: 14px;
 }
+
 .popup-book-title {
   color: var(--black-cl);
   font-size: 16px;
@@ -107,7 +109,7 @@
 .popup-btn-add-remove {
   display: block;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 8px;
   margin-bottom: 8px;
   padding: 14px 20px;
   background-color: inherit;
@@ -139,33 +141,13 @@
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.body-dark-theme .popup{
-  background-color: var(--dark-theme-bg-cl);
-  border-color: var(--white-cl);
-}
-.body-dark-theme .popup-icon-close{
-stroke: var(--white-cl);
-}
-.body-dark-theme .popup-book-title,
-.body-dark-theme .popup-book-description{
-  color: var(--white-cl);
-}
-.body-dark-theme .amazon-icon{
-  filter: brightness(0) invert(1);
-}
-.body-dark-theme .amazon-icon:hover,
-.body-dark-theme .apple-icon:hover{
-  filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
-}
-.body-dark-theme .apple-icon{
-  filter: grayscale(100%);
-}
-.body-dark-theme .popup-btn-add-remove{
-  border-color: var(--violet-cl);
-  color: var(--white-cl);
-}
-.body-dark-theme .popup-add-message{
-color: rgba(255, 255, 255, 0.50);;
+@media only screen and (min-width: 375px) {
+  .popup {
+    padding-bottom: 40px;
+  }
+  .popup-btn-add-remove {
+    margin-top: 40px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -205,7 +187,6 @@ color: rgba(255, 255, 255, 0.50);;
   .popup-links {
     padding-top: 20px;
   }
-
   .popup-btn-add-remove {
     padding: 20px 150px 20px 150px;
     font-size: 18px;
@@ -232,4 +213,33 @@ color: rgba(255, 255, 255, 0.50);;
   .modal {
     width: calc(100% - 30px);
   }
+}
+
+.body-dark-theme .popup {
+  background-color: var(--dark-theme-bg-cl);
+  border-color: var(--white-cl);
+}
+.body-dark-theme .popup-icon-close {
+  stroke: var(--white-cl);
+}
+.body-dark-theme .popup-book-title,
+.body-dark-theme .popup-book-description {
+  color: var(--white-cl);
+}
+.body-dark-theme .amazon-icon {
+  filter: brightness(0) invert(1);
+}
+.body-dark-theme .amazon-icon:hover,
+.body-dark-theme .apple-icon:hover {
+  filter: drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+}
+.body-dark-theme .apple-icon {
+  filter: grayscale(100%);
+}
+.body-dark-theme .popup-btn-add-remove {
+  border-color: var(--violet-cl);
+  color: var(--white-cl);
+}
+.body-dark-theme .popup-add-message {
+  color: rgba(255, 255, 255, 0.5);
 }

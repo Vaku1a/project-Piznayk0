@@ -176,8 +176,11 @@ right: 20px;
   justify-content: center;
 
 }
+.modal-img-bg{
+  position: absolute;
+  bottom: 0;
+}
 .modal-picture{
-  background-image: url(./../img/mobile-books.png);
   background-position-y: bottom;
   background-repeat: no-repeat;
   padding-top: 24px;
@@ -243,6 +246,7 @@ fill: var(--black-cl)
   position: absolute;
   bottom: 15%;
   left: 20px;
+  display: none;
 }
 .is-hidden {
   visibility: hidden;

@@ -29,4 +29,5 @@ export const refs = {
   closeModalBtn: document.querySelector('[data-form-close]'),
   modal: document.querySelector('[data-form]'),
   formEl: document.querySelector('.js-form'),
+  loaderForAllCategories: document.querySelector('.loader-backdrop'),
 };

@@ -22,7 +22,8 @@ import booksNotFound_2x from '../../img/shopping-list/empty-bin@2x.png';
 // });
 
 getTopBooks()
-    .then(categories => {        
+    .then(categories => {      
+        refs.loaderForAllCategories.style.display = 'block';  
         if (categories.length === 0) {
             refs.booksPart.insertAdjacentHTML('afterbegin',
                 `${booksNotFoundWrapperMarkup}`
@@ -43,11 +44,11 @@ getTopBooks()
     .catch((err) => {
         console.error(err);
         // Notify.failure('Oops! Something went wrong! Try reloading the page!');
-    });
-
+    }).finally(_=>refs.loaderForAllCategories.style.display = 'none');
 refs.booksPart.addEventListener('click', onSeeMoreBtn);
 
 function onSeeMoreBtn(evt) {
+    refs.loaderForAllCategories.style.display = 'block'
     if (evt.target.nodeName !== "BUTTON") {
         return;
     }
@@ -76,28 +77,30 @@ function onSeeMoreBtn(evt) {
 
     getCategoryId(categoryName)
         .then(books => {
+
             if (books.length === 0) {
-                refs.booksPart.innerHTML = 
-                `${createBooksCaregoryTitle(categoryName)}
+                refs.booksPart.innerHTML =
+                    `${createBooksCaregoryTitle(categoryName)}
                 <div class="book-category-wrapper">
                 ${booksNotFoundWrapperMarkup}                                
                 </div>`
                 return;
             }
-            refs.booksPart.innerHTML = 
-            `${createBooksCaregoryTitle(categoryName)}
+            refs.booksPart.innerHTML =
+                `${createBooksCaregoryTitle(categoryName)}
             <div class="book-category-wrapper">
                 <ul class="book-cards-list book-cards-list-one-category">
                 ${createBooksInCategoryMarkup(books)}                  
                 </ul>                             
             </div>`
             
-            refs.booksPart.querySelectorAll('.book-cards-list-item').forEach((item) => item.style.display = 'block');            
+            refs.booksPart.querySelectorAll('.book-cards-list-item').forEach((item) => item.style.display = 'block');
         })
         .catch((err) => {
             console.error(err);
             // Notify.failure('Oops! Something went wrong! Try reloading the page!');
-        });  
+        }).finally(_ => refs.loaderForAllCategories.style.display = 'none');
+
 }
 
 function createBooksCategoriesCardsMarkup(categories) {
