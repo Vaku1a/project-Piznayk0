@@ -8,7 +8,7 @@ import Pagination from 'tui-pagination';
 export function initializePagination(totalItems, itemsPerPage, onPageChange) {
   // Отримуємо контейнер, в якому буде розміщена пагінація
   const container = document.getElementById('tui-pagination-container');
-
+ 
   // Опції для пагінації
   const options = {
     totalItems: totalItems, // Загальна кількість елементів
