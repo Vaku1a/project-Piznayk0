@@ -16,7 +16,7 @@ export function createMarkupForPopup({
             <p class="popup-book-description">${description}</p>
               <div class="popup-links">
                 <a href="${amazon.url}" target="_blank">
-                  <img class="popup-link-img" src="${amazonSvgPath}" />
+                  <img class="popup-link-img amazon-icon" src="${amazonSvgPath}" />
                 </a>
                 <a href="${apple}" target="_blank">
                   <img class="popup-link-img" src="${appleSvgPath}" />
