@@ -243,3 +243,19 @@
 .body-dark-theme .popup-add-message {
   color: rgba(255, 255, 255, 0.5);
 }
+@media only screen and (orientation: landscape) {
+  .popup-backdrop {
+    overflow-y: auto;
+  }
+  .popup {
+    transform: translate(-50%, -22%);
+  }
+}
+@media only screen and (max-height: 805.98px) {
+  .popup-backdrop {
+    overflow-y: auto;
+  }
+  .popup {
+    transform: translate(-50%, -22%);
+  }
+}
