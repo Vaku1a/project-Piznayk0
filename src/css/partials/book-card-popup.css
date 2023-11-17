@@ -219,6 +219,10 @@
 .body-dark-theme .popup-icon-close {
   stroke: var(--white-cl);
 }
+.body-dark-theme .popup-icon-close:hover,
+.body-dark-theme .popup-icon-close:focus {
+  stroke: var(--violet-cl);
+}
 .body-dark-theme .popup-book-title,
 .body-dark-theme .popup-book-description {
   color: var(--white-cl);
@@ -240,7 +244,7 @@
 .body-dark-theme .popup-add-message {
   color: rgba(255, 255, 255, 0.5);
 }
-@media only screen and (orientation: landscape) {
+@media only screen and (min-width: 375px) and (max-width: 1439.98px) and (max-height: 805.98px) and (orientation: landscape) {
   .popup-backdrop {
     overflow-y: auto;
   }
@@ -248,11 +252,11 @@
     transform: translate(-50%, -22%);
   }
 }
-@media only screen and (max-height: 805.98px) {
+@media only screen and (max-height: 805.98px) and (orientation: portrait) {
   .popup-backdrop {
     overflow-y: auto;
   }
   .popup {
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -45%);
   }
 }
