@@ -1,3 +1,6 @@
+import { initializePagination } from './shoping-pgn';
+
+
 // Отримуємо дані з локального сховища або створюємо порожній масив
 const fromLocalStr = JSON.parse(localStorage.getItem('bookList')) || [];
 // Елемент, в якому будуть відображені книги
@@ -7,6 +10,20 @@ import amazonSvgPath from '../../img/shopping-list/amazon.png';
 import appleSvgPath from '../../img/shopping-list/apple-book.png';
 import bigImagePath from '../../img/shopping-list/empty-bin@2x.png';
 import smallImagePath from '../../img/shopping-list/empty-bin@1x.png';
+
+
+
+
+// Ваш код для отримання книг
+const booksToRender = fromLocalStr;
+
+// Ваш код для отримання книг
+renderBooks(0, fromLocalStr.length);
+const itemsPerPage = 3;
+  // Ініціалізуємо пагінацію
+const pagination = initializePagination(fromLocalStr.length, itemsPerPage, handlePageChange);
+
+
 
 // Функція для рендерингу книг для поточної сторінки
 export function renderBooks(startIndex, endIndex) {
@@ -43,12 +60,29 @@ export function renderBooks(startIndex, endIndex) {
     )
     .join('');
 
+
   // Змінюємо стилі для заголовка
   const h1Element = document.querySelector('.shopping-title');
   h1Element.style.paddingBottom = '40px';
   // Вставляємо HTML з книгами в елемент
   shoppingList.innerHTML = bookCardsHTML;
+
+  
 }
+
+
+function handlePageChange({ currentPage, startIndex, endIndex }) {
+  const booksOnPage = booksToRender.slice(startIndex, endIndex);
+  // Перевірка, чи відсутні книги на поточній сторінці
+  if (booksOnPage.length === 0) {
+    // Перемістіть користувача на попередню сторінку з книгами
+    const newPage = currentPage - 1;
+    pagination.movePageTo(newPage);
+    return;
+  }
+  renderBooks(startIndex, endIndex);
+}
+
 // Функція для генерації посилань на придбання книги
 function generateBuyLinks(buyLinks) {
   const amazonLink = buyLinks.find(link => link.name === 'Amazon');
@@ -64,7 +98,8 @@ function generateBuyLinks(buyLinks) {
   `;
 }
 // Рендеримо книги для першої сторінки
-renderBooks(0, fromLocalStr.length);
+renderBooks(0, itemsPerPage);
+
 
 // Додаємо обробник подій для видалення книг
 shoppingList.addEventListener('click', onClick);
@@ -79,9 +114,14 @@ function onClick(event) {
       const itemId = listItem.id;
       shoppingList.removeChild(listItem);
       removeFromLocalStorage(itemId);
+      console.log(`Книга з ID ${itemId} була видалена.`);
+      
     }
   }
 }
+
+
+
 
 // Функція для видалення книги з локального сховища
 function removeFromLocalStorage(id) {
@@ -91,6 +131,22 @@ function removeFromLocalStorage(id) {
   // Оновлюємо fromLocalStr до актуального стану
   fromLocalStr.length = 0;
   Array.prototype.push.apply(fromLocalStr, updatedItems);
+
+  // Отримуємо поточну сторінку та індекси
+  const currentPage = pagination.getCurrentPage();
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  // Перевірка, чи відсутні книги на поточній сторінці
+  if (booksToRender.slice(startIndex, endIndex).length === 0) {
+    // Перемістіть користувача на попередню сторінку з книгами
+    const newPage = currentPage - 1;
+    pagination.movePageTo(newPage);
+  } else {
+    // Перерендерити книги на поточній сторінці
+    renderBooks(startIndex, endIndex);
+  }
+
   // Перевіряємо кількість книг
   if (fromLocalStr.length === 0) {
     // Викликаємо функцію для відображення порожньої сторінки
@@ -101,6 +157,9 @@ function removeFromLocalStorage(id) {
     }, 1000);
   }
 }
+
+
+
 // Якщо немає книг, показуємо порожню сторінку
 if (fromLocalStr.length === 0) {
   // Викликаємо функцію для відображення порожньої сторінки
@@ -149,6 +208,12 @@ function showEmptyPage() {
   window.addEventListener('resize', setH1Element);
   // Вставляємо HTML для порожньої сторінки в елемент
   shoppingList.innerHTML = emptyPageHTML;
+
+  const paginationElement = document.querySelector('#tui-pagination-container');
+  if (paginationElement) {
+    // Hide the pagination element
+    paginationElement.style.display = 'none';
+  }
+
 }
 
-//coment
