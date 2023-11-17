@@ -131,7 +131,7 @@ function createBooksCaregoryTitle(categoryName) {
     }
     if (categoryNameArr.length > 3) {
         const mainCategoryTitlePart = categoryNameArr.slice(0, categoryNameArr.length / 2).join(' ');
-        const categoryTitleSpan = categoryNameArr.slice((categoryNameArr.length / 2)).join(' ');
+        const categoryTitleSpan = categoryNameArr.slice(((categoryNameArr.length / 2)) % 2 === 0 ? categoryNameArr.length / 2 : categoryNameArr.length / 2 - 1).join(' ');
         return `<h2 class="books-part-title">${mainCategoryTitlePart} <span class="books-part-title-span">${categoryTitleSpan}</span></h2>`
     }
     const categoryTitleSpan = categoryNameArr.pop();
