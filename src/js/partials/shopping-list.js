@@ -20,9 +20,10 @@ const booksToRender = fromLocalStr;
 // Ваш код для отримання книг
 renderBooks(0, fromLocalStr.length);
 const itemsPerPage = 3;
-  // Ініціалізуємо пагінацію
+// Ініціалізуємо пагінацію
+const totalItems = fromLocalStr.length;
 const pagination = initializePagination(fromLocalStr.length, itemsPerPage, handlePageChange);
-
+let totalPages = Math.ceil(fromLocalStr.length / itemsPerPage);
 
 
 // Функція для рендерингу книг для поточної сторінки
@@ -71,17 +72,36 @@ export function renderBooks(startIndex, endIndex) {
 }
 
 
+
+
 function handlePageChange({ currentPage, startIndex, endIndex }) {
   const booksOnPage = booksToRender.slice(startIndex, endIndex);
+
   // Перевірка, чи відсутні книги на поточній сторінці
   if (booksOnPage.length === 0) {
-    // Перемістіть користувача на попередню сторінку з книгами
-    const newPage = currentPage - 1;
-    pagination.movePageTo(newPage);
+    // Перевірка, чи користувач вже на першій сторінці
+    if (currentPage > 1) {
+      // Переміщення користувача на попередню сторінку з книгами
+      const newPage = currentPage - 1;
+      pagination.movePageTo(newPage);
+      location.reload();
+    } else {
+      const newPage = totalPages;
+    }
     return;
   }
+
   renderBooks(startIndex, endIndex);
 }
+
+
+
+
+
+
+
+
+
 
 // Функція для генерації посилань на придбання книги
 function generateBuyLinks(buyLinks) {
@@ -114,8 +134,6 @@ function onClick(event) {
       const itemId = listItem.id;
       shoppingList.removeChild(listItem);
       removeFromLocalStorage(itemId);
-      console.log(`Книга з ID ${itemId} була видалена.`);
-      
     }
   }
 }
@@ -139,7 +157,10 @@ function removeFromLocalStorage(id) {
 
   // Перевірка, чи відсутні книги на поточній сторінці
   if (booksToRender.slice(startIndex, endIndex).length === 0) {
-    // Перемістіть користувача на попередню сторінку з книгами
+    // Оновлюємо totalPages перед переміщенням користувача на попередню сторінку
+    totalPages = Math.ceil(updatedItems.length / itemsPerPage);
+
+    // Переміщаємо користувача на попередню сторінку з книгами
     const newPage = currentPage - 1;
     pagination.movePageTo(newPage);
   } else {
@@ -211,7 +232,6 @@ function showEmptyPage() {
 
   const paginationElement = document.querySelector('#tui-pagination-container');
   if (paginationElement) {
-    // Hide the pagination element
     paginationElement.style.display = 'none';
   }
 
