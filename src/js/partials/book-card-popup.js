@@ -46,6 +46,7 @@ function OffFunction(evt) {
 function callPopupWindow(evt) {
   // перевічка того чи клік справді ввідбувся по елементу li
   if (!evt.target.closest('.book-cards-list-item')) {
+    refs.loaderForAllCategories.style.display = 'none';
     return;
   }
   // Робить модальне вікно не прихованим
