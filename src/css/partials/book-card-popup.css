@@ -214,7 +214,6 @@
     width: calc(100% - 30px);
   }
 }
-
 .body-dark-theme .popup {
   background-color: var(--dark-theme-bg-cl);
   border-color: var(--white-cl);
@@ -242,4 +241,12 @@
 }
 .body-dark-theme .popup-add-message {
   color: rgba(255, 255, 255, 0.5);
+}
+@media only screen and (orientation: landscape) {
+  .popup-backdrop {
+    overflow-y: auto;
+  }
+  .popup {
+    transform: translate(-50%, -22%);
+  }
 }
