@@ -256,6 +256,6 @@
     overflow-y: auto;
   }
   .popup {
-    transform: translate(-50%, -22%);
+    transform: translate(-50%, -40%);
   }
 }
