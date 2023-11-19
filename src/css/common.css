@@ -1,11 +1,11 @@
 body {
   background-color: var(--light-theme-bg-cl);
   font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
   /* margin: 0 auto; */
 }
 
-
-.wrapper{
+.wrapper {
   display: flex;
   flex-wrap: nowrap;
   max-width: 375px;
@@ -16,16 +16,16 @@ body {
 }
 
 @media only screen and (min-width: 768px) {
-  .wrapper{
+  .wrapper {
     max-width: 768px;
     padding: 0 32px;
     display: flex;
     margin-top: 114px;
-    justify-content: space-between; 
+    justify-content: space-between;
   }
 }
 @media only screen and (min-width: 1440px) {
-  .wrapper{
+  .wrapper {
     max-width: 1440px;
     flex-direction: row;
     gap: 40px;
@@ -46,7 +46,7 @@ body {
 @media only screen and (min-width: 768px) {
   .sidebar {
     flex-direction: row;
-    gap: 32px;    
+    gap: 32px;
     margin-bottom: 98px;
   }
 }
@@ -76,40 +76,39 @@ body {
   margin: -1px;
   border: 0;
   padding: 0;
-  
+
   white-space: nowrap;
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
 
-.shopping-wrapper{
+.shopping-wrapper {
   max-width: 375px;
   margin: 114px auto 0;
   padding: 0 20px;
-
 }
 
 @media only screen and (min-width: 768px) {
-  .shopping-wrapper{
+  .shopping-wrapper {
     max-width: 768px;
     padding: 0 32px;
     margin-bottom: 114px;
   }
 }
 
-.shopping-sidebar{
+.shopping-sidebar {
   display: none;
 }
 
 @media only screen and (min-width: 1440px) {
-  .shopping-wrapper{
+  .shopping-wrapper {
     display: flex;
     max-width: 1440px;
     gap: 40px;
     padding: 0 24px;
   }
-  .shopping-sidebar{
+  .shopping-sidebar {
     display: block;
     padding-top: 40px;
     min-width: 356px;
