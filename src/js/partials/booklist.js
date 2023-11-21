@@ -1,4 +1,4 @@
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { getTopBooks, getCategoryId } from "../api/api";
 import { createBooksCaregoryTitle, createBooksInCategoryMarkup } from "./categories";
 import { refs } from "../refs/refs";
@@ -6,20 +6,20 @@ import { refs } from "../refs/refs";
 import booksNotFound_1x from '../../img/shopping-list/empty-bin@1x.png';
 import booksNotFound_2x from '../../img/shopping-list/empty-bin@2x.png';
 
-Notify.init({
-    width: '300px',
-    position: 'center-center',
-    fontSize: '16px',
-    fontFamily: 'DM Sans',
-    showOnlyTheLastOne: true,
-    clickToClose: true,
-    timeout: 5000,
-    failure: {
-        notiflixIconColor: '#111',
-        background: '#4f2ee8',
-        textColor: '#fff',
-    }
-});
+// Notify.init({
+//     width: '300px',
+//     position: 'center-center',
+//     fontSize: '16px',
+//     fontFamily: 'DM Sans',
+//     showOnlyTheLastOne: true,
+//     clickToClose: true,
+//     timeout: 5000,
+//     failure: {
+//         notiflixIconColor: '#111',
+//         background: '#4f2ee8',
+//         textColor: '#fff',
+//     }
+// });
 
 getTopBooks()
     .then(categories => {      
@@ -43,7 +43,7 @@ getTopBooks()
     )
     .catch((err) => {
         console.error(err);
-        Notify.failure('Oops! Something went wrong! Try reloading the page!');
+        // Notify.failure('Oops! Something went wrong! Try reloading the page!');
     }).finally(_=>refs.loaderForAllCategories.style.display = 'none');
 refs.booksPart.addEventListener('click', onSeeMoreBtn);
 
@@ -85,7 +85,7 @@ function onSeeMoreBtn(evt) {
                 </div>`
                 return;
             }
-            refs.booksPart.innerHTML =Notify
+            refs.booksPart.innerHTML =
                 `${createBooksCaregoryTitle(categoryName)}
             <div class="book-category-wrapper">
                 <ul class="book-cards-list book-cards-list-one-category">
@@ -97,7 +97,7 @@ function onSeeMoreBtn(evt) {
         })
         .catch((err) => {
             console.error(err);
-            Notify.failure('Oops! Something went wrong! Try reloading the page!');
+            // Notify.failure('Oops! Something went wrong! Try reloading the page!');
         }).finally(_ => refs.loaderForAllCategories.style.display = 'none');
 
 }
